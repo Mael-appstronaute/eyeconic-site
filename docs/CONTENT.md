@@ -96,8 +96,8 @@ Démarrer gratuitement · lien Réserver une démo.
 
 ## 12 · Clôture
 
-« Le clienteling, comme vos meilleurs vendeurs le font déjà. » sur
-dégradé d'ambiance.
+Supprimée à la demande de Maël (19/08) — l'accueil se termine sur le
+CTA final. Le dégradé d'ambiance reste utilisé sur le hero.
 
 ## 13 · Footer
 
