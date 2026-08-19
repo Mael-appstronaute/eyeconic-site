@@ -76,6 +76,57 @@ const TESTIMONIALS = [
       { value: "−22 %", label: "Clientes sans contact depuis 90 j" },
     ],
   },
+  {
+    brand: "Groupe Delcourt",
+    sector: "Groupe de luxe international — 214 boutiques, 12 pays",
+    logo: (
+      <span className="flex items-center gap-3">
+        <span
+          aria-hidden="true"
+          className="grid grid-cols-2 gap-[3px]"
+        >
+          <span className="size-1.5 bg-abyss-900" />
+          <span className="size-1.5 bg-abyss-900" />
+          <span className="size-1.5 bg-abyss-900" />
+          <span className="size-1.5 bg-abyss-900/40" />
+        </span>
+        <span className="font-display text-lg font-bold uppercase tracking-[0.12em] text-abyss-900">
+          Delcourt
+        </span>
+      </span>
+    ),
+    quote:
+      "Nous avons comparé quatre plateformes sur un trimestre. Eyeconic est la seule que les équipes ont continué d'ouvrir une fois le pilote terminé — le reste n'était que des CRM avec un autre nom.",
+    name: "Isabelle Franchi",
+    role: "Chief Client Officer, Groupe",
+    kpis: [
+      { value: "+31 %", label: "CA attribué, périmètre Europe" },
+      { value: "11 sem.", label: "Déploiement sur 214 boutiques" },
+    ],
+  },
+  {
+    brand: "Aurige",
+    sector: "Horlogerie suisse — 37 boutiques et corners",
+    logo: (
+      <span className="flex items-center gap-2.5">
+        <svg viewBox="0 0 20 20" className="size-5 text-abyss-900" aria-hidden="true">
+          <circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M10 4.5V10l3.5 2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        </svg>
+        <span className="text-lg font-semibold uppercase tracking-[0.35em] text-abyss-900">
+          Aurige
+        </span>
+      </span>
+    ),
+    quote:
+      "Un client de montre revient tous les quatre ou cinq ans. Sans mémoire d'entreprise, cette relation n'existe pas. Eyeconic est devenu cette mémoire, et le rendez-vous suivant part de là.",
+    name: "Thomas Berthoud",
+    role: "Directeur Retail Monde",
+    kpis: [
+      { value: "×1,8", label: "Rendez-vous atelier générés" },
+      { value: "68 %", label: "Clients VIC recontactés au trimestre" },
+    ],
+  },
 ];
 
 export function TestimonialCarousel() {
