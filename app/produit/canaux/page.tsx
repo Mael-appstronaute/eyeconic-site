@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Spark } from "@/components/marketing/spark";
 import { WhatsAppThread } from "@/components/mockups/whatsapp-thread";
 import { CtaBanner } from "@/components/marketing/cta-banner";
+import { BullesMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
   title: "Canaux",
@@ -36,8 +37,10 @@ const PRINCIPES = [
 export default function CanauxPage() {
   return (
     <div className="pt-16">
-      <section className="bg-white">
-        <div className="container-site py-16 text-center lg:py-24">
+      <section className="relative overflow-hidden bg-white">
+        <BullesMotif className="absolute -left-10 top-6 hidden w-[340px] lg:block" />
+        <BullesMotif className="absolute -right-10 top-6 hidden w-[340px] -scale-x-100 lg:block" />
+        <div className="container-site relative py-16 text-center lg:py-24">
           <p className="eyebrow mb-4 flex items-center justify-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
             Produit — Canaux

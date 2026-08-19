@@ -3,6 +3,7 @@ import { Spark } from "@/components/marketing/spark";
 import { PixelButton } from "@/components/marketing/pixel-button";
 import { CustomerCard } from "@/components/mockups/customer-card";
 import { CtaBanner } from "@/components/marketing/cta-banner";
+import { FicheMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
   title: "Vue client unique",
@@ -22,8 +23,9 @@ const SOURCES = [
 export default function VueClientPage() {
   return (
     <div className="pt-16">
-      <section className="bg-white">
-        <div className="container-site py-16 lg:py-24">
+      <section className="relative overflow-hidden bg-white">
+        <FicheMotif className="absolute -right-8 top-1/2 hidden w-[420px] -translate-y-1/2 lg:block" />
+        <div className="container-site relative py-16 lg:py-24">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
             Produit — Vue client unique

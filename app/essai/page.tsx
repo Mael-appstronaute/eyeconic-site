@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Spark } from "@/components/marketing/spark";
 import { QrBlock } from "@/components/marketing/qr-block";
 import { EssaiForm } from "@/components/marketing/lead-forms";
+import { EssaiMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
   title: "Essai gratuit",
@@ -15,8 +16,10 @@ export default async function EssaiPage({ searchParams }: PageProps<"/essai">) {
   const defaultEmail = typeof params.email === "string" ? params.email : "";
 
   return (
-    <div className="bg-paper pb-24 pt-16">
-      <div className="container-site flex flex-col items-center py-16">
+    <div className="relative overflow-hidden bg-paper pb-24 pt-16">
+      <EssaiMotif className="absolute -left-16 top-24 hidden w-[300px] opacity-70 xl:block" />
+      <EssaiMotif className="absolute -right-16 bottom-16 hidden w-[300px] -scale-x-100 opacity-70 xl:block" />
+      <div className="container-site relative flex flex-col items-center py-16">
         <div className="w-full max-w-md">
           <p className="eyebrow mb-4 flex items-center justify-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />

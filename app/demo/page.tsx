@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Spark } from "@/components/marketing/spark";
 import { QrBlock } from "@/components/marketing/qr-block";
 import { DemoForm } from "@/components/marketing/lead-forms";
+import { EcranMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
   title: "Réserver une démo",
@@ -21,8 +22,9 @@ export default async function DemoPage({ searchParams }: PageProps<"/demo">) {
   const source = params.src === "qr" ? "qr" : "site";
 
   return (
-    <div className="bg-paper pb-24 pt-16">
-      <div className="container-site grid gap-12 py-16 lg:grid-cols-[minmax(0,4fr)_minmax(0,5fr)] lg:gap-16">
+    <div className="relative overflow-hidden bg-paper pb-24 pt-16">
+      <EcranMotif className="absolute -left-20 bottom-10 hidden w-[380px] opacity-60 xl:block" />
+      <div className="container-site relative grid gap-12 py-16 lg:grid-cols-[minmax(0,4fr)_minmax(0,5fr)] lg:gap-16">
         <div>
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />

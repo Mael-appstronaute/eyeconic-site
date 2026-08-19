@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Spark } from "@/components/marketing/spark";
+import { CitationMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -30,8 +31,9 @@ const A_VENIR = [
 export default function BlogPage() {
   return (
     <div className="pt-16">
-      <section className="bg-white">
-        <div className="container-site py-16 lg:py-24">
+      <section className="relative overflow-hidden bg-white">
+        <CitationMotif className="absolute -right-8 top-0 hidden w-[420px] lg:block" />
+        <div className="container-site relative py-16 lg:py-24">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
             Ressources — Blog

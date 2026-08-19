@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Spark } from "@/components/marketing/spark";
 import { PixelButton } from "@/components/marketing/pixel-button";
+import { EclatMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -28,8 +29,9 @@ export default function AProposPage() {
   return (
     <div className="pt-16">
       {/* Manifeste */}
-      <section className="bg-mist-100">
-        <div className="container-site py-20 lg:py-32">
+      <section className="relative overflow-hidden bg-mist-100">
+        <EclatMotif className="absolute -right-20 -top-20 hidden w-[440px] lg:block" />
+        <div className="container-site relative py-20 lg:py-32">
           <p className="eyebrow mb-6 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
             À propos

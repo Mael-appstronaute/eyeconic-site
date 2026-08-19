@@ -5,6 +5,7 @@ import { AgentCards } from "@/components/marketing/agent-cards";
 import { MechanismAccordion } from "@/components/marketing/mechanism-accordion";
 import { BentoGrid } from "@/components/marketing/bento-grid";
 import { CtaBanner } from "@/components/marketing/cta-banner";
+import { AnneauxMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
   title: "Produit — la plateforme et les 5 agents",
@@ -16,8 +17,10 @@ export default function ProduitPage() {
   return (
     <div className="pt-16">
       {/* Intro produit */}
-      <section className="bg-white">
-        <div className="container-site py-16 text-center lg:py-24">
+      <section className="relative overflow-hidden bg-white">
+        <AnneauxMotif className="absolute -left-16 top-1/2 hidden w-[340px] -translate-y-1/2 lg:block" />
+        <AnneauxMotif className="absolute -right-16 top-1/2 hidden w-[340px] -translate-y-1/2 lg:block" />
+        <div className="container-site relative py-16 text-center lg:py-24">
           <p className="eyebrow mb-4 flex items-center justify-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
             La plateforme

@@ -65,16 +65,19 @@ const FOOTNOTES = [
   "Onboarding inclus",
 ];
 
-/** Section 9 — tarifs. Des prix publics, en euros : c'est un différenciant. */
-export function PricingTable() {
+/** Section 9 — tarifs. Des prix publics, en euros : c'est un différenciant.
+ * `withHeading=false` quand la page fournit déjà son propre hero. */
+export function PricingTable({ withHeading = true }: { withHeading?: boolean }) {
   return (
     <section id="tarifs" className="bg-paper py-20 lg:py-32">
       <div className="container-site">
-        <SectionHeading
-          eyebrow="Tarifs"
-          title="Des prix publics, en euros"
-          intro="Un plan gratuit, un essai en self-service, une facturation aux crédits IA — pas au siège."
-        />
+        {withHeading ? (
+          <SectionHeading
+            eyebrow="Tarifs"
+            title="Des prix publics, en euros"
+            intro="Un plan gratuit, un essai en self-service, une facturation aux crédits IA — pas au siège."
+          />
+        ) : null}
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3 lg:items-stretch">
           {PLANS.map((plan) => (
