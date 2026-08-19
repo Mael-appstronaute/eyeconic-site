@@ -21,6 +21,7 @@ const CAPABILITIES = [
     title: "Cinq agents IA",
     text: "Iris, Signal, Écho, Prisme et Focus travaillent pendant que vos équipes vendent.",
     span: "",
+    agents: true,
   },
   {
     tag: "Exécution",
@@ -43,6 +44,40 @@ const CAPABILITIES = [
   },
 ];
 
+/* Les 5 agents en personnages stylisés — teintes de l'échelle de marque,
+   du plus clair (Iris) au plus profond (Focus). */
+const AGENTS = [
+  { name: "Iris", color: "#7fb0e5" },
+  { name: "Signal", color: "#4c92da" },
+  { name: "Écho", color: "#6a94d3" },
+  { name: "Prisme", color: "#2f6fae" },
+  { name: "Focus", color: "#1a507c" },
+];
+
+function AgentAvatars() {
+  return (
+    <div className="my-auto flex justify-center gap-3 py-6">
+      {AGENTS.map((agent) => (
+        <div key={agent.name} className="flex flex-col items-center gap-1.5">
+          <span
+            className="flex size-10 items-end justify-center overflow-hidden border-2 border-abyss-900/15"
+            style={{ backgroundColor: agent.color }}
+          >
+            {/* Silhouette tête + épaules */}
+            <svg viewBox="0 0 40 34" className="w-full" aria-hidden="true">
+              <circle cx="20" cy="13" r="7" fill="#f9f9f9" />
+              <path d="M6 34c1.5-8 7.5-12 14-12s12.5 4 14 12Z" fill="#f9f9f9" />
+            </svg>
+          </span>
+          <span className="text-[10px] font-medium uppercase tracking-wide text-slate-600">
+            {agent.name}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /** Section 5 — grille bento des 6 capacités. Zéro icône générique. */
 export function BentoGrid() {
   return (
@@ -62,6 +97,7 @@ export function BentoGrid() {
                   {cap.title}
                 </h3>
                 <p className="mt-2 text-body text-slate-600">{cap.text}</p>
+                {cap.agents ? <AgentAvatars /> : null}
                 {cap.mockup ? (
                   <div className="mt-5">
                     <TaskList />
