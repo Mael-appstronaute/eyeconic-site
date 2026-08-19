@@ -1,29 +1,35 @@
+import {
+  AurigeLogo,
+  CassiopeeLogo,
+  DelcourtLogo,
+  LineaLogo,
+  LouvelLogo,
+  NordlysLogo,
+  OrveaLogo,
+  SeverinLogo,
+} from "@/components/home/brand-logos";
+
 /**
- * Marquee de logos — maisons FICTIVES (aucune vraie marque), logotypes
- * texte en gris, piste dupliquée pour un défilement continu.
+ * Marquee de logos — lockups SVG des maisons FICTIVES (aucune vraie
+ * marque), en gris, piste dupliquée pour un défilement continu.
  */
-const BRANDS = [
-  "MAISON SÉVERIN",
-  "ORVEA",
-  "linéa beauté",
-  "DELCOURT",
-  "AURIGE",
-  "CASSIOPÉE",
-  "Maison Louvel",
-  "NORDLYS",
+const LOGOS = [
+  SeverinLogo,
+  OrveaLogo,
+  LineaLogo,
+  DelcourtLogo,
+  AurigeLogo,
+  CassiopeeLogo,
+  LouvelLogo,
+  NordlysLogo,
 ];
 
 function Track() {
   return (
-    <ul aria-hidden="true" className="flex shrink-0 items-center">
-      {BRANDS.map((brand, i) => (
-        <li
-          key={brand}
-          className={`px-10 text-lg font-semibold text-slate-400/80 ${
-            i % 3 === 1 ? "tracking-[0.25em]" : i % 3 === 2 ? "font-light italic" : "tracking-[0.12em]"
-          }`}
-        >
-          {brand}
+    <ul aria-hidden="true" className="flex shrink-0 items-center text-slate-400/80">
+      {LOGOS.map((LogoComp, i) => (
+        <li key={i} className="px-10">
+          <LogoComp />
         </li>
       ))}
     </ul>

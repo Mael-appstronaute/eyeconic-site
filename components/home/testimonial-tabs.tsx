@@ -3,10 +3,18 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+import {
+  AurigeLogo,
+  DelcourtLogo,
+  LineaLogo,
+  OrveaLogo,
+  SeverinLogo,
+} from "@/components/home/brand-logos";
+
 /**
  * Témoignages à onglets-avatars (référence template). Marques et
  * personnes FICTIVES — pastilles à initiales (aucune photo de stock),
- * logotype de la marque active en foncé dans la rangée du bas.
+ * logos = lockups SVG dessinés partagés (brand-logos.tsx).
  */
 const ITEMS = [
   {
@@ -16,8 +24,7 @@ const ITEMS = [
       "Our advisors already knew everything about their clients — but it all lived in their notebooks. Today every signal surfaces, and the relationship no longer depends on one person's memory.",
     name: "Claire Vasseur",
     role: "CRM Director @ Maison Séverin",
-    brand: "MAISON SÉVERIN",
-    brandClass: "font-semibold tracking-[0.12em]",
+    logo: <SeverinLogo />,
   },
   {
     initials: "ML",
@@ -26,8 +33,7 @@ const ITEMS = [
       "We measured traffic, never the relationship. Eyeconic attributes every sale to the message that triggered it: clienteling went from an act of faith to a line in the reporting.",
     name: "Marc-Antoine Lefebvre",
     role: "Retail Director Europe @ ORVEA Paris",
-    brand: "ORVEA",
-    brandClass: "font-light uppercase tracking-[0.3em]",
+    logo: <OrveaLogo />,
   },
   {
     initials: "SA",
@@ -36,8 +42,7 @@ const ITEMS = [
       "The pilot covered three spas. Six weeks later, the other directors were asking for the tool — nobody wants to be the location that calls its clients back last.",
     name: "Sofia Andrade",
     role: "Head of Client Experience @ Linéa Beauté",
-    brand: "linéa beauté",
-    brandClass: "font-light italic",
+    logo: <LineaLogo />,
   },
   {
     initials: "IF",
@@ -46,8 +51,7 @@ const ITEMS = [
       "We benchmarked four platforms over a quarter. Eyeconic is the only one our teams kept opening once the pilot ended — the rest were just CRMs under another name.",
     name: "Isabelle Franchi",
     role: "Chief Client Officer @ Groupe Delcourt",
-    brand: "DELCOURT",
-    brandClass: "font-bold tracking-[0.12em]",
+    logo: <DelcourtLogo />,
   },
   {
     initials: "TB",
@@ -56,8 +60,7 @@ const ITEMS = [
       "A watch client comes back every four or five years. Without institutional memory, that relationship doesn't exist. Eyeconic became that memory.",
     name: "Thomas Berthoud",
     role: "Global Retail Director @ Aurige",
-    brand: "AURIGE",
-    brandClass: "font-semibold tracking-[0.35em]",
+    logo: <AurigeLogo />,
   },
 ];
 
@@ -107,18 +110,17 @@ export function TestimonialTabs() {
           </div>
         </div>
 
-        {/* Logotypes */}
+        {/* Logos — lockups dessinés, l'actif en foncé */}
         <ul className="mt-14 flex flex-wrap items-center justify-between gap-x-10 gap-y-6">
           {ITEMS.map((item, i) => (
             <li
-              key={item.brand}
+              key={item.name}
               className={cn(
-                "text-lg transition-colors",
-                item.brandClass,
+                "transition-colors",
                 i === index ? "text-abyss-950" : "text-slate-400/60"
               )}
             >
-              {item.brand}
+              {item.logo}
             </li>
           ))}
         </ul>
