@@ -9,38 +9,53 @@ import { cn } from "@/lib/utils";
 export const AGENTS = [
   {
     name: "Iris",
+    slug: "iris",
     color: "#7fb0e5",
     variant: "bob",
     role: "Construit et enrichit la vue client unique",
     href: "/produit/agents/iris",
+    detail:
+      "Rassemble chaque achat, message, essayage et rendez-vous depuis vos boutiques, votre site, votre POS et vos messageries — y compris ce qui n'avait jamais été saisi nulle part — et le tient à jour en continu.",
   },
   {
     name: "Signal",
+    slug: "signal",
     color: "#4c92da",
     variant: "court",
     role: "Détecte les intentions d'achat et les clients qui décrochent",
     href: "/produit/agents/signal",
+    detail:
+      "Surveille les signaux d'intention : une fiche produit revue deux fois, un réachat habituel dépassé, une VIC qui s'éloigne. Il alerte le bon conseiller avant que l'occasion ne passe.",
   },
   {
     name: "Écho",
+    slug: "echo",
     color: "#6a94d3",
     variant: "chignon",
     role: "Rédige le message, dans la voix du conseiller",
     href: "/produit/agents/echo",
+    detail:
+      "Prépare le message dans la voix du conseiller, sur le canal que le client utilise vraiment — WhatsApp, SMS, WeChat, LINE ou e-mail. Le conseiller garde la main : il relit, ajuste, envoie.",
   },
   {
     name: "Prisme",
+    slug: "prisme",
     color: "#2f6fae",
     variant: "nu",
     role: "Orchestre les campagnes et les segments",
     href: "/produit/agents/prisme",
+    detail:
+      "Orchestre les campagnes et les segments : il assemble les bonnes audiences à partir de la vue client et distribue le travail aux boutiques, sans export ni tableur.",
   },
   {
     name: "Focus",
+    slug: "focus",
     color: "#1a507c",
     variant: "long",
     role: "Priorise la journée de chaque conseiller",
     href: "/produit/agents/focus",
+    detail:
+      "Compose la journée de chaque conseiller avant l'ouverture : qui rappeler, dans quel ordre, pourquoi. Puis il suit l'exécution et fait remonter ce qui bloque.",
   },
 ] as const;
 

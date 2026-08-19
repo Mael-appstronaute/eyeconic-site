@@ -2,18 +2,6 @@ import { SectionHeading } from "@/components/marketing/section-heading";
 import { Reveal } from "@/components/marketing/reveal";
 import { AGENTS, AgentAvatar } from "@/components/marketing/agent-avatar";
 
-/* Ce que chaque agent fait, concrètement — page /produit */
-const DETAILS: Record<string, string> = {
-  Iris: "Rassemble chaque achat, message, essayage et rendez-vous depuis vos boutiques, votre site, votre POS et vos messageries — y compris ce qui n'avait jamais été saisi nulle part — et le tient à jour en continu.",
-  Signal:
-    "Surveille les signaux d'intention : une fiche produit revue deux fois, un réachat habituel dépassé, une VIC qui s'éloigne. Il alerte le bon conseiller avant que l'occasion ne passe.",
-  Écho: "Prépare le message dans la voix du conseiller, sur le canal que le client utilise vraiment — WhatsApp, SMS, WeChat, LINE ou e-mail. Le conseiller garde la main : il relit, ajuste, envoie.",
-  Prisme:
-    "Orchestre les campagnes et les segments : il assemble les bonnes audiences à partir de la vue client et distribue le travail aux boutiques, sans export ni tableur.",
-  Focus:
-    "Compose la journée de chaque conseiller avant l'ouverture : qui rappeler, dans quel ordre, pourquoi. Puis il suit l'exécution et fait remonter ce qui bloque.",
-};
-
 /** Page produit — les 5 agents en cartes détaillées. */
 export function AgentCards() {
   return (
@@ -41,9 +29,7 @@ export function AgentCards() {
                     <p className="text-caption text-brand-600">{agent.role}</p>
                   </div>
                 </div>
-                <p className="mt-4 text-body text-slate-600">
-                  {DETAILS[agent.name]}
-                </p>
+                <p className="mt-4 text-body text-slate-600">{agent.detail}</p>
               </article>
             </Reveal>
           ))}
