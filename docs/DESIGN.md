@@ -11,9 +11,9 @@ le contenu du brief sont conservés tels quels.
 
 1. Dominante Papier `#f9f9f9`, cartes blanches. **Zéro border-radius**
    (exception : carré arrondi de l'icône du logo).
-2. Blocs : bordures 2 px + **ombres décalées non floutées**
-   `4px 4px 0 0 #041f38` (`shadow-card`, hover 6 px). Teinte abysse,
-   jamais noires.
+2. Blocs : bordures 2 px + **ombres basses et bleutées diffuses**
+   (`shadow-card` / `shadow-card-hover`). L'ombre décalée sombre de la
+   v2 a été rejetée (« fond noir sur les blocs ») — ne pas la remettre.
 3. Boutons : CTA plein encoché `notch-tr-bl` (dégradé de marque, ou blanc
    sur fond dégradé), secondaires en bordure 2 px, enfoncement d'un cran
    au clic. Pas d'ombre sur les variantes encochées (le clip-path la
