@@ -2,15 +2,17 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 /* ————————————————————————————————————————————————
-   Tokens de marque Eyeconic — source : charte graphique
+   Tokens de marque Eyeconic — source : charte graphique.
+   DA « 8-bit × Eyeconic » : zéro border-radius, bordures 2px,
+   ombres décalées non floutées, motion en paliers steps().
    Dégradé #4c92da → #1a507c réservé : logo, 1 CTA par écran,
-   signaux de l'iris. Jamais en fond de section ni sur les cartes.
+   barre de scroll, pixels allumés de la signature, 1 mot du H1.
    ———————————————————————————————————————————————— */
 @theme {
-  /* Marque */
+  /* Marque — valeurs exactes charte, ne pas modifier */
   --color-brand-400: #7fb0e5;
   --color-brand-500: #4c92da;
   --color-brand-600: #2f6fae;
@@ -32,6 +34,7 @@
   /* Typographie */
   --font-display: var(--font-orbitron), system-ui, sans-serif;
   --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-data: var(--font-dm-mono), ui-monospace, monospace;
 
   --text-display-xl: clamp(2.75rem, 6vw, 5.5rem);
   --text-display-xl--line-height: 0.95;
@@ -61,22 +64,22 @@
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.4;
 
-  /* Eyebrow : seule exception à la règle Orbitron ≥ 28px */
+  /* Eyebrow : DM Mono 12px capitales — remplace Orbitron en petit corps */
   --text-eyebrow: 0.75rem;
   --text-eyebrow--line-height: 1.2;
-  --text-eyebrow--letter-spacing: 0.12em;
-  --text-eyebrow--font-weight: 600;
+  --text-eyebrow--letter-spacing: 0.14em;
+  --text-eyebrow--font-weight: 500;
 
-  /* Ombres — basses et bleutées, jamais noires */
-  --shadow-card: 0 1px 2px rgba(6, 51, 90, 0.06), 0 12px 32px rgba(6, 51, 90, 0.08);
-  --shadow-card-hover: 0 2px 4px rgba(6, 51, 90, 0.08), 0 20px 48px rgba(6, 51, 90, 0.12);
+  /* Ombres — décalées, jamais floutées (règle DA 8-bit) */
+  --shadow-hard: 4px 4px 0 0 var(--color-abyss-950);
+  --shadow-hard-sm: 2px 2px 0 0 var(--color-abyss-950);
 }
 
-/* Rayons de la charte — remplacent l'échelle dérivée de shadcn */
+/* Sémantique shadcn — rayons à zéro (DA), mapping marque */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-data);
   --font-heading: var(--font-display);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -107,17 +110,53 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 32px;
-  --radius-2xl: 32px;
-  --radius-3xl: 32px;
-  --radius-4xl: 32px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
 }
 
-/* Sémantique shadcn mappée sur la marque — thème clair (défaut) */
+/* Défaut = sombre : le site vit sur Void #000 */
 :root {
+  --background: #000000;
+  --foreground: #f9f9f9;
+  --card: #06335a;
+  --card-foreground: #f9f9f9;
+  --popover: #041f38;
+  --popover-foreground: #f9f9f9;
+  --primary: #f9f9f9;
+  --primary-foreground: #000000;
+  --secondary: #06335a;
+  --secondary-foreground: #f9f9f9;
+  --muted: #06335a;
+  --muted-foreground: #a8c5e8;
+  --accent: #123c5e;
+  --accent-foreground: #f9f9f9;
+  --destructive: #e8703a;
+  --border: rgba(249, 249, 249, 0.14);
+  --input: rgba(249, 249, 249, 0.18);
+  --ring: #6a94d3;
+  --chart-1: #7fb0e5;
+  --chart-2: #4c92da;
+  --chart-3: #6a94d3;
+  --chart-4: #a8c5e8;
+  --chart-5: #2f6fae;
+  --radius: 0px;
+  --sidebar: #041f38;
+  --sidebar-foreground: #f9f9f9;
+  --sidebar-primary: #f9f9f9;
+  --sidebar-primary-foreground: #041f38;
+  --sidebar-accent: #123c5e;
+  --sidebar-accent-foreground: #f9f9f9;
+  --sidebar-border: rgba(249, 249, 249, 0.14);
+  --sidebar-ring: #6a94d3;
+}
+
+/* Sections claires — 2 max par page, jamais consécutives */
+.light {
   --background: #f9f9f9;
   --foreground: #000000;
   --card: #ffffff;
@@ -133,58 +172,14 @@
   --accent: #dce7f5;
   --accent-foreground: #06335a;
   --destructive: #e8703a;
-  --border: rgba(6, 51, 90, 0.1);
-  --input: rgba(6, 51, 90, 0.16);
-  --ring: #6a94d3;
+  --border: rgba(6, 51, 90, 0.16);
+  --input: rgba(6, 51, 90, 0.2);
+  --ring: #2f6fae;
   --chart-1: #4c92da;
   --chart-2: #2f6fae;
   --chart-3: #1a507c;
   --chart-4: #6a94d3;
   --chart-5: #a8c5e8;
-  --radius: 0.875rem;
-  --sidebar: #eef3fa;
-  --sidebar-foreground: #000000;
-  --sidebar-primary: #06335a;
-  --sidebar-primary-foreground: #f9f9f9;
-  --sidebar-accent: #dce7f5;
-  --sidebar-accent-foreground: #06335a;
-  --sidebar-border: rgba(6, 51, 90, 0.1);
-  --sidebar-ring: #6a94d3;
-}
-
-/* Chambres noires — sections sur fond abyss-950 (scope .dark) */
-.dark {
-  --background: #041f38;
-  --foreground: #f9f9f9;
-  --card: #06335a;
-  --card-foreground: #f9f9f9;
-  --popover: #06335a;
-  --popover-foreground: #f9f9f9;
-  --primary: #f9f9f9;
-  --primary-foreground: #041f38;
-  --secondary: #06335a;
-  --secondary-foreground: #f9f9f9;
-  --muted: #06335a;
-  --muted-foreground: #a8c5e8;
-  --accent: #123c5e;
-  --accent-foreground: #f9f9f9;
-  --destructive: #e8703a;
-  --border: rgba(249, 249, 249, 0.12);
-  --input: rgba(249, 249, 249, 0.18);
-  --ring: #6a94d3;
-  --chart-1: #7fb0e5;
-  --chart-2: #4c92da;
-  --chart-3: #6a94d3;
-  --chart-4: #a8c5e8;
-  --chart-5: #2f6fae;
-  --sidebar: #06335a;
-  --sidebar-foreground: #f9f9f9;
-  --sidebar-primary: #f9f9f9;
-  --sidebar-primary-foreground: #041f38;
-  --sidebar-accent: #123c5e;
-  --sidebar-accent-foreground: #f9f9f9;
-  --sidebar-border: rgba(249, 249, 249, 0.12);
-  --sidebar-ring: #6a94d3;
 }
 
 @layer base {
@@ -193,19 +188,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: clip;
   }
   html {
-    @apply font-sans scroll-smooth;
+    @apply font-sans scroll-smooth bg-ink;
   }
-  /* Focus dessiné — remplace l'outline par défaut */
+  /* Focus dessiné, arêtes dures — remplace l'outline navigateur */
   :focus-visible {
     outline: 2px solid var(--color-sky-500);
     outline-offset: 3px;
-    border-radius: 4px;
+    border-radius: 0;
   }
   ::selection {
-    background: var(--color-mist-200);
-    color: var(--color-abyss-900);
+    background: var(--color-brand-500);
+    color: var(--color-ink);
   }
 }
 
@@ -218,30 +214,141 @@
   }
 }
 
+/* Eyebrow — DM Mono, capitales, tracking 0.14em */
 @utility eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-data);
   font-size: var(--text-eyebrow);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   line-height: 1.2;
 }
 
-/* Le dégradé réservé — 1 CTA primaire par écran */
+/* Libellé de données — DM Mono (chiffres, tags, axes, prix) */
+@utility data-label {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Dégradé de marque — réservé aux éléments d'action. 135deg surfaces. */
 @utility bg-gradient-brand {
   background-image: linear-gradient(135deg, #4c92da 0%, #1a507c 100%);
 }
-
-/* Trait radial fin — divider signature */
-@utility divider-radial {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(6, 51, 90, 0.18) 20%,
-    rgba(6, 51, 90, 0.18) 80%,
-    transparent 100%
+/* 90deg — barres horizontales uniquement (barre de scroll) */
+@utility bg-gradient-brand-h {
+  background-image: linear-gradient(90deg, #4c92da 0%, #1a507c 100%);
+}
+/* Resserré #6a94d3 → #4c92da — uniquement quand #1a507c manque de
+   contraste sur fond sombre (texte, petits éléments) */
+@utility bg-gradient-brand-bright {
+  background-image: linear-gradient(135deg, #6a94d3 0%, #4c92da 100%);
+}
+/* Dégradé d'ambiance — fonds de section uniquement (clôture) */
+@utility bg-gradient-ambient {
+  background-image: linear-gradient(
+    200deg,
+    #06335a 0%,
+    #1a507c 45%,
+    #4c92da 80%,
+    #6a94d3 100%
   );
+}
+
+/* Trame 8px — très faible opacité, sections sombres uniquement */
+@utility bg-grid-8 {
+  background-image:
+    linear-gradient(rgba(249, 249, 249, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 249, 249, 0.03) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Bande hachurée — séparateur de sections, référence template */
+@utility bg-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(249, 249, 249, 0.06) 0px,
+    rgba(249, 249, 249, 0.06) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+}
+
+/* Variante hachures sur fond clair */
+@utility bg-hatch-dark {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(6, 51, 90, 0.18) 0px,
+    rgba(6, 51, 90, 0.18) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+}
+
+/* Encoches d'angle 8px — 1 ou 2 angles, jamais les quatre */
+@utility notch-tr {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    0 100%
+  );
+}
+@utility notch-bl {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+@utility notch-tl {
+  clip-path: polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px);
+}
+@utility notch-br {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%
+  );
+}
+@utility notch-tr-bl {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
+}
+
+/* Compteurs et transitions signature : paliers, jamais d'easing continu */
+@utility ease-steps-6 {
+  transition-timing-function: steps(6, end);
+}
+@utility ease-steps-8 {
+  transition-timing-function: steps(8, end);
+}
+
+/* Révélation au scroll — transition en paliers, jamais d'easing continu */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.45s steps(6, end),
+    transform 0.45s steps(6, end);
+}
+@utility reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes pixel-blink {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

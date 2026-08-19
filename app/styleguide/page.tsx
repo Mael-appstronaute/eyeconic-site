@@ -1,236 +1,146 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Spark } from "@/components/marketing/spark";
+import { PixelButton } from "@/components/marketing/pixel-button";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { StatCounter } from "@/components/marketing/stat-counter";
+import { CustomerCard } from "@/components/mockups/customer-card";
+import { TaskList } from "@/components/mockups/task-list";
+import { WhatsAppThread } from "@/components/mockups/whatsapp-thread";
+import { AttributionTable } from "@/components/mockups/attribution-table";
 
 export const metadata: Metadata = {
   title: "Styleguide",
   robots: { index: false, follow: false },
 };
 
-const colors = [
-  { name: "brand-400", value: "#7fb0e5", cls: "bg-brand-400" },
-  { name: "brand-500", value: "#4c92da", cls: "bg-brand-500" },
-  { name: "brand-600", value: "#2f6fae", cls: "bg-brand-600" },
-  { name: "brand-700", value: "#1a507c", cls: "bg-brand-700" },
-  { name: "brand-800", value: "#123c5e", cls: "bg-brand-800" },
-  { name: "abyss-900", value: "#06335a", cls: "bg-abyss-900" },
+const COLORS = [
+  { name: "Void — ink", value: "#000000", cls: "bg-ink border-2 border-paper/14" },
+  { name: "Panneau — abyss-900", value: "#06335a", cls: "bg-abyss-900" },
   { name: "abyss-950", value: "#041f38", cls: "bg-abyss-950" },
+  { name: "brand-500", value: "#4c92da", cls: "bg-brand-500" },
+  { name: "brand-700", value: "#1a507c", cls: "bg-brand-700" },
   { name: "sky-500", value: "#6a94d3", cls: "bg-sky-500" },
-  { name: "sky-300", value: "#a8c5e8", cls: "bg-sky-300" },
-  { name: "mist-200", value: "#dce7f5", cls: "bg-mist-200" },
-  { name: "mist-100", value: "#eef3fa", cls: "bg-mist-100" },
-  { name: "paper", value: "#f9f9f9", cls: "bg-paper border border-abyss-900/10" },
-  { name: "ink", value: "#000000", cls: "bg-ink" },
-  { name: "slate-600", value: "#4a5a6a", cls: "bg-slate-600" },
-  { name: "slate-400", value: "#8a97a5", cls: "bg-slate-400" },
-  { name: "alert (états d'alerte uniquement)", value: "#e8703a", cls: "bg-alert" },
-];
-
-const radii = [
-  { name: "radius-sm — 8px", cls: "rounded-sm" },
-  { name: "radius-md — 14px", cls: "rounded-md" },
-  { name: "radius-lg — 22px", cls: "rounded-lg" },
-  { name: "radius-xl — 32px", cls: "rounded-xl" },
+  { name: "Papier", value: "#f9f9f9", cls: "bg-paper" },
+  { name: "Alerte (états seulement)", value: "#e8703a", cls: "bg-alert" },
 ];
 
 export default function StyleguidePage() {
   return (
-    <div className="pt-24 pb-32">
-      <div className="container-site space-y-20">
+    <div className="bg-ink pb-24 pt-24 text-paper">
+      <div className="container-site space-y-16">
         <header>
-          <p className="eyebrow mb-3 text-brand-600">Outil interne — non indexé</p>
-          <h1 className="font-display text-display-l">Styleguide</h1>
-          <p className="mt-4 max-w-xl text-body-l text-slate-600">
-            Tous les tokens et composants de base du design system Eyeconic.
-            Page de validation, hors sitemap.
+          <p className="eyebrow text-sky-500">Outil interne — non indexé</p>
+          <h1 className="font-display text-display-l mt-3 uppercase">
+            Styleguide 8-bit × Eyeconic
+          </h1>
+          <p className="mt-4 max-w-2xl text-body-l text-sky-300">
+            Zéro border-radius. Bordures 2 px. Ombres décalées non floutées.
+            Motion en paliers steps(). DM Mono pour la donnée.
           </p>
         </header>
 
-        {/* Couleurs */}
+        {/* Palette */}
         <section>
-          <h2 className="font-display text-display-m mb-8">Couleurs</h2>
-          <div className="mb-8">
-            <p className="eyebrow mb-3 text-slate-400">
-              Dégradé réservé — logo, 1 CTA par écran, signature
-            </p>
-            <div className="bg-gradient-brand flex h-20 items-center justify-between rounded-md px-6 font-display text-sm text-paper">
-              <span>#4c92da</span>
-              <span>#1a507c</span>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
-            {colors.map((c) => (
+          <h2 className="eyebrow mb-6 text-sky-500">Palette</h2>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {COLORS.map((c) => (
               <div key={c.name}>
-                <div className={`h-16 rounded-sm ${c.cls}`} />
-                <p className="mt-2 text-caption font-medium">{c.name}</p>
-                <p className="text-caption text-slate-400">{c.value}</p>
+                <div className={`h-16 ${c.cls}`} />
+                <p className="data-label mt-2 text-caption text-paper">{c.name}</p>
+                <p className="data-label text-caption text-slate-400">{c.value}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Les 2 dégradés */}
+        <section>
+          <h2 className="eyebrow mb-6 text-sky-500">Les deux dégradés — usages étanches</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="bg-gradient-brand notch-tr-bl flex h-24 items-center px-6">
+              <span className="data-label text-caption text-paper">
+                gradient-brand 135° — logo · 1 CTA/écran · pixels allumés
+              </span>
+            </div>
+            <div className="bg-gradient-ambient flex h-24 items-center px-6">
+              <span className="data-label text-caption text-paper">
+                gradient-ambient 200° — fonds de section uniquement
+              </span>
+            </div>
           </div>
         </section>
 
         {/* Typographie */}
-        <section>
-          <h2 className="font-display text-display-m mb-8">Typographie</h2>
-          <div className="space-y-8 rounded-lg border border-abyss-900/10 bg-white p-8 shadow-card">
-            <div>
-              <p className="text-caption text-slate-400 mb-2">
-                display-xl — Orbitron ExtraBold — H1 home uniquement — 8 mots max
-              </p>
-              <p className="font-display text-display-xl">Voir avant les autres</p>
-            </div>
-            <div>
-              <p className="text-caption text-slate-400 mb-2">display-l — Orbitron Bold — H2</p>
-              <p className="font-display text-display-l">Smarter clienteling</p>
-            </div>
-            <div>
-              <p className="text-caption text-slate-400 mb-2">
-                display-m — Orbitron SemiBold — H2 sous-pages, chiffres clés
-              </p>
-              <p className="font-display text-display-m">7 jours pour démarrer</p>
-            </div>
-            <div>
-              <p className="text-caption text-slate-400 mb-2">h3 — DM Sans Medium</p>
-              <p className="text-h3">Une vue client unique, enfin complète</p>
-            </div>
-            <div>
-              <p className="text-caption text-slate-400 mb-2">body-l — DM Sans Regular</p>
-              <p className="text-body-l max-w-xl">
-                Eyeconic unifie vos données boutique, e-commerce et messagerie,
-                puis met cinq agents IA au service de vos conseillers.
-              </p>
-            </div>
-            <div>
-              <p className="text-caption text-slate-400 mb-2">body — DM Sans Regular</p>
-              <p className="text-body max-w-xl">
-                Chaque achat, chaque message, chaque essayage, chaque rendez-vous.
-                Y compris ce qui dormait dans un carnet ou sur le téléphone d&apos;un vendeur.
-              </p>
-            </div>
-            <div>
-              <p className="text-caption text-slate-400 mb-2">caption — DM Sans</p>
-              <p className="text-caption text-slate-600 max-w-xl">
-                Opérationnel en 7 jours · Sans remplacer vos outils · Données hébergées en Europe
-              </p>
-            </div>
-            <div>
-              <p className="text-caption text-slate-400 mb-2">
-                eyebrow — Orbitron SemiBold 12px — seule exception à la règle des 28px
-              </p>
-              <p className="eyebrow flex items-center gap-2.5 text-brand-600">
-                <Spark className="size-2.5" />
-                Pour les directions retail et CRM
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* SectionHeading composé */}
-        <section>
-          <h2 className="font-display text-display-m mb-8">SectionHeading</h2>
-          <div className="rounded-lg border border-abyss-900/10 bg-white p-8 shadow-card">
-            <SectionHeading
-              eyebrow="Unifier"
-              title="Voir"
-              intro="Chaque achat, chaque message, chaque essayage, chaque rendez-vous. Eyeconic relie vos boutiques, votre site, votre POS et vos messageries en une seule vue client."
-            />
-          </div>
-        </section>
-
-        {/* Boutons et formulaires */}
-        <section>
-          <h2 className="font-display text-display-m mb-8">Boutons et formulaires</h2>
-          <div className="space-y-6 rounded-lg border border-abyss-900/10 bg-white p-8 shadow-card">
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#cta"
-                className="bg-gradient-brand rounded-md px-5 py-2.5 text-sm font-medium text-paper shadow-card transition-shadow hover:shadow-card-hover"
-              >
-                Démarrer l&apos;essai gratuit
-              </a>
-              <Button>Bouton primaire</Button>
-              <Button variant="secondary">Secondaire</Button>
-              <Button variant="outline">Contour</Button>
-              <Button variant="ghost">Fantôme</Button>
-            </div>
-            <p className="text-caption text-slate-400">
-              Le bouton dégradé est le CTA primaire : un seul par écran.
-            </p>
-            <div className="max-w-sm space-y-2">
-              <Label htmlFor="sg-email">E-mail professionnel</Label>
-              <Input id="sg-email" type="email" placeholder="prenom@votremarque.com" />
-              <p className="text-caption text-alert">
-                Exemple d&apos;état d&apos;alerte : utilisez votre adresse professionnelle
-                pour activer l&apos;essai.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Rayons et ombres */}
-        <section>
-          <h2 className="font-display text-display-m mb-8">Rayons, ombres, bordures</h2>
-          <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-            {radii.map((r) => (
-              <div
-                key={r.name}
-                className={`flex h-28 items-center justify-center border border-abyss-900/10 bg-white shadow-card ${r.cls}`}
-              >
-                <span className="text-caption text-slate-600">{r.name}</span>
-              </div>
-            ))}
-          </div>
-          <div className="divider-radial mt-10" />
-          <p className="mt-3 text-caption text-slate-400">
-            divider-radial — trait fin signature entre sections
+        <section className="space-y-5 border-2 border-paper/14 p-8">
+          <p className="font-display text-display-xl uppercase">Display XL</p>
+          <p className="font-display text-display-l uppercase">Display L — Orbitron Bold</p>
+          <p className="font-display text-display-m uppercase">Display M — SemiBold</p>
+          <p className="text-h3">H3 — DM Sans Medium, jamais Orbitron sous 28 px</p>
+          <p className="text-body-l text-sky-300">
+            Body L — DM Sans Regular, interlignage 1.6. Le texte courant du site.
+          </p>
+          <p className="eyebrow text-brand-400">Eyebrow — DM Mono 12 px · tracking 0.14em</p>
+          <p className="data-label text-caption text-sky-300">
+            data-label — 4 250 € · ×4,2 · chiffres tabulaires
           </p>
         </section>
 
-        {/* Logos */}
+        {/* Boutons + encoches + ombre dure */}
         <section>
-          <h2 className="font-display text-display-m mb-8">Logo</h2>
-          <div className="grid gap-6 lg:grid-cols-3">
-            <div className="flex h-36 items-center justify-center rounded-lg border border-abyss-900/10 bg-white p-8">
-              <Image src="/brand/Eyeconic_Logo_Horizontal.svg" alt="Logo Eyeconic dégradé sur fond clair" width={180} height={60} />
-            </div>
-            <div className="flex h-36 items-center justify-center rounded-lg bg-abyss-950 p-8">
-              <Image src="/brand/Eyeconic_Logo_H_White.svg" alt="Logo Eyeconic blanc sur fond sombre" width={180} height={60} />
-            </div>
-            <div className="flex h-36 items-center justify-center rounded-lg border border-abyss-900/10 bg-mist-100 p-8">
-              <Image src="/brand/Eyeconic_Logo_H_Dark.svg" alt="Logo Eyeconic monochrome noir" width={180} height={60} />
-            </div>
+          <h2 className="eyebrow mb-6 text-sky-500">Boutons · encoches · ombre dure</h2>
+          <div className="flex flex-wrap items-center gap-4">
+            <PixelButton variant="brand">CTA dégradé — 1 par écran</PixelButton>
+            <PixelButton variant="outline">CTA secondaire</PixelButton>
+            <span className="notch-tr border-2 border-paper/14 bg-abyss-950 px-5 py-3 shadow-hard">
+              Carte notch-tr + shadow-hard
+            </span>
           </div>
-          <p className="mt-4 text-caption text-slate-400">
-            Hauteur minimale 24 px · zone de protection = hauteur de l&apos;icône ÷ 2 ·
-            jamais de recoloration, d&apos;ombre portée ni d&apos;étirement.
-          </p>
         </section>
 
-        {/* Chambre noire */}
+        {/* Trames */}
         <section>
-          <h2 className="font-display text-display-m mb-8">Chambre noire (section sombre)</h2>
-          <div className="dark rounded-lg bg-abyss-950 p-10">
-            <SectionHeading
-              eyebrow="Les 5 agents"
-              title="Cinq agents, un seul regard"
-              intro="Chaque agent couvre un angle du clienteling. Ensemble, ils voient toute la relation."
-            />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <span className="rounded-sm border border-paper/12 px-3 py-1.5 text-caption text-paper/80">
-                Bordure sombre : rgba(249,249,249,.12)
-              </span>
-              <span className="rounded-sm border border-paper/12 bg-abyss-900 px-3 py-1.5 text-caption text-paper/80">
-                Carte : abyss-900
-              </span>
-            </div>
+          <h2 className="eyebrow mb-6 text-sky-500">Trames — 8 px · hachures</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="bg-grid-8 h-24 border-2 border-paper/14" />
+            <div className="bg-hatch h-24 border-2 border-paper/14" />
           </div>
-          <p className="mt-3 text-caption text-slate-400">
-            Maximum 2 chambres noires par page, jamais consécutives.
+        </section>
+
+        {/* SectionHeading + compteur */}
+        <section className="border-2 border-paper/14 p-8">
+          <SectionHeading
+            eyebrow="Exemple"
+            title="Un en-tête de section"
+            intro="Eyebrow DM Mono, titre Orbitron, intro DM Sans."
+          />
+          <div className="mt-8 max-w-56 border-t-2 border-paper/14 pt-6">
+            <StatCounter value={4.2} decimals={1} prefix="×" label="Compteur en 8 paliers" />
+          </div>
+        </section>
+
+        {/* Mockups */}
+        <section>
+          <h2 className="eyebrow mb-6 text-sky-500">Mockups produit — HTML/CSS, zéro capture</h2>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <CustomerCard />
+            <TaskList />
+            <WhatsAppThread />
+            <AttributionTable />
+          </div>
+        </section>
+
+        {/* Section claire */}
+        <section className="light bg-paper p-8 text-ink">
+          <h2 className="eyebrow mb-4 text-brand-600">
+            Section claire — 2 max/page, jamais consécutives
+          </h2>
+          <p className="text-body max-w-xl text-slate-600">
+            Les moments de preuve (comparatif, tarifs). Bordures
+            rgba(6,51,90,.16), même ombre dure abyss-950.
           </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <PixelButton variant="brand">CTA dégradé</PixelButton>
+            <PixelButton variant="outline-dark">Secondaire clair</PixelButton>
+          </div>
         </section>
       </div>
     </div>

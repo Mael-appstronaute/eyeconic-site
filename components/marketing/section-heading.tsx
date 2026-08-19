@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
-import { Spark } from "@/components/marketing/spark";
 
 /**
- * En-tête de section : eyebrow + titre display + intro.
+ * En-tête de section : eyebrow DM Mono + titre display + intro.
  * Le titre est en Orbitron — 8 mots maximum (règle charte).
+ * Les couleurs suivent le scope (:root sombre / .light).
  */
 export function SectionHeading({
   eyebrow,
@@ -31,24 +31,24 @@ export function SectionHeading({
       {eyebrow ? (
         <p
           className={cn(
-            "eyebrow mb-4 flex items-center gap-2.5 text-brand-600 dark:text-sky-500",
+            "eyebrow mb-4 flex items-center gap-2.5 text-brand-500 light:text-brand-600",
             align === "center" && "justify-center"
           )}
         >
-          <Spark className="size-2.5" />
+          <span aria-hidden="true" className="size-2 bg-brand-500" />
           {eyebrow}
         </p>
       ) : null}
       <h2
         className={cn(
-          "font-display text-balance",
+          "font-display text-balance uppercase",
           level === "l" ? "text-display-l" : "text-display-m"
         )}
       >
         {title}
       </h2>
       {intro ? (
-        <p className="mt-5 text-body-l text-slate-600 dark:text-sky-300">
+        <p className="mt-5 text-body-l text-sky-300 light:text-slate-600">
           {intro}
         </p>
       ) : null}

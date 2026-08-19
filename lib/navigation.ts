@@ -161,13 +161,12 @@ export const footerColumns: MegaMenuColumn[] = [
       { label: "Essai gratuit", href: "/essai" },
     ],
   },
-  {
-    title: "Légal",
-    links: [
-      { label: "Mentions légales", href: "/mentions-legales" },
-      { label: "Confidentialité", href: "/confidentialite" },
-      { label: "CGU", href: "/cgu" },
-      { label: "Cookies", href: "/cookies" },
-    ],
-  },
+];
+
+/* Barre basse du footer — le brief impose 4 colonnes, le légal vit ici */
+export const legalLinks: NavLink[] = [
+  { label: "Mentions légales", href: "/mentions-legales" },
+  { label: "Confidentialité", href: "/confidentialite" },
+  { label: "CGU", href: "/cgu" },
+  { label: "Cookies", href: "/cookies" },
 ];

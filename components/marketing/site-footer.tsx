@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { Logo } from "@/components/marketing/logo";
-import { Spark } from "@/components/marketing/spark";
-import { footerColumns } from "@/lib/navigation";
+import { footerColumns, legalLinks } from "@/lib/navigation";
 
 export function SiteFooter() {
   return (
-    <footer className="dark bg-abyss-950 text-paper">
+    <footer className="border-t-2 border-paper/14 bg-ink text-paper">
       <div className="container-site py-16 lg:py-20">
         {/* Newsletter */}
-        <div className="flex flex-col gap-8 border-b border-paper/12 pb-12 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-8 border-b-2 border-paper/14 pb-12 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Logo variant="white" height={30} linked={false} />
             <p className="mt-4 max-w-md text-body text-sky-300">
@@ -29,21 +28,21 @@ export function SiteFooter() {
               required
               placeholder="prenom@votremarque.com"
               autoComplete="email"
-              className="h-11 w-full rounded-md border border-paper/20 bg-paper/5 px-4 text-sm text-paper placeholder:text-slate-400"
+              className="h-11 w-full border-2 border-paper/20 bg-transparent px-4 text-sm text-paper placeholder:text-slate-400"
             />
             <button
               type="submit"
-              className="h-11 shrink-0 rounded-md border border-paper/20 px-4 text-sm font-medium text-paper transition-colors hover:bg-paper/10"
+              className="h-11 shrink-0 border-2 border-paper/25 px-4 text-sm font-medium text-paper transition-colors hover:border-paper/60"
             >
               S&apos;inscrire
             </button>
           </form>
         </div>
 
-        {/* Colonnes */}
+        {/* 4 colonnes */}
         <nav
           aria-label="Navigation pied de page"
-          className="grid grid-cols-2 gap-x-8 gap-y-10 py-12 sm:grid-cols-3 lg:grid-cols-5"
+          className="grid grid-cols-2 gap-x-8 gap-y-10 py-12 sm:grid-cols-2 lg:grid-cols-4"
         >
           {footerColumns.map((col) => (
             <div key={col.title}>
@@ -65,14 +64,14 @@ export function SiteFooter() {
         </nav>
 
         {/* Barre basse */}
-        <div className="flex flex-col gap-6 border-t border-paper/12 pt-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-6 border-t-2 border-paper/14 pt-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 rounded-sm border border-paper/20 px-3 py-1.5 text-caption text-paper/80">
-              <Spark className="size-2 text-brand-400" />
+            <span className="data-label inline-flex items-center gap-2 border-2 border-paper/20 px-3 py-1.5 text-caption text-paper/80">
+              <span aria-hidden="true" className="size-1.5 bg-brand-400" />
               Données hébergées en Union européenne
             </span>
-            <span className="inline-flex items-center gap-2 rounded-sm border border-paper/20 px-3 py-1.5 text-caption text-paper/80">
-              <Spark className="size-2 text-brand-400" />
+            <span className="data-label inline-flex items-center gap-2 border-2 border-paper/20 px-3 py-1.5 text-caption text-paper/80">
+              <span aria-hidden="true" className="size-1.5 bg-brand-400" />
               RGPD par conception
             </span>
           </div>
@@ -80,12 +79,12 @@ export function SiteFooter() {
           <div className="flex items-center gap-6">
             {/* Sélecteur de langue — EN à venir avec l'i18n [locale] */}
             <div
-              className="flex items-center gap-1 text-caption"
+              className="data-label flex items-center gap-1 text-caption"
               aria-label="Choix de la langue"
             >
               <span
                 aria-current="true"
-                className="rounded-sm bg-paper/10 px-2 py-1 font-medium text-paper"
+                className="border-2 border-paper/25 px-2 py-1 font-medium text-paper"
               >
                 FR
               </span>
@@ -116,7 +115,7 @@ export function SiteFooter() {
                   aria-label="Eyeconic sur Instagram"
                 >
                   <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <rect x="3" y="3" width="18" height="18" />
                     <circle cx="12" cy="12" r="4" />
                     <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
                   </svg>
@@ -126,9 +125,23 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="mt-8 text-caption text-slate-400">
-          © 2026 Eyeconic. Tous droits réservés.
-        </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-caption text-slate-400">
+            © 2026 Eyeconic. Tous droits réservés.
+          </p>
+          <ul className="flex flex-wrap items-center gap-4">
+            {legalLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-caption text-slate-400 transition-colors hover:text-paper"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </footer>
   );

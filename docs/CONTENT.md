@@ -1,4 +1,4 @@
-# Eyeconic — Contenu rédactionnel
+# Eyeconic — Contenu rédactionnel (accueil, phase 3)
 
 > Relecture séparée du code. Tout ce qui n'est pas vérifié est balisé
 > `[À VALIDER]` ou `[PLACEHOLDER]`. Interdits : superlatifs creux, noms de
@@ -6,111 +6,107 @@
 
 ## Marque
 
-- Nom : **Eyeconic**
-- Baseline (charte, EN) : **Smarter clienteling**
-- Baseline FR : **« Le clienteling qui voit avant les autres »**
+- Nom : **Eyeconic** · Baseline : **Smarter clienteling.**
+- Positionnement : « Eyeconic réunit ce que vos clients vous disent et ce
+  que vos équipes en font. La donnée client d'un côté, l'exécution en
+  boutique de l'autre, dans un seul outil. »
 
-## Global
+## Meta
 
-- Titre par défaut : `Eyeconic — Le clienteling qui voit avant les autres`
-- Description : `Eyeconic unifie vos données boutique, e-commerce et messagerie, puis met cinq agents IA au service de vos conseillers de vente. Hébergé en Europe, opérationnel en 7 jours.`
+- Titre : `Eyeconic — Smarter clienteling`
+- Description : `Eyeconic unifie vos données boutique, e-commerce et messagerie, puis met cinq agents IA au service de vos équipes de vente. Prix publics en euros, hébergement UE, opérationnel en 7 jours.`
 
-## Header
+## 1 · Nav
 
-Liens : Produit · Solutions · Intégrations · Tarifs · Ressources ·
-Connexion · **Essai gratuit** (CTA dégradé)
+Produit · Solutions · Intégrations · Tarifs · Ressources · Connexion ·
+Réserver une démo (bordure) · Essai gratuit (papier solide).
+Barre de progression de scroll 2 px, dégradé 90°.
 
-Carte mise en avant menu Produit : « Nouveau — Focus. L'agent qui prépare la
-journée de chaque conseiller, avant l'ouverture de la boutique. → Découvrir »
+## 2 · Hero
 
-## Footer
+- Eyebrow : POUR LES DIRECTIONS RETAIL, CRM ET OPÉRATIONS
+- H1 : Vos meilleurs clients envoient des **signaux** (souligné dégradé).
+  Personne ne les lit.
+- Sous-titre : Eyeconic unifie vos données boutique, e-commerce et
+  messagerie, puis met cinq agents IA au service de vos équipes. Ils savent
+  qui contacter, quand, avec quoi — et vous voyez ce que ça rapporte.
+- CTA : Démarrer gratuitement (dégradé) · Réserver une démo (bordure)
+- Rassurance : Plan gratuit · Opérationnel en 7 jours · Données hébergées en Europe
+- Stats : ×4,2 panier moyen des clients suivis `[À VALIDER]` · 7 jours de
+  mise en service · 40+ intégrations natives `[À VALIDER]`
 
-- Accroche newsletter : « Le clienteling qui voit avant les autres. Recevez
-  nos analyses retail et CRM, une fois par mois. »
-- Badges : « Données hébergées en Union européenne » · « RGPD par conception »
-- © 2026 Eyeconic. Tous droits réservés.
+## 3 · Bande équipes
 
-## Accueil (phase 3) — contenu source du brief
+LE TERRAIN — « Conçu pour les gens qui vendent, pas pour ceux qui regardent
+les tableaux » — intro brief verbatim. 8 × `[PORTRAIT n]` en trame de
+points + fonctions génériques (conseillère de vente, directeur de boutique…).
 
-### 1. Barre d'annonce
-« Nouveau — Focus, l'agent qui prépare la journée de chaque conseiller. → Découvrir »
+## 4 · Mécanisme (Voir / Agir / Prouver)
 
-### 3. Hero
-- Eyebrow : POUR LES DIRECTIONS RETAIL ET CRM
-- H1 : Vos meilleurs clients envoient des signaux. Personne ne les lit.
-- Sous-titre : Eyeconic unifie vos données boutique, e-commerce et messagerie,
-  puis met cinq agents IA au service de vos conseillers. Ils savent qui
-  contacter, quand, et avec quoi.
-- CTA : Démarrer l'essai gratuit · Réserver une démo
-- Rassurance : Opérationnel en 7 jours · Sans remplacer vos outils · Données
-  hébergées en Europe
+Textes du brief verbatim (UNIFIER/ACTIVER/MESURER). Visuels : mockups
+fiche client (Iris) · conversation WhatsApp (Écho) · tableau d'attribution.
 
-### 4. Bande de confiance
-« Ils font vendre leurs équipes par la relation, pas par le trafic. »
-Logos : `[LOGO CLIENT 1]` … `[LOGO CLIENT n]` — jamais de vraie marque.
+## 5 · Bento — 6 capacités
 
-### 5. Mécanisme en 3 temps
-1. UNIFIER / **Voir** — Chaque achat, chaque message, chaque essayage, chaque
-   rendez-vous. Eyeconic relie vos boutiques, votre site, votre POS et vos
-   messageries en une seule vue client. Y compris ce qui dormait dans un
-   carnet ou sur le téléphone d'un vendeur.
-2. ACTIVER / **Agir** — Signal repère qui est prêt à acheter. Focus le place
-   en tête de la journée du bon conseiller. Écho prépare le message, dans sa
-   voix, sur le canal que le client utilise vraiment.
-3. MESURER / **Prouver** — Portée, réponses, conversions, réachat, chiffre
-   d'affaires attribué — par boutique, par région, par conseiller. Chaque
-   cycle rend le suivant plus précis.
+Textes du brief verbatim. Tags DM Mono par carte. Mockup « journée du
+conseiller » (Focus) dans la carte Tâches et workflows.
 
-### 6. Les 5 agents
-| Agent | Rôle |
-|---|---|
-| Iris | Construit et enrichit la vue client unique |
-| Signal | Détecte les intentions d'achat et les clients qui décrochent |
-| Écho | Rédige et personnalise les messages, dans la voix du conseiller |
-| Prisme | Orchestre les campagnes et les segments |
-| Focus | Priorise les tâches quotidiennes de chaque conseiller |
+## 6 · Comparatif
 
-Chiffres par agent : `[À VALIDER]`
+Titre : « La différence ne se voit pas dans la démo. » + intro « Elle se
+voit dans le chiffre d'affaires. » Onglets : Taux de réponse · Chiffre
+d'affaires attribué · Adoption par les équipes. Catégories : Carnet papier ·
+E-mailing de masse · CRM généraliste · Outil de clienteling · Eyeconic.
+**Toutes les valeurs : `[DONNÉES À PRODUIRE]`** — hauteurs illustratives
+sans échelle, mention affichée sur la page.
 
-### 8. Canaux
-« Le message part du canal que votre cliente utilise déjà. Pas de celui qui
-arrange votre outil. »
+## 7 · Témoignages
 
-### 10. Manifeste
-« La donnée client, ça ne s'achète pas. Ça se mérite. Chaque conversation que
-votre équipe a déjà eue est un actif que vos concurrents ne peuvent pas
-acquérir. Un CRM la stocke. Eyeconic la fait travailler. »
+3 slides `[PLACEHOLDER TÉMOIGNAGE]` : logo, citation, nom/fonction, 2 KPI —
+tout à fournir.
 
-### 11. Preuve et confiance
-7 jours de mise en service `[À VALIDER]` · 40+ intégrations `[À VALIDER]` ·
-99,9 % de disponibilité `[À VALIDER]`
+## 8 · Cas d'usage
 
-### 12. Témoignages
-`[PLACEHOLDER TÉMOIGNAGE]` — n'inventer aucun client, citation ni chiffre.
+- POUR LES CONSEILLERS — Sachez qui rappeler avant même d'ouvrir la boutique.
+- POUR LES DIRECTEURS DE BOUTIQUE — Voyez l'activité de votre équipe sans réclamer un reporting.
+- POUR LE SIÈGE — Comparez les régions sur les mêmes indicateurs, en temps réel.
 
-## Tarifs (phase 4) — tous les prix `[À VALIDER AVEC LE CLIENT]`
+## 9 · Tarifs `[PRIX À VALIDER]`
 
-Boutique 290 €/mois · Réseau 890 €/mois (recommandé) · Maison sur devis.
-Détail complet : voir brief section 7.2.
+Boutique Gratuit / Réseau 290 €/mois (recommandé) / Maison sur devis —
+listes d'inclus du brief verbatim. Footnotes : utilisateurs illimités ·
+aucune limite de données/SKU/sources · synchro bidirectionnelle ·
+hébergement UE · onboarding inclus. Encart « Pourquoi des crédits IA
+plutôt que des sièges » + micro-schéma sièges vs boutique.
 
-## Lexique métier (reste en anglais)
+## 10 · FAQ (réponses rédigées, à relire)
 
-clienteling · first-party data · single customer view · AOV · LTV · churn · VIC
+8 questions du brief. Réponses fondées sur les seuls faits produit du
+brief ; « Que se passe-t-il en cas de dépassement » contient
+`[Politique exacte à valider]`.
 
-> ⚠️ Le lexique complet par secteur est dans
-> `docs/etude-marche-bspk-wrike.md` — **fichier non fourni à ce jour**,
-> à réclamer avant la rédaction des pages /solutions.
+## 11 · CTA final
 
-## Registre des [À VALIDER] / [PLACEHOLDER]
+« Voyez vos propres données pendant la démo. » + champ e-mail →
+Démarrer gratuitement · lien Réserver une démo.
 
-| Élément | Statut |
-|---|---|
-| Domaine définitif (metadataBase) | `[À VALIDER]` — placeholder eyeconic.example.com |
-| Chiffres clés (7 jours, 40+ intégrations, 99,9 %) | `[À VALIDER]` |
-| Grille tarifaire complète | `[À VALIDER AVEC LE CLIENT]` |
-| Logos clients bande de confiance | `[LOGO CLIENT n]` |
-| Témoignages | `[PLACEHOLDER TÉMOIGNAGE]` |
-| Chiffres par agent (grille bento) | `[À VALIDER]` |
-| Certifications sécurité | `[EN COURS]` — n'afficher que l'obtenu |
-| URLs réseaux sociaux (footer) | `[À VALIDER]` — pointent vers les racines |
-| Étude de marché + lexique sectoriel | fichier manquant |
+## 12 · Clôture
+
+« Le clienteling, comme vos meilleurs vendeurs le font déjà. » sur
+dégradé d'ambiance.
+
+## 13 · Footer
+
+4 colonnes (Produit · Solutions · Ressources · Entreprise) + newsletter +
+FR/EN (EN à venir) + badges UE/RGPD + légal en barre basse.
+
+## Registre des balises restantes
+
+- `[À VALIDER]` : stat ×4,2 · stat 40+ intégrations · prix 290 €/mois ·
+  politique de dépassement des crédits · domaine définitif
+  (metadataBase, eyeconic.example.com) · liens sociaux réels.
+- `[PLACEHOLDER]` : 8 portraits équipe · 3 témoignages complets
+  (logo + citation + nom + fonction + 2 KPI).
+- `[DONNÉES À PRODUIRE]` : les 3 jeux de valeurs du comparatif.
+- `[DONNÉES DÉMO]` : contenus fictifs des 4 mockups produit (assumés,
+  balisés à l'écran).

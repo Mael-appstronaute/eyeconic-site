@@ -1,43 +1,84 @@
-import Link from "next/link";
+import type { Metadata } from "next";
+import { Hero } from "@/components/marketing/hero";
+import { TeamStrip } from "@/components/marketing/team-strip";
+import { MechanismAccordion } from "@/components/marketing/mechanism-accordion";
+import { BentoGrid } from "@/components/marketing/bento-grid";
+import { BenchmarkChart } from "@/components/marketing/benchmark-chart";
+import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel";
+import { UseCases } from "@/components/marketing/use-cases";
+import { PricingTable } from "@/components/marketing/pricing-table";
+import { FaqAccordion } from "@/components/marketing/faq-accordion";
+import { CtaBanner } from "@/components/marketing/cta-banner";
+import { ClosingStatement } from "@/components/marketing/closing-statement";
+import { FAQ_ITEMS } from "@/lib/faq";
 
-/**
- * Placeholder phase 2 — la home complète (14 sections, iris de données)
- * arrive en phase 3. Ce hero valide le header transparent sur chambre noire.
- */
+export const metadata: Metadata = {
+  title: "Eyeconic — Smarter clienteling",
+  description:
+    "Eyeconic unifie vos données boutique, e-commerce et messagerie, puis met cinq agents IA au service de vos équipes de vente. Prix publics en euros, hébergement UE, opérationnel en 7 jours.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "Eyeconic",
+      url: "https://eyeconic.example.com",
+      logo: "https://eyeconic.example.com/brand/Eyeconic_Logo_Icon.svg",
+      slogan: "Smarter clienteling.",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "Eyeconic",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web, iOS, Android",
+      description:
+        "Plateforme de clienteling : vue client unique, cinq agents IA et pilotage de l'exécution des équipes retail.",
+      offers: [
+        {
+          "@type": "Offer",
+          name: "Boutique",
+          price: "0",
+          priceCurrency: "EUR",
+        },
+        {
+          "@type": "Offer",
+          name: "Réseau",
+          price: "290",
+          priceCurrency: "EUR",
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQ_ITEMS.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
-    <section className="dark flex min-h-svh flex-col justify-center bg-abyss-950 pt-16">
-      <div className="container-site py-24">
-        <p className="eyebrow mb-6 text-sky-500">
-          Pour les directions retail et CRM
-        </p>
-        <h1 className="font-display text-display-xl max-w-4xl text-paper">
-          Vos meilleurs clients envoient des signaux. Personne ne les lit.
-        </h1>
-        <p className="mt-6 max-w-2xl text-body-l text-sky-300">
-          Eyeconic unifie vos données boutique, e-commerce et messagerie, puis
-          met cinq agents IA au service de vos conseillers. Ils savent qui
-          contacter, quand, et avec quoi.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Link
-            href="/essai"
-            className="bg-gradient-brand rounded-md px-6 py-3 font-medium text-paper shadow-card transition-shadow hover:shadow-card-hover"
-          >
-            Démarrer l&apos;essai gratuit
-          </Link>
-          <Link
-            href="/demo"
-            className="rounded-md border border-paper/20 px-6 py-3 font-medium text-paper transition-colors hover:bg-paper/10"
-          >
-            Réserver une démo
-          </Link>
-        </div>
-        <p className="mt-8 text-caption text-slate-400">
-          Opérationnel en 7 jours · Sans remplacer vos outils · Données
-          hébergées en Europe
-        </p>
-      </div>
-    </section>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Hero />
+      <TeamStrip />
+      <MechanismAccordion />
+      <BentoGrid />
+      <BenchmarkChart />
+      <TestimonialCarousel />
+      <UseCases />
+      <PricingTable />
+      <FaqAccordion />
+      <CtaBanner />
+      <ClosingStatement />
+    </>
   );
 }
