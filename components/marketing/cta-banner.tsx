@@ -1,6 +1,8 @@
 import { PixelButton } from "@/components/marketing/pixel-button";
+import { QrBlock } from "@/components/marketing/qr-block";
 
-/** Section 11 — CTA final : voir ses propres données pendant la démo. */
+/** Section 11 — CTA final : voir ses propres données pendant la démo,
+ * formulaire e-mail + QR code vers le tunnel démo (leads tracés). */
 export function CtaBanner() {
   return (
     <section className="bg-paper py-20 lg:py-32">
@@ -42,6 +44,15 @@ export function CtaBanner() {
               Réserver une démo →
             </a>
           </p>
+
+          {/* QR — le même tunnel, depuis un téléphone (source tracée) */}
+          <div className="mx-auto mt-10 max-w-xl text-left">
+            <QrBlock
+              path="/demo"
+              title="Ou scannez avec votre téléphone"
+              caption="Le formulaire de démo s'ouvre sur mobile — vos informations arrivent au même endroit."
+            />
+          </div>
         </div>
       </div>
     </section>
