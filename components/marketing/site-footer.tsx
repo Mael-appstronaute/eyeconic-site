@@ -29,11 +29,11 @@ export function SiteFooter() {
               required
               placeholder="prenom@votremarque.com"
               autoComplete="email"
-              className="h-11 w-full rounded-md border border-paper/20 bg-paper/5 px-4 text-sm text-paper placeholder:text-sky-300/60"
+              className="h-11 w-full rounded-md border-2 border-paper/25 bg-paper/5 px-4 text-sm text-paper placeholder:text-sky-300/60"
             />
             <button
               type="submit"
-              className="h-11 shrink-0 rounded-md border border-paper/25 px-4 text-sm font-medium text-paper transition-colors hover:bg-paper/10"
+              className="h-11 shrink-0 rounded-md border-2 border-paper/30 px-4 text-sm font-medium text-paper transition-colors hover:bg-paper/10"
             >
               S&apos;inscrire
             </button>
@@ -67,11 +67,11 @@ export function SiteFooter() {
         {/* Barre basse */}
         <div className="flex flex-col gap-6 border-t border-paper/14 pt-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 rounded-sm border border-paper/20 px-3 py-1.5 text-caption text-paper/80">
+            <span className="inline-flex items-center gap-2 rounded-sm border-2 border-paper/25 px-3 py-1.5 text-caption text-paper/80">
               <Spark className="size-2 text-brand-400" />
               Données hébergées en Union européenne
             </span>
-            <span className="inline-flex items-center gap-2 rounded-sm border border-paper/20 px-3 py-1.5 text-caption text-paper/80">
+            <span className="inline-flex items-center gap-2 rounded-sm border-2 border-paper/25 px-3 py-1.5 text-caption text-paper/80">
               <Spark className="size-2 text-brand-400" />
               RGPD par conception
             </span>

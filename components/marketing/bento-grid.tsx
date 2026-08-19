@@ -56,7 +56,7 @@ export function BentoGrid() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {CAPABILITIES.map((cap, i) => (
             <Reveal key={cap.title} delay={i % 3} className={cn(cap.span)}>
-              <article className="flex h-full flex-col rounded-lg border border-abyss-900/10 bg-white p-6 shadow-card transition-shadow hover:shadow-card-hover lg:p-7">
+              <article className="flex h-full flex-col rounded-lg border-2 border-abyss-900/15 bg-white p-6 shadow-card transition-shadow hover:shadow-card-hover lg:p-7">
                 <p className="eyebrow text-brand-600">{cap.tag}</p>
                 <h3 className="text-h3 mt-3 font-medium text-abyss-900">
                   {cap.title}

@@ -28,7 +28,7 @@ export function CtaBanner() {
               required
               placeholder="prenom@votremarque.com"
               autoComplete="email"
-              className="h-12 w-full rounded-md border border-paper/25 bg-paper/5 px-4 text-sm text-paper placeholder:text-sky-300/60"
+              className="h-12 w-full rounded-md border-2 border-paper/30 bg-paper/5 px-4 text-sm text-paper placeholder:text-sky-300/60"
             />
             <PixelButton type="submit" variant="paper" className="shrink-0">
               Démarrer gratuitement

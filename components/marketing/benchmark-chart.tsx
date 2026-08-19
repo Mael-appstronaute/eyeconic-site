@@ -48,7 +48,7 @@ export function BenchmarkChart() {
       <div className="container-site">
         <div className="max-w-3xl">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
-            <span aria-hidden="true" className="size-2 rounded-full bg-brand-600" />
+            <span aria-hidden="true" className="size-2 bg-brand-600" />
             La preuve
           </p>
           <h2 className="font-display text-display-l text-balance text-abyss-900">
@@ -61,7 +61,7 @@ export function BenchmarkChart() {
 
         <div
           ref={ref}
-          className="mt-12 rounded-xl border border-abyss-900/10 bg-paper p-6 shadow-card lg:p-10"
+          className="mt-12 rounded-xl border-2 border-abyss-900/15 bg-paper p-6 shadow-card lg:p-10"
         >
           {/* Onglets */}
           <div role="tablist" aria-label="Indicateur comparé" className="flex flex-wrap gap-2">
@@ -77,7 +77,7 @@ export function BenchmarkChart() {
                   "rounded-md px-4 py-2 text-sm font-medium transition-colors",
                   i === tab
                     ? "bg-abyss-900 text-paper shadow-card"
-                    : "border border-abyss-900/15 bg-white text-slate-600 hover:border-abyss-900/35"
+                    : "border-2 border-abyss-900/20 bg-white text-slate-600 hover:border-abyss-900/35"
                 )}
               >
                 {t.label}

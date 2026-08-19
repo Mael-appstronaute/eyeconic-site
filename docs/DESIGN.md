@@ -1,23 +1,30 @@
-# Eyeconic — Plan de design (v3, « charte pure », validé 19/08)
+# Eyeconic — Plan de design (v3.1, « charte pure, blocs carrés », validé 19/08)
 
 Historique : v1 « mise au point optique » (clair, iris radial) → v2 pivot
 8-bit sombre (rejetée par Maël : trop de noir, fond du hero refusé) →
-**v3 retenue : site clair fidèle à la charte, hero sur le dégradé
-d'ambiance de la couverture.** La structure 13 sections et le contenu du
-brief sont conservés tels quels.
+v3 claire arrondie → **v3.1 retenue : palette et fonds de la v3 claire,
+mais boutons et blocs repris de la v2** (demande Maël : « remet les
+boutons comme avant et les blocs carrés »). La structure 13 sections et
+le contenu du brief sont conservés tels quels.
 
 ## Principes
 
-1. Dominante Papier `#f9f9f9`, cartes blanches, rayons charte (8/14/22/32).
-2. Ombres basses et bleutées (`shadow-card` / `shadow-card-hover`),
-   jamais noires, jamais dures.
-3. **Aucune surface noire.** Les moments sombres sont bleu abysse
+1. Dominante Papier `#f9f9f9`, cartes blanches. **Zéro border-radius**
+   (exception : carré arrondi de l'icône du logo).
+2. Blocs : bordures 2 px + **ombres décalées non floutées**
+   `4px 4px 0 0 #041f38` (`shadow-card`, hover 6 px). Teinte abysse,
+   jamais noires.
+3. Boutons : CTA plein encoché `notch-tr-bl` (dégradé de marque, ou blanc
+   sur fond dégradé), secondaires en bordure 2 px, enfoncement d'un cran
+   au clic. Pas d'ombre sur les variantes encochées (le clip-path la
+   rognerait).
+4. **Aucune surface noire.** Les moments sombres sont bleu abysse
    `#06335a` (scope `.dark`) : carte tarifs mise en avant, panneau CTA
    final, footer.
-4. Typographie charte stricte : Orbitron (display ≥ 28 px, 8 mots max) +
+5. Typographie charte stricte : Orbitron (display ≥ 28 px, 8 mots max) +
    DM Sans. Eyebrow = Orbitron 12 px caps tracking 0.12em (exception
    documentée). DM Mono retirée (v2 uniquement).
-5. Motion douce ease-out (reveal, compteurs, barres). Plus de steps().
+6. Motion douce ease-out (reveal, compteurs, barres). Pas de steps().
 
 ## Les deux dégradés — usages étanches
 

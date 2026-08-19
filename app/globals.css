@@ -71,9 +71,9 @@
   --text-eyebrow--letter-spacing: 0.12em;
   --text-eyebrow--font-weight: 600;
 
-  /* Ombres — basses et bleutées, jamais noires */
-  --shadow-card: 0 1px 2px rgba(6, 51, 90, 0.06), 0 12px 32px rgba(6, 51, 90, 0.08);
-  --shadow-card-hover: 0 2px 4px rgba(6, 51, 90, 0.08), 0 20px 48px rgba(6, 51, 90, 0.12);
+  /* Ombres — décalées, non floutées, teinte abysse (jamais noires) */
+  --shadow-card: 4px 4px 0 0 var(--color-abyss-950);
+  --shadow-card-hover: 6px 6px 0 0 var(--color-abyss-950);
 }
 
 /* Sémantique shadcn mappée sur la marque — rayons charte */
@@ -111,13 +111,14 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 32px;
-  --radius-2xl: 32px;
-  --radius-3xl: 32px;
-  --radius-4xl: 32px;
+  /* Blocs carrés — aucun arrondi (exception : icône du logo) */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
 }
 
 /* Défaut = clair : le site vit sur Papier */
@@ -145,7 +146,7 @@
   --chart-3: #1a507c;
   --chart-4: #6a94d3;
   --chart-5: #a8c5e8;
-  --radius: 0.875rem;
+  --radius: 0px;
   --sidebar: #eef3fa;
   --sidebar-foreground: #000000;
   --sidebar-primary: #06335a;
@@ -202,11 +203,11 @@
   html {
     @apply font-sans scroll-smooth;
   }
-  /* Focus dessiné — remplace l'outline par défaut */
+  /* Focus dessiné, arêtes dures — remplace l'outline par défaut */
   :focus-visible {
     outline: 2px solid var(--color-brand-600);
     outline-offset: 3px;
-    border-radius: 4px;
+    border-radius: 0;
   }
   ::selection {
     background: var(--color-mist-200);
@@ -256,6 +257,24 @@
     #1a507c 45%,
     #4c92da 80%,
     #6a94d3 100%
+  );
+}
+
+/* Encoches d'angle 8px — 1 ou 2 angles, jamais les quatre */
+@utility notch-tr {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+@utility notch-bl {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+@utility notch-tr-bl {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    8px 100%,
+    0 calc(100% - 8px)
   );
 }
 

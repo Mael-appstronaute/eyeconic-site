@@ -66,7 +66,7 @@ export function StatCounter({
         {suffix}
       </p>
       <p className="mt-3 flex items-center gap-2 text-caption font-medium uppercase tracking-wide text-slate-600">
-        <span aria-hidden="true" className="size-1.5 rounded-full bg-brand-500" />
+        <span aria-hidden="true" className="size-1.5 bg-brand-500" />
         {label}
       </p>
       {unverified ? (

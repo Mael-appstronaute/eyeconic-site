@@ -154,17 +154,17 @@ export function SiteHeader() {
           <Link
             href="/demo"
             className={cn(
-              "rounded-md border px-4 py-2 text-sm font-medium transition-colors",
+              "border-2 px-4 py-2 text-sm font-medium transition-colors",
               onDarkHero
                 ? "border-paper/40 text-paper hover:border-paper/80"
-                : "border-abyss-900/20 text-abyss-900 hover:border-abyss-900/40"
+                : "border-abyss-900/25 text-abyss-900 hover:border-abyss-900/50"
             )}
           >
             Réserver une démo
           </Link>
           <Link
             href="/essai"
-            className="bg-gradient-brand rounded-md px-4 py-2 text-sm font-medium text-paper shadow-card transition-shadow hover:shadow-card-hover"
+            className="bg-gradient-brand notch-tr-bl px-4 py-2.5 text-sm font-medium text-paper"
           >
             Essai gratuit
           </Link>
@@ -276,7 +276,7 @@ function MegaMenuItem({
           onMouseLeave={scheduleClose}
           className="absolute left-0 top-full w-[720px] pt-3"
         >
-          <div className="grid grid-cols-3 gap-8 rounded-lg border border-abyss-900/10 bg-white p-8 shadow-card">
+          <div className="grid grid-cols-3 gap-8 rounded-lg border-2 border-abyss-900/15 bg-white p-8 shadow-card">
             {columns.map((col) => (
               <div key={col.title} className={columns.length === 1 ? "col-span-2" : ""}>
                 <p className="eyebrow mb-4 text-slate-400">{col.title}</p>
@@ -374,13 +374,13 @@ function MobileNav() {
         <div className="mt-10 space-y-3 border-t border-abyss-900/10 pt-8">
           <Link
             href="/essai"
-            className="bg-gradient-brand block rounded-md px-5 py-3 text-center font-medium text-paper"
+            className="bg-gradient-brand notch-tr-bl block px-5 py-3 text-center font-medium text-paper"
           >
             Essai gratuit
           </Link>
           <Link
             href="/demo"
-            className="block rounded-md border border-abyss-900/20 px-5 py-3 text-center font-medium text-abyss-900"
+            className="block border-2 border-abyss-900/25 px-5 py-3 text-center font-medium text-abyss-900"
           >
             Réserver une démo
           </Link>

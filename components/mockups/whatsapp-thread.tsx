@@ -13,7 +13,7 @@ export function WhatsAppThread({ className }: { className?: string }) {
           <p className="mt-1.5 text-[11px] text-slate-400">Camille — 18:42</p>
         </div>
 
-        <div className="ml-auto max-w-[85%] rounded-lg rounded-br-sm border border-brand-500/30 bg-brand-500/10 p-3">
+        <div className="ml-auto max-w-[85%] rounded-lg rounded-br-sm border-2 border-brand-500/40 bg-brand-500/10 p-3">
           <p className="text-caption text-abyss-900">
             Bonsoir Camille, oui — je vous en ai mis un de côté. Je suis en
             boutique jeudi, je vous le présente avec la nouvelle ceinture ?

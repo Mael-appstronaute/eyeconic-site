@@ -29,7 +29,7 @@ export function UseCases() {
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {CASES.map((c, i) => (
             <Reveal key={c.eyebrow} delay={i}>
-              <article className="group flex h-full flex-col justify-between rounded-lg border border-abyss-900/10 bg-paper p-7 shadow-card transition-shadow hover:shadow-card-hover lg:p-8">
+              <article className="group flex h-full flex-col justify-between rounded-lg border-2 border-abyss-900/15 bg-paper p-7 shadow-card transition-shadow hover:shadow-card-hover lg:p-8">
                 <p className="eyebrow text-brand-600">{c.eyebrow}</p>
                 <h3 className="text-h3 mt-14 font-medium text-abyss-900 lg:mt-20">
                   {c.title}

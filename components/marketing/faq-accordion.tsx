@@ -14,7 +14,7 @@ export function FaqAccordion() {
       <div className="container-site grid gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)]">
         <div>
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
-            <span aria-hidden="true" className="size-2 rounded-full bg-brand-600" />
+            <span aria-hidden="true" className="size-2 bg-brand-600" />
             FAQ
           </p>
           <h2 className="font-display text-display-l text-abyss-900">
@@ -30,7 +30,7 @@ export function FaqAccordion() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-xl border border-abyss-900/10 bg-white shadow-card">
+        <div className="overflow-hidden rounded-xl border-2 border-abyss-900/15 bg-white shadow-card">
           {FAQ_ITEMS.map((item, i) => {
             const isOpen = open === i;
             return (

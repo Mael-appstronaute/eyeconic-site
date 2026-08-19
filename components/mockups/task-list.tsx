@@ -17,7 +17,7 @@ export function TaskList({ className }: { className?: string }) {
           <li
             key={t.label}
             className={cn(
-              "flex items-start gap-3 rounded-md border p-3",
+              "flex items-start gap-3 border-2 p-3",
               t.hot
                 ? "border-brand-500/40 bg-mist-100"
                 : "border-abyss-900/10 bg-white"

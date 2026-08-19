@@ -40,7 +40,7 @@ export function CustomerCard({ className }: { className?: string }) {
         ))}
       </dl>
 
-      <div className="mt-4 rounded-md border border-brand-500/30 bg-mist-100 p-3">
+      <div className="mt-4 rounded-md border-2 border-brand-500/40 bg-mist-100 p-3">
         <p className="text-[11px] font-medium uppercase tracking-wide text-brand-600">
           Signal — détecté par Signal
         </p>

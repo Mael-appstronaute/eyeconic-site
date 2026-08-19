@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const COLORS = [
-  { name: "Papier", value: "#f9f9f9", cls: "bg-paper border border-abyss-900/10" },
+  { name: "Papier", value: "#f9f9f9", cls: "bg-paper border-2 border-abyss-900/15" },
   { name: "Brume — mist-100", value: "#eef3fa", cls: "bg-mist-100" },
   { name: "brand-500", value: "#4c92da", cls: "bg-brand-500" },
   { name: "brand-700", value: "#1a507c", cls: "bg-brand-700" },
@@ -70,7 +70,7 @@ export default function StyleguidePage() {
         </section>
 
         {/* Typographie */}
-        <section className="space-y-5 rounded-lg border border-abyss-900/10 bg-white p-8 shadow-card">
+        <section className="space-y-5 rounded-lg border-2 border-abyss-900/15 bg-white p-8 shadow-card">
           <p className="font-display text-display-xl text-abyss-900">Display XL</p>
           <p className="font-display text-display-l text-abyss-900">Display L — Orbitron Bold</p>
           <p className="font-display text-display-m text-abyss-900">Display M — SemiBold</p>
@@ -90,7 +90,7 @@ export default function StyleguidePage() {
           <div className="flex flex-wrap items-center gap-4">
             <PixelButton variant="brand">CTA dégradé — 1 par écran</PixelButton>
             <PixelButton variant="outline">CTA secondaire</PixelButton>
-            <span className="rounded-lg border border-abyss-900/10 bg-white px-5 py-3 shadow-card">
+            <span className="rounded-lg border-2 border-abyss-900/15 bg-white px-5 py-3 shadow-card">
               Carte shadow-card
             </span>
           </div>
@@ -101,7 +101,7 @@ export default function StyleguidePage() {
         </section>
 
         {/* SectionHeading + compteur */}
-        <section className="rounded-lg border border-abyss-900/10 bg-white p-8 shadow-card">
+        <section className="rounded-lg border-2 border-abyss-900/15 bg-white p-8 shadow-card">
           <SectionHeading
             eyebrow="Exemple"
             title="Un en-tête de section"

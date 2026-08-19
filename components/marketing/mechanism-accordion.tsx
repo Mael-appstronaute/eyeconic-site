@@ -54,7 +54,7 @@ export function MechanismAccordion() {
                     aria-expanded={open}
                     aria-controls={`mecanisme-panel-${i}`}
                     className={cn(
-                      "w-full rounded-lg border p-5 text-left transition-all lg:p-6",
+                      "w-full border-2 p-5 text-left transition-all lg:p-6",
                       open
                         ? "border-brand-500/40 bg-paper shadow-card"
                         : "border-abyss-900/10 bg-white hover:border-abyss-900/25"
@@ -64,7 +64,7 @@ export function MechanismAccordion() {
                       <span
                         aria-hidden="true"
                         className={cn(
-                          "size-1.5 rounded-full",
+                          "size-1.5",
                           open ? "bg-gradient-brand" : "bg-slate-400/50"
                         )}
                       />

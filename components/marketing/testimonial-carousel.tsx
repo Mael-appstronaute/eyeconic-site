@@ -25,7 +25,7 @@ export function TestimonialCarousel() {
         <div className="relative mx-auto mt-12 max-w-3xl">
           <div
             aria-live="polite"
-            className="rounded-xl border border-abyss-900/10 bg-white p-8 text-center shadow-card lg:p-12"
+            className="rounded-xl border-2 border-abyss-900/15 bg-white p-8 text-center shadow-card lg:p-12"
           >
             <div className="mx-auto flex h-10 w-32 items-center justify-center rounded-md bg-mist-100 text-[11px] font-medium uppercase tracking-wide text-slate-400">
               [Logo client]
@@ -57,7 +57,7 @@ export function TestimonialCarousel() {
               type="button"
               onClick={() => setIndex((index + SLOTS.length - 1) % SLOTS.length)}
               aria-label="Témoignage précédent"
-              className="flex size-11 items-center justify-center rounded-full border border-abyss-900/15 text-abyss-900 transition-colors hover:border-abyss-900/40 hover:bg-white"
+              className="flex size-11 items-center justify-center border-2 border-abyss-900/20 text-abyss-900 transition-colors hover:border-abyss-900/40 hover:bg-white"
             >
               <svg viewBox="0 0 16 16" className="size-4" aria-hidden="true">
                 <path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
@@ -68,7 +68,7 @@ export function TestimonialCarousel() {
                 <span
                   key={s}
                   className={cn(
-                    "size-2 rounded-full",
+                    "size-2",
                     i === index ? "bg-gradient-brand" : "bg-mist-200"
                   )}
                 />
@@ -78,7 +78,7 @@ export function TestimonialCarousel() {
               type="button"
               onClick={() => setIndex((index + 1) % SLOTS.length)}
               aria-label="Témoignage suivant"
-              className="flex size-11 items-center justify-center rounded-full border border-abyss-900/15 text-abyss-900 transition-colors hover:border-abyss-900/40 hover:bg-white"
+              className="flex size-11 items-center justify-center border-2 border-abyss-900/20 text-abyss-900 transition-colors hover:border-abyss-900/40 hover:bg-white"
             >
               <svg viewBox="0 0 16 16" className="size-4" aria-hidden="true">
                 <path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />

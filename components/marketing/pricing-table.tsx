@@ -84,7 +84,7 @@ export function PricingTable() {
                 "flex flex-col rounded-xl p-7 lg:p-8",
                 plan.featured
                   ? "dark bg-abyss-900 text-paper shadow-card-hover lg:-my-4 lg:py-12"
-                  : "border border-abyss-900/10 bg-white shadow-card"
+                  : "border-2 border-abyss-900/15 bg-white shadow-card"
               )}
             >
               <div className="flex items-center justify-between gap-3">
@@ -97,7 +97,7 @@ export function PricingTable() {
                   {plan.name}
                 </p>
                 {plan.featured ? (
-                  <span className="bg-gradient-brand rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-paper">
+                  <span className="bg-gradient-brand px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-paper">
                     Recommandé
                   </span>
                 ) : null}
@@ -161,7 +161,7 @@ export function PricingTable() {
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "mt-2 size-1.5 shrink-0 rounded-full",
+                        "mt-2 size-1.5 shrink-0",
                         plan.featured ? "bg-brand-400" : "bg-brand-500"
                       )}
                     />
@@ -181,7 +181,7 @@ export function PricingTable() {
               key={note}
               className="flex items-center gap-2 text-caption font-medium text-slate-600"
             >
-              <span aria-hidden="true" className="size-1.5 rounded-full bg-brand-500" />
+              <span aria-hidden="true" className="size-1.5 bg-brand-500" />
               {note}
             </li>
           ))}

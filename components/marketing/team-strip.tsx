@@ -28,7 +28,7 @@ export function TeamStrip() {
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
           {PORTRAITS.map((role, i) => (
             <Reveal key={i} delay={i}>
-              <div className="flex aspect-3/4 flex-col justify-between rounded-lg border border-abyss-900/10 bg-white p-3 shadow-card">
+              <div className="flex aspect-3/4 flex-col justify-between rounded-lg border-2 border-abyss-900/15 bg-white p-3 shadow-card">
                 <div
                   aria-hidden="true"
                   className="grow rounded-md"

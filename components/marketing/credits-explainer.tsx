@@ -9,7 +9,7 @@ export function CreditsExplainer({ className }: { className?: string }) {
   return (
     <aside
       className={cn(
-        "grid gap-8 rounded-xl border border-abyss-900/10 bg-white p-7 shadow-card lg:grid-cols-[1fr_auto] lg:items-center lg:p-9",
+        "grid gap-8 rounded-xl border-2 border-abyss-900/15 bg-white p-7 shadow-card lg:grid-cols-[1fr_auto] lg:items-center lg:p-9",
         className
       )}
     >
