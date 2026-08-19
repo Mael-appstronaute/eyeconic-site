@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BlurArt } from "@/components/marketing/blur-art";
+import { HeroAurora } from "@/components/home/hero-aurora";
 import { DashboardPreview } from "@/components/home/dashboard-preview";
 import { LogoMarquee } from "@/components/home/logo-marquee";
 
@@ -11,7 +11,7 @@ import { LogoMarquee } from "@/components/home/logo-marquee";
 export function HeroSaas() {
   return (
     <section className="relative overflow-hidden bg-paper pt-16">
-      <BlurArt />
+      <HeroAurora />
 
       <div className="container-site relative">
         <div className="mx-auto max-w-3xl pt-16 text-center sm:pt-24">
