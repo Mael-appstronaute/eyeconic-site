@@ -9,7 +9,6 @@ import { UseCases } from "@/components/marketing/use-cases";
 import { PricingTable } from "@/components/marketing/pricing-table";
 import { FaqAccordion } from "@/components/marketing/faq-accordion";
 import { CtaBanner } from "@/components/marketing/cta-banner";
-import { ClosingStatement } from "@/components/marketing/closing-statement";
 import { FAQ_ITEMS } from "@/lib/faq";
 
 export const metadata: Metadata = {
@@ -78,7 +77,6 @@ export default function HomePage() {
       <PricingTable />
       <FaqAccordion />
       <CtaBanner />
-      <ClosingStatement />
     </>
   );
 }
