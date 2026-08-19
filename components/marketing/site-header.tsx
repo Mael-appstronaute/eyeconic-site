@@ -5,16 +5,14 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/marketing/logo";
-import { ScrollProgress } from "@/components/marketing/scroll-progress";
-import { AGENTS, AgentAvatar } from "@/components/marketing/agent-avatar";
 import { mainNav, produitColumns, solutionsColumns } from "@/lib/navigation";
 
 type MenuKey = "produit" | "solutions" | null;
 
 /**
- * Header — solid white bar, full-width mega menus below it:
- * descriptive columns, the 5 agents with their avatars,
- * abyss-blue highlight band.
+ * Header v4 « SaaS airy » — barre pastille flottante (référence
+ * rbp-saas-template) : logo, liens à dropdowns arrondis, Log in +
+ * bouton scindé « Start for free » avec carré fléché accolé.
  */
 export function SiteHeader() {
   const pathname = usePathname();
@@ -65,110 +63,102 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header
-      ref={headerRef}
-      className="fixed inset-x-0 top-0 z-50 border-b-2 border-abyss-900/10 bg-white"
-    >
-      <ScrollProgress />
-      <div className="container-site flex h-16 items-center gap-8">
-        <Logo height={26} />
+    <header ref={headerRef} className="fixed inset-x-0 top-0 z-50">
+      <div className="mx-auto max-w-6xl rounded-b-3xl bg-white shadow-[0_8px_30px_rgba(6,51,90,0.08)]">
+        <div className="flex h-16 items-center justify-between gap-6 px-5 sm:px-8">
+          <Logo height={24} />
 
-        {/* Desktop navigation */}
-        <nav aria-label="Main navigation" className="hidden flex-1 lg:block">
-          <ul className="flex items-center gap-1">
-            <NavTrigger
-              label="Product"
-              menuKey="produit"
-              open={openMenu === "produit"}
-              setOpen={setOpenMenu}
-              scheduleClose={scheduleClose}
-              cancelClose={cancelClose}
-            />
-            <NavTrigger
-              label="Solutions"
-              menuKey="solutions"
-              open={openMenu === "solutions"}
-              setOpen={setOpenMenu}
-              scheduleClose={scheduleClose}
-              cancelClose={cancelClose}
-            />
-            {mainNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="block px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-abyss-900"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          {/* Desktop navigation */}
+          <nav aria-label="Main navigation" className="hidden lg:block">
+            <ul className="flex items-center gap-1">
+              <Dropdown
+                label="Product"
+                menuKey="produit"
+                open={openMenu === "produit"}
+                setOpen={setOpenMenu}
+                scheduleClose={scheduleClose}
+                cancelClose={cancelClose}
+                links={[
+                  ...produitColumns[0].links,
+                  { label: "The 5 agents", href: "/produit/agents" },
+                ]}
+              />
+              <Dropdown
+                label="Solutions"
+                menuKey="solutions"
+                open={openMenu === "solutions"}
+                setOpen={setOpenMenu}
+                scheduleClose={scheduleClose}
+                cancelClose={cancelClose}
+                links={solutionsColumns[0].links}
+              />
+              {mainNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="block rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-mist-100 hover:text-abyss-900"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            href="/connexion"
-            className="px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-abyss-900"
+          <div className="hidden items-center gap-4 lg:flex">
+            <Link
+              href="/connexion"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-abyss-900"
+            >
+              Log in
+            </Link>
+            {/* Bouton scindé — pastille sombre + carré fléché brand accolé */}
+            <Link href="/essai" className="group flex items-center">
+              <span className="rounded-l-full rounded-r-md bg-abyss-950 py-2.5 pl-5 pr-4 text-sm font-medium text-paper transition-colors group-hover:bg-abyss-900">
+                Start for free
+              </span>
+              <span className="ml-0.5 flex size-10 items-center justify-center rounded-l-md rounded-r-full bg-brand-500 text-paper transition-transform group-hover:translate-x-0.5">
+                <svg viewBox="0 0 16 16" className="size-3.5" aria-hidden="true">
+                  <path d="M4 4h8v8M12 4L4 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" transform="rotate(90 8 8)" />
+                </svg>
+              </span>
+            </Link>
+          </div>
+
+          {/* Mobile trigger */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-expanded={mobileOpen}
+            aria-controls="menu-mobile"
+            className="flex size-10 items-center justify-center rounded-full text-abyss-900 hover:bg-mist-100 lg:hidden"
           >
-            Log in
-          </Link>
-          <Link
-            href="/demo"
-            className="border-2 border-abyss-900/25 px-4 py-2 text-sm font-medium text-abyss-900 transition-colors hover:border-abyss-900/50"
-          >
-            Book a demo
-          </Link>
-          <Link
-            href="/essai"
-            className="bg-gradient-brand notch-tr-bl px-4 py-2.5 text-sm font-medium text-paper"
-          >
-            Start for free
-          </Link>
+            <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
+            <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
+              {mobileOpen ? (
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+              ) : (
+                <path d="M3 7h18M3 12h18M3 17h12" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
         </div>
-
-        {/* Mobile trigger */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-expanded={mobileOpen}
-          aria-controls="menu-mobile"
-          className="ml-auto flex size-10 items-center justify-center text-abyss-900 lg:hidden"
-        >
-          <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
-          <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
-            {mobileOpen ? (
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
-            ) : (
-              <path d="M3 7h18M3 12h18M3 17h12" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
-            )}
-          </svg>
-        </button>
       </div>
 
-      {/* Mega menus — full-width panels below the bar */}
-      {openMenu ? (
-        <div
-          onMouseEnter={cancelClose}
-          onMouseLeave={scheduleClose}
-          className="absolute inset-x-0 top-full hidden border-b-2 border-abyss-900/10 bg-white shadow-card lg:block"
-        >
-          {openMenu === "produit" ? <ProduitPanel /> : <SolutionsPanel />}
-        </div>
-      ) : null}
-
-      {/* Full-screen mobile menu */}
+      {/* Mobile menu */}
       {mobileOpen ? <MobileNav /> : null}
     </header>
   );
 }
 
-function NavTrigger({
+function Dropdown({
   label,
   menuKey,
   open,
   setOpen,
   scheduleClose,
   cancelClose,
+  links,
 }: {
   label: string;
   menuKey: Exclude<MenuKey, null>;
@@ -176,9 +166,11 @@ function NavTrigger({
   setOpen: (key: MenuKey) => void;
   scheduleClose: () => void;
   cancelClose: () => void;
+  links: { label: string; href: string }[];
 }) {
   return (
     <li
+      className="relative"
       onMouseEnter={() => {
         cancelClose();
         setOpen(menuKey);
@@ -191,10 +183,10 @@ function NavTrigger({
         aria-haspopup="true"
         onClick={() => setOpen(open ? null : menuKey)}
         className={cn(
-          "flex items-center gap-1.5 border-b-2 px-3 py-2 text-sm font-medium transition-colors",
+          "flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors",
           open
-            ? "border-brand-500 text-abyss-900"
-            : "border-transparent text-slate-600 hover:text-abyss-900"
+            ? "bg-mist-100 text-abyss-900"
+            : "text-slate-600 hover:bg-mist-100 hover:text-abyss-900"
         )}
       >
         {label}
@@ -203,145 +195,31 @@ function NavTrigger({
           aria-hidden="true"
           className={cn("size-3 transition-transform", open && "rotate-180")}
         >
-          <path
-            d="M2.5 4.5L6 8l3.5-3.5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="square"
-          />
+          <path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
-    </li>
-  );
-}
 
-/* ————— Product panel: compact platform list · 5 agent tiles ·
-   full-width highlight band ————— */
-
-function ProduitPanel() {
-  const plateforme = produitColumns[0];
-  return (
-    <div className="container-site py-8">
-      <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,2.5fr)] gap-12">
-        <div className="border-r-2 border-abyss-900/10 pr-10">
-          <p className="eyebrow mb-4 text-slate-400">{plateforme.title}</p>
-          <ul className="-mx-3">
-            {plateforme.links.map((link) => (
+      {open ? (
+        <div
+          onMouseEnter={cancelClose}
+          onMouseLeave={scheduleClose}
+          className="absolute left-0 top-full w-64 pt-3"
+        >
+          <ul className="rounded-2xl bg-white p-2 shadow-[0_16px_50px_rgba(6,51,90,0.14)]">
+            {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="group flex items-center justify-between gap-3 px-3 py-2.5 text-sm font-medium text-abyss-900 transition-colors hover:bg-mist-100"
+                  className="block rounded-xl px-4 py-2.5 text-sm font-medium text-abyss-900 transition-colors hover:bg-mist-100"
                 >
                   {link.label}
-                  <span
-                    aria-hidden="true"
-                    className="text-brand-500 opacity-0 transition-opacity group-hover:opacity-100"
-                  >
-                    →
-                  </span>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
-
-        <div>
-          <p className="eyebrow mb-4 text-slate-400">The 5 agents</p>
-          <ul className="grid grid-cols-5 gap-3">
-            {AGENTS.map((agent) => (
-              <li key={agent.name}>
-                <Link
-                  href={agent.href}
-                  className="flex h-full flex-col items-center gap-2.5 border-2 border-abyss-900/10 px-3 py-4 text-center transition-colors hover:border-brand-500/50 hover:bg-mist-100"
-                >
-                  <AgentAvatar
-                    variant={agent.variant}
-                    color={agent.color}
-                    className="size-11"
-                  />
-                  <span className="text-sm font-medium text-abyss-900">
-                    {agent.name}
-                  </span>
-                  <span className="text-[11px] leading-snug text-slate-600">
-                    {agent.role}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Highlight band */}
-      <Link
-        href="/produit"
-        className="dark group mt-8 flex items-center justify-between gap-6 bg-abyss-900 px-6 py-4 transition-colors hover:bg-abyss-950"
-      >
-        <span className="flex items-baseline gap-4">
-          <span className="font-display text-sm font-semibold uppercase tracking-wide text-paper">
-            See. Act. Prove.
-          </span>
-          <span className="hidden text-caption text-sky-300 xl:inline">
-            Customer data on one side, in-store execution on the other — in a
-            single tool.
-          </span>
-        </span>
-        <span className="shrink-0 text-sm font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
-          Explore the platform →
-        </span>
-      </Link>
-    </div>
-  );
-}
-
-/* ————— Solutions panel: industry cards · highlight ————— */
-
-function SolutionsPanel() {
-  const secteurs = solutionsColumns[0];
-  return (
-    <div className="container-site grid grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-10 py-8">
-      <div>
-        <p className="eyebrow mb-4 text-slate-400">{secteurs.title}</p>
-        <ul className="grid grid-cols-2 gap-3">
-          {secteurs.links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="block border-2 border-abyss-900/10 px-4 py-3.5 transition-colors hover:border-brand-500/50 hover:bg-mist-100"
-              >
-                <span className="block text-sm font-medium text-abyss-900">
-                  {link.label}
-                </span>
-                {link.description ? (
-                  <span className="mt-0.5 block text-caption text-slate-600">
-                    {link.description}
-                  </span>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <Link
-        href="/clients"
-        className="dark group flex flex-col justify-between bg-abyss-900 p-6 transition-colors hover:bg-abyss-950"
-      >
-        <p className="eyebrow text-sky-500">Case studies</p>
-        <div>
-          <span className="font-display block text-xl font-semibold text-paper">
-            Brands like yours
-          </span>
-          <span className="mt-2 block text-caption leading-relaxed text-sky-300">
-            How they put their customer data to work, store by store.
-          </span>
-          <span className="mt-4 inline-block text-sm font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
-            Read the case studies →
-          </span>
-        </div>
-      </Link>
-    </div>
+      ) : null}
+    </li>
   );
 }
 
@@ -349,79 +227,53 @@ function MobileNav() {
   return (
     <div
       id="menu-mobile"
-      className="fixed inset-0 top-16 z-40 overflow-y-auto border-t-2 border-abyss-900/10 bg-white lg:hidden"
+      className="fixed inset-x-3 top-20 z-40 max-h-[calc(100svh-6rem)] overflow-y-auto rounded-3xl bg-white p-6 shadow-[0_24px_70px_rgba(6,51,90,0.2)] lg:hidden"
     >
-      <nav aria-label="Mobile navigation" className="container-site py-8">
-        <ul className="space-y-8">
-          <li>
-            <p className="eyebrow mb-3 text-slate-400">Product</p>
-            <ul className="space-y-0.5">
-              {produitColumns[0].links.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="block py-2 text-body-l text-abyss-900">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="eyebrow mb-2 mt-5 text-slate-400">The 5 agents</p>
-            <ul className="space-y-0.5">
-              {AGENTS.map((agent) => (
-                <li key={agent.name}>
-                  <Link
-                    href={agent.href}
-                    className="flex items-center gap-3 py-2 text-body-l text-abyss-900"
-                  >
-                    <AgentAvatar variant={agent.variant} color={agent.color} className="size-7" />
-                    {agent.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-          <li>
-            <p className="eyebrow mb-3 text-slate-400">Solutions</p>
-            <ul className="space-y-0.5">
-              {solutionsColumns[0].links.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="block py-2 text-body-l text-abyss-900">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-          {mainNav.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="font-display block py-1 text-2xl font-semibold text-abyss-900"
-              >
-                {item.label}
+      <nav aria-label="Mobile navigation">
+        <p className="px-2 pb-2 text-caption font-medium uppercase tracking-wide text-slate-400">
+          Product
+        </p>
+        <ul>
+          {[...produitColumns[0].links, { label: "The 5 agents", href: "/produit/agents" }].map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="block rounded-xl px-2 py-2 text-body font-medium text-abyss-900 hover:bg-mist-100">
+                {link.label}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="mt-10 space-y-3 border-t-2 border-abyss-900/10 pt-8">
-          <Link
-            href="/essai"
-            className="bg-gradient-brand notch-tr-bl block px-5 py-3 text-center font-medium text-paper"
-          >
-            Start for free
-          </Link>
-          <Link
-            href="/demo"
-            className="block border-2 border-abyss-900/25 px-5 py-3 text-center font-medium text-abyss-900"
-          >
-            Book a demo
-          </Link>
-          <Link
-            href="/connexion"
-            className="block px-5 py-3 text-center font-medium text-slate-600"
-          >
-            Log in
-          </Link>
-        </div>
+        <p className="px-2 pb-2 pt-4 text-caption font-medium uppercase tracking-wide text-slate-400">
+          Solutions
+        </p>
+        <ul>
+          {solutionsColumns[0].links.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="block rounded-xl px-2 py-2 text-body font-medium text-abyss-900 hover:bg-mist-100">
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-2 border-t border-abyss-900/10 pt-2">
+          {mainNav.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href} className="block rounded-xl px-2 py-2 text-body font-medium text-abyss-900 hover:bg-mist-100">
+                {item.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <Link href="/connexion" className="block rounded-xl px-2 py-2 text-body font-medium text-slate-600 hover:bg-mist-100">
+              Log in
+            </Link>
+          </li>
+        </ul>
+        <Link
+          href="/essai"
+          className="mt-4 block rounded-full bg-abyss-950 px-5 py-3 text-center text-sm font-medium text-paper"
+        >
+          Start for free
+        </Link>
       </nav>
     </div>
   );

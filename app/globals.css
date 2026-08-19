@@ -33,9 +33,11 @@
   /* Accent chaud unique — états d'alerte uniquement, jamais décoratif */
   --color-alert: #e8703a;
 
-  /* Typographie — Orbitron (display) + DM Sans (corps), charte */
+  /* Typographie v4 — DM Sans partout (référence template), Instrument
+     Serif italique pour le mot d'accent, Orbitron conservée (pages v3) */
   --font-display: var(--font-orbitron), system-ui, sans-serif;
   --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif-accent: var(--font-instrument-serif), Georgia, serif;
 
   --text-display-xl: clamp(2.75rem, 6vw, 5.5rem);
   --text-display-xl--line-height: 0.95;
@@ -111,14 +113,14 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  /* Blocs carrés — aucun arrondi (exception : icône du logo) */
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-  --radius-2xl: 0px;
-  --radius-3xl: 0px;
-  --radius-4xl: 0px;
+  /* DA v4 « SaaS airy » — tout en arrondi (référence rbp-saas-template) */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-3xl: 48px;
+  --radius-4xl: 56px;
 }
 
 /* Défaut = clair : le site vit sur Papier */
@@ -146,7 +148,7 @@
   --chart-3: #1a507c;
   --chart-4: #6a94d3;
   --chart-5: #a8c5e8;
-  --radius: 0px;
+  --radius: 1rem;
   --sidebar: #eef3fa;
   --sidebar-foreground: #000000;
   --sidebar-primary: #06335a;
@@ -203,11 +205,11 @@
   html {
     @apply font-sans scroll-smooth;
   }
-  /* Focus dessiné, arêtes dures — remplace l'outline par défaut */
+  /* Focus dessiné — remplace l'outline par défaut */
   :focus-visible {
     outline: 2px solid var(--color-brand-600);
     outline-offset: 3px;
-    border-radius: 0;
+    border-radius: 8px;
   }
   ::selection {
     background: var(--color-mist-200);
@@ -305,6 +307,23 @@
 
 /* ————— Intro : fond noir, le logo s'anime, le rideau se lève —————
    Jouée une fois par session (html[data-intro-seen] posé avant paint). */
+/* Marquee de logos — piste dupliquée, défilement continu */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mot d'accent du hero — serif italique (référence template) */
+@utility font-serif-accent {
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+  font-weight: 400;
+}
+
 @keyframes intro-pop {
   from {
     opacity: 0;

@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/marketing/hero";
-import { TeamStrip } from "@/components/marketing/team-strip";
-import { MechanismAccordion } from "@/components/marketing/mechanism-accordion";
-import { BentoGrid } from "@/components/marketing/bento-grid";
-import { BenchmarkChart } from "@/components/marketing/benchmark-chart";
-import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel";
-import { UseCases } from "@/components/marketing/use-cases";
-import { PricingTable } from "@/components/marketing/pricing-table";
-import { FaqAccordion } from "@/components/marketing/faq-accordion";
-import { CtaBanner } from "@/components/marketing/cta-banner";
+import { HeroSaas } from "@/components/home/hero-saas";
+import { WordReveal } from "@/components/home/word-reveal";
+import { FeatureBento } from "@/components/home/feature-bento";
+import { TestimonialTabs } from "@/components/home/testimonial-tabs";
+import { HowItWorks } from "@/components/home/how-it-works";
+import { PricingSaas } from "@/components/home/pricing-saas";
+import { FaqSaas } from "@/components/home/faq-saas";
 import { FAQ_ITEMS } from "@/lib/faq";
 
 export const metadata: Metadata = {
@@ -35,18 +32,8 @@ const jsonLd = {
       description:
         "Clienteling platform: single customer view, five AI agents, and retail execution management.",
       offers: [
-        {
-          "@type": "Offer",
-          name: "Boutique",
-          price: "0",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          name: "Network",
-          price: "290",
-          priceCurrency: "EUR",
-        },
+        { "@type": "Offer", name: "Boutique", price: "0", priceCurrency: "EUR" },
+        { "@type": "Offer", name: "Network", price: "290", priceCurrency: "EUR" },
       ],
     },
     {
@@ -67,16 +54,13 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Hero />
-      <TeamStrip />
-      <MechanismAccordion />
-      <BentoGrid />
-      <BenchmarkChart />
-      <TestimonialCarousel />
-      <UseCases />
-      <PricingTable />
-      <FaqAccordion />
-      <CtaBanner />
+      <HeroSaas />
+      <WordReveal />
+      <FeatureBento />
+      <TestimonialTabs />
+      <HowItWorks />
+      <PricingSaas />
+      <FaqSaas />
     </>
   );
 }
