@@ -2,15 +2,15 @@ import { SectionHeading } from "@/components/marketing/section-heading";
 import { Reveal } from "@/components/marketing/reveal";
 import { AGENTS, AgentAvatar } from "@/components/marketing/agent-avatar";
 
-/** Page produit — les 5 agents en cartes détaillées. */
+/** Product page — the 5 agents as detailed cards. */
 export function AgentCards() {
   return (
     <section id="agents" className="bg-paper py-20 lg:py-32">
       <div className="container-site">
         <SectionHeading
-          eyebrow="Les 5 agents"
-          title="Une équipe qui travaille pendant la vente"
-          intro="Chaque agent a un métier. Ensemble, ils couvrent le cycle complet : voir, décider, écrire, orchestrer, exécuter."
+          eyebrow="The 5 agents"
+          title="A team that works while you sell"
+          intro="Each agent has a job. Together they cover the full cycle: see, decide, write, orchestrate, execute."
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {AGENTS.map((agent, i) => (

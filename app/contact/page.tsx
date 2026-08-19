@@ -7,16 +7,16 @@ import { EnveloppeMotif } from "@/components/marketing/hero-motifs";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Écrivez-nous : démo, partenariat, presse ou question produit. Réponse en une journée ouvrée.",
+    "Write to us: demo, partnership, press or product question. Reply within one business day.",
 };
 
 const COORDONNEES = [
-  ["Général", "contact@eyeconic.example.com [À valider]"],
-  ["Presse", "presse@eyeconic.example.com [À valider]"],
-  ["Adresse", "[Adresse à valider] — Paris, France"],
+  ["General", "contact@eyeconic.example.com [To validate]"],
+  ["Press", "press@eyeconic.example.com [To validate]"],
+  ["Address", "[Address to validate] — Paris, France"],
 ] as const;
 
-/* Design propre à la page : minimal, coordonnées sur filets + formulaire. */
+/* Page-specific design: minimal, contact details on rules + form. */
 export default function ContactPage() {
   return (
     <div className="relative overflow-hidden bg-paper pt-16">
@@ -28,11 +28,11 @@ export default function ContactPage() {
             Contact
           </p>
           <h1 className="font-display text-display-l text-abyss-900">
-            On répond en une journée.
+            We reply within a day.
           </h1>
           <p className="mt-4 max-w-md text-body-l text-slate-600">
-            Démo, partenariat, presse ou question produit : écrivez-nous, un
-            humain répond.
+            Demo, partnership, press or product question: write to us, a
+            human replies.
           </p>
 
           <dl className="mt-10 border-t-2 border-abyss-900/10">
@@ -52,8 +52,8 @@ export default function ContactPage() {
           <div className="mt-10">
             <QrBlock
               path="/contact"
-              title="Continuer sur mobile"
-              caption="Scannez pour ouvrir cette page sur votre téléphone."
+              title="Continue on mobile"
+              caption="Scan to open this page on your phone."
             />
           </div>
         </div>

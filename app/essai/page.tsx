@@ -5,9 +5,9 @@ import { EssaiForm } from "@/components/marketing/lead-forms";
 import { EssaiMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Essai gratuit",
+  title: "Start for free",
   description:
-    "Créez votre espace Eyeconic en self-service : plan Boutique gratuit, sans carte bancaire, données hébergées en UE.",
+    "Create your Eyeconic workspace in self-service: free Boutique plan, no credit card, data hosted in the EU.",
 };
 
 export default async function EssaiPage({ searchParams }: PageProps<"/essai">) {
@@ -23,14 +23,14 @@ export default async function EssaiPage({ searchParams }: PageProps<"/essai">) {
         <div className="w-full max-w-md">
           <p className="eyebrow mb-4 flex items-center justify-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Essai gratuit
+            Start for free
           </p>
           <h1 className="font-display text-display-l text-center text-abyss-900">
-            Deux champs, et c&apos;est ouvert.
+            Two fields, and you&apos;re in.
           </h1>
           <p className="mt-4 text-center text-body-l text-slate-600">
-            Le plan Boutique est gratuit : 1 point de vente, 3 conseillers,
-            5 000 crédits IA par mois.
+            The Boutique plan is free: 1 location, 3 advisors, 5,000 AI
+            credits per month.
           </p>
 
           <div className="mt-10 border-2 border-abyss-900/15 bg-white p-6 shadow-card sm:p-8">
@@ -40,8 +40,8 @@ export default async function EssaiPage({ searchParams }: PageProps<"/essai">) {
           <div className="mt-8">
             <QrBlock
               path="/essai"
-              title="Ouvrir sur mobile"
-              caption="Scannez pour créer votre espace depuis votre téléphone."
+              title="Open on mobile"
+              caption="Scan to create your workspace from your phone."
             />
           </div>
         </div>

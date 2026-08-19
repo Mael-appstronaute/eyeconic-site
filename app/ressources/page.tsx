@@ -5,39 +5,39 @@ import { CtaBanner } from "@/components/marketing/cta-banner";
 import { PilesMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Ressources",
+  title: "Resources",
   description:
-    "Analyses retail et CRM, calculateur de ROI, études de cas et documentation sécurité : le hub ressources d'Eyeconic.",
+    "Retail and CRM insights, ROI calculator, case studies and security documentation: the Eyeconic resource hub.",
 };
 
 const RESSOURCES = [
   {
     tag: "Blog",
-    title: "Analyses retail et CRM",
-    desc: "Le clienteling, la first-party data et l'exécution en boutique, une fois par mois.",
+    title: "Retail & CRM insights",
+    desc: "Clienteling, first-party data and in-store execution, once a month.",
     href: "/ressources/blog",
   },
   {
-    tag: "Outil",
-    title: "Calculateur de ROI",
-    desc: "Vos hypothèses, un calcul transparent : ce que la relance peut rapporter à votre réseau.",
+    tag: "Tool",
+    title: "ROI calculator",
+    desc: "Your assumptions, transparent math: what outreach can bring to your network.",
     href: "/ressources/calculateur-roi",
   },
   {
-    tag: "Preuves",
-    title: "Études de cas",
-    desc: "Comment des marques font travailler leur donnée client, boutique par boutique.",
+    tag: "Proof",
+    title: "Case studies",
+    desc: "How brands put their customer data to work, store by store.",
     href: "/clients",
   },
   {
-    tag: "Confiance",
-    title: "Sécurité et RGPD",
-    desc: "Hébergement UE, chiffrement, conformité : la fiche technique complète.",
+    tag: "Trust",
+    title: "Security & GDPR",
+    desc: "EU hosting, encryption, compliance: the full spec sheet.",
     href: "/securite",
   },
 ];
 
-/* Design propre à la page : index éditorial en deux colonnes larges. */
+/* Page-specific design: editorial index in two wide columns. */
 export default function RessourcesPage() {
   return (
     <div className="pt-16">
@@ -46,10 +46,10 @@ export default function RessourcesPage() {
         <div className="container-site relative py-16 lg:py-24">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Ressources
+            Resources
           </p>
           <h1 className="font-display text-display-l max-w-3xl text-balance text-abyss-900">
-            De quoi décider, pas juste lire.
+            Enough to decide, not just to read.
           </h1>
         </div>
       </section>
@@ -68,7 +68,7 @@ export default function RessourcesPage() {
               </h2>
               <p className="mt-3 grow text-body text-slate-600">{r.desc}</p>
               <span className="mt-6 text-sm font-medium text-brand-600 transition-transform group-hover:translate-x-0.5">
-                Consulter →
+                Open →
               </span>
             </Link>
           ))}

@@ -1,10 +1,9 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Les 5 agents — identité partagée (bento, méga menu, page produit).
- * Teintes de l'échelle de marque du plus clair (Iris) au plus profond
- * (Focus) ; une silhouette distincte par agent : une équipe, pas un
- * picto répété.
+ * The 5 agents — shared identity (bento, mega menu, product pages).
+ * Brand-scale tints from lightest (Iris) to deepest (Focus); one
+ * distinct silhouette per agent: a team, not a repeated icon.
  */
 export const AGENTS = [
   {
@@ -12,56 +11,56 @@ export const AGENTS = [
     slug: "iris",
     color: "#7fb0e5",
     variant: "bob",
-    role: "Construit et enrichit la vue client unique",
+    role: "Builds and enriches the single customer view",
     href: "/produit/agents/iris",
     detail:
-      "Rassemble chaque achat, message, essayage et rendez-vous depuis vos boutiques, votre site, votre POS et vos messageries — y compris ce qui n'avait jamais été saisi nulle part — et le tient à jour en continu.",
+      "Gathers every purchase, message, fitting and appointment from your stores, your site, your POS and your messaging apps — including what had never been logged anywhere — and keeps it continuously up to date.",
   },
   {
     name: "Signal",
     slug: "signal",
     color: "#4c92da",
     variant: "court",
-    role: "Détecte les intentions d'achat et les clients qui décrochent",
+    role: "Detects buying intent and clients drifting away",
     href: "/produit/agents/signal",
     detail:
-      "Surveille les signaux d'intention : une fiche produit revue deux fois, un réachat habituel dépassé, une VIC qui s'éloigne. Il alerte le bon conseiller avant que l'occasion ne passe.",
+      "Watches for intent signals: a product page viewed twice, a usual repurchase overdue, a VIC drifting away. It alerts the right advisor before the moment passes.",
   },
   {
-    name: "Écho",
+    name: "Echo",
     slug: "echo",
     color: "#6a94d3",
     variant: "chignon",
-    role: "Rédige le message, dans la voix du conseiller",
+    role: "Drafts the message, in the advisor's voice",
     href: "/produit/agents/echo",
     detail:
-      "Prépare le message dans la voix du conseiller, sur le canal que le client utilise vraiment — WhatsApp, SMS, WeChat, LINE ou e-mail. Le conseiller garde la main : il relit, ajuste, envoie.",
+      "Prepares the message in the advisor's own voice, on the channel the client actually uses — WhatsApp, SMS, WeChat, LINE or email. The advisor stays in charge: they review, adjust, send.",
   },
   {
-    name: "Prisme",
+    name: "Prism",
     slug: "prisme",
     color: "#2f6fae",
     variant: "nu",
-    role: "Orchestre les campagnes et les segments",
+    role: "Orchestrates campaigns and segments",
     href: "/produit/agents/prisme",
     detail:
-      "Orchestre les campagnes et les segments : il assemble les bonnes audiences à partir de la vue client et distribue le travail aux boutiques, sans export ni tableur.",
+      "Orchestrates campaigns and segments: it assembles the right audiences from the customer view and distributes the work to stores — no exports, no spreadsheets.",
   },
   {
     name: "Focus",
     slug: "focus",
     color: "#1a507c",
     variant: "long",
-    role: "Priorise la journée de chaque conseiller",
+    role: "Prioritizes each advisor's day",
     href: "/produit/agents/focus",
     detail:
-      "Compose la journée de chaque conseiller avant l'ouverture : qui rappeler, dans quel ordre, pourquoi. Puis il suit l'exécution et fait remonter ce qui bloque.",
+      "Builds each advisor's day before the store opens: who to call back, in what order, and why. Then it tracks execution and surfaces whatever is stuck.",
   },
 ] as const;
 
 export type AgentVariant = (typeof AGENTS)[number]["variant"];
 
-/* Silhouettes blanches, bas de cadre = épaules */
+/* White silhouettes, frame bottom = shoulders */
 const SHAPES: Record<AgentVariant, React.ReactNode> = {
   bob: (
     <>

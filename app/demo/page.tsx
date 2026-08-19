@@ -5,16 +5,16 @@ import { DemoForm } from "@/components/marketing/lead-forms";
 import { EcranMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Réserver une démo",
+  title: "Book a demo",
   description:
-    "Voyez vos propres données pendant la démo : connectez une boutique, importez un export, et regardez ce qu'Eyeconic en tire. Sans engagement.",
+    "See your own data during the demo: connect a store, import an export, and watch what Eyeconic makes of it. No commitment.",
 };
 
 const REASSURANCE = [
-  "Démo sur vos données, pas sur un jeu de démonstration",
-  "45 minutes, avec un spécialiste retail",
-  "Opérationnel en 7 jours, sans remplacer l'existant",
-  "Données hébergées en Europe, RGPD par conception",
+  "A demo on your data, not on a demo dataset",
+  "45 minutes, with a retail specialist",
+  "Live in 7 days, without replacing your stack",
+  "Data hosted in Europe, GDPR by design",
 ];
 
 export default async function DemoPage({ searchParams }: PageProps<"/demo">) {
@@ -28,14 +28,14 @@ export default async function DemoPage({ searchParams }: PageProps<"/demo">) {
         <div>
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Réserver une démo
+            Book a demo
           </p>
           <h1 className="font-display text-display-l text-abyss-900">
-            Voyez vos propres données pendant la démo.
+            See your own data during the demo.
           </h1>
           <p className="mt-5 text-body-l text-slate-600">
-            Connectez une boutique, importez un export, et regardez ce
-            qu&apos;Eyeconic en tire. Sans engagement.
+            Connect a store, import an export, and watch what Eyeconic makes
+            of it. No commitment.
           </p>
 
           <ul className="mt-8 space-y-3">
@@ -52,7 +52,7 @@ export default async function DemoPage({ searchParams }: PageProps<"/demo">) {
           </div>
         </div>
 
-        <div className="border-2 border-abyss-900/15 bg-white p-6 shadow-card lg:p-10">
+        <div className="h-fit border-2 border-abyss-900/15 bg-white p-6 shadow-card lg:p-10">
           <DemoForm source={source} />
         </div>
       </div>

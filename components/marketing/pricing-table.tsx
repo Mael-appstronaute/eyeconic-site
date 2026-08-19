@@ -6,76 +6,76 @@ import { CreditsExplainer } from "@/components/marketing/credits-explainer";
 const PLANS = [
   {
     name: "Boutique",
-    price: "Gratuit",
+    price: "Free",
     priceNote: null,
-    audience: "1 point de vente, jusqu'à 3 conseillers",
-    cta: { label: "Démarrer gratuitement", href: "/essai" },
-    lead: "Inclus",
+    audience: "1 location, up to 3 advisors",
+    cta: { label: "Start for free", href: "/essai" },
+    lead: "Included",
     features: [
-      "Vue client unique",
-      "SMS et e-mail",
-      "Tâches quotidiennes",
-      "Connecteur Shopify",
-      "5 000 crédits IA/mois",
+      "Single customer view",
+      "SMS and email",
+      "Daily tasks",
+      "Shopify connector",
+      "5,000 AI credits/month",
     ],
     featured: false,
   },
   {
-    name: "Réseau",
-    price: "290 €",
-    priceNote: "/mois",
-    audience: "2 à 50 boutiques",
-    cta: { label: "Démarrer l'essai", href: "/essai" },
-    lead: "Tout Boutique, plus",
+    name: "Network",
+    price: "€290",
+    priceNote: "/month",
+    audience: "2 to 50 stores",
+    cta: { label: "Start your trial", href: "/essai" },
+    lead: "Everything in Boutique, plus",
     features: [
-      "WhatsApp et WeChat",
-      "Les 5 agents IA",
-      "Agents personnalisés",
-      "Attribution avancée",
-      "Workflows et validations",
-      "CSM dédié",
-      "250 000 crédits IA/mois",
+      "WhatsApp and WeChat",
+      "All 5 AI agents",
+      "Custom agents",
+      "Advanced attribution",
+      "Workflows and approvals",
+      "Dedicated CSM",
+      "250,000 AI credits/month",
     ],
     featured: true,
   },
   {
     name: "Maison",
-    price: "Sur devis",
+    price: "Custom",
     priceNote: null,
-    audience: "Réseaux internationaux",
-    cta: { label: "Demander un devis", href: "/demo" },
-    lead: "Tout Réseau, plus",
+    audience: "International networks",
+    cta: { label: "Request a quote", href: "/demo" },
+    lead: "Everything in Network, plus",
     features: [
       "SLA",
-      "API prioritaire",
+      "Priority API",
       "SSO/SCIM",
-      "Hébergement dédié",
-      "Support US/UE/Asie",
-      "Crédits sur mesure",
+      "Dedicated hosting",
+      "US/EU/Asia support",
+      "Tailored credits",
     ],
     featured: false,
   },
 ];
 
 const FOOTNOTES = [
-  "Utilisateurs illimités sur tous les plans",
-  "Aucune limite de données, de SKU ou de sources",
-  "Synchronisation bidirectionnelle",
-  "Hébergement UE",
-  "Onboarding inclus",
+  "Unlimited users on every plan",
+  "No limits on data, SKUs or sources",
+  "Two-way sync",
+  "EU hosting",
+  "Onboarding included",
 ];
 
-/** Section 9 — tarifs. Des prix publics, en euros : c'est un différenciant.
- * `withHeading=false` quand la page fournit déjà son propre hero. */
+/** Section 9 — pricing. Public prices, in euros: it's a differentiator.
+ * `withHeading=false` when the page provides its own hero. */
 export function PricingTable({ withHeading = true }: { withHeading?: boolean }) {
   return (
     <section id="tarifs" className="bg-paper py-20 lg:py-32">
       <div className="container-site">
         {withHeading ? (
           <SectionHeading
-            eyebrow="Tarifs"
-            title="Des prix publics, en euros"
-            intro="Un plan gratuit, un essai en self-service, une facturation aux crédits IA — pas au siège."
+            eyebrow="Pricing"
+            title="Public pricing, in euros"
+            intro="A free plan, a self-service trial, and billing by AI credits — not by seat."
           />
         ) : null}
 
@@ -84,7 +84,7 @@ export function PricingTable({ withHeading = true }: { withHeading?: boolean }) 
             <article
               key={plan.name}
               className={cn(
-                "flex flex-col rounded-xl p-7 lg:p-8",
+                "flex flex-col p-7 lg:p-8",
                 plan.featured
                   ? "dark bg-abyss-900 text-paper shadow-card-hover lg:-my-4 lg:py-12"
                   : "border-2 border-abyss-900/15 bg-white shadow-card"
@@ -101,7 +101,7 @@ export function PricingTable({ withHeading = true }: { withHeading?: boolean }) 
                 </p>
                 {plan.featured ? (
                   <span className="bg-gradient-brand px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-paper">
-                    Recommandé
+                    Recommended
                   </span>
                 ) : null}
               </div>
@@ -126,7 +126,7 @@ export function PricingTable({ withHeading = true }: { withHeading?: boolean }) 
                     plan.featured ? "text-sky-300/70" : "text-slate-400"
                   )}
                 >
-                  [Prix à valider]
+                  [Price to validate]
                 </p>
               ) : null}
               <p

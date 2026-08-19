@@ -5,15 +5,14 @@ import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/marketing/section-heading";
 
 /**
- * Section 7 — témoignages. Marques FICTIVES avec logotypes dessinés,
- * avis rédigés et KPI fictifs (mention « illustratifs » affichée).
- * Ne jamais utiliser de vraies entreprises ni de vrais logos :
- * fausse recommandation + usage de marque = risque juridique.
+ * Section 7 — testimonials. FICTIONAL brands with drawn wordmarks,
+ * written quotes and fictional KPIs ("illustrative" note displayed).
+ * Never use real companies or logos: false endorsement + trademark risk.
  */
 const TESTIMONIALS = [
   {
     brand: "Maison Séverin",
-    sector: "Joaillerie — 14 boutiques",
+    sector: "Fine jewelry — 14 boutiques",
     logo: (
       <span className="flex items-center gap-2.5">
         <span aria-hidden="true" className="size-2.5 rotate-45 bg-abyss-900" />
@@ -23,17 +22,17 @@ const TESTIMONIALS = [
       </span>
     ),
     quote:
-      "Nos conseillères savaient déjà tout de leurs clientes — mais tout était dans leurs carnets. Aujourd'hui, chaque signal remonte, et la relation ne dépend plus de la mémoire d'une seule personne.",
+      "Our advisors already knew everything about their clients — but it all lived in their notebooks. Today every signal surfaces, and the relationship no longer depends on one person's memory.",
     name: "Claire Vasseur",
-    role: "Directrice CRM",
+    role: "CRM Director",
     kpis: [
-      { value: "+38 %", label: "Taux de réponse aux messages" },
-      { value: "×2,3", label: "Réachat des clientes VIC" },
+      { value: "+38%", label: "Message response rate" },
+      { value: "×2.3", label: "VIC repeat purchases" },
     ],
   },
   {
     brand: "ORVEA Paris",
-    sector: "Mode premium — 46 boutiques",
+    sector: "Premium fashion — 46 stores",
     logo: (
       <span className="flex items-center gap-2">
         <span
@@ -48,17 +47,17 @@ const TESTIMONIALS = [
       </span>
     ),
     quote:
-      "On mesurait le trafic, jamais la relation. Eyeconic attribue chaque vente au message qui l'a déclenchée : le clienteling est passé d'un acte de foi à une ligne du reporting.",
+      "We measured traffic, never the relationship. Eyeconic attributes every sale to the message that triggered it: clienteling went from an act of faith to a line in the reporting.",
     name: "Marc-Antoine Lefebvre",
-    role: "Directeur Retail Europe",
+    role: "Retail Director, Europe",
     kpis: [
-      { value: "+27 %", label: "CA attribué au clienteling" },
-      { value: "92 %", label: "Adoption par les conseillers" },
+      { value: "+27%", label: "Revenue attributed to clienteling" },
+      { value: "92%", label: "Advisor adoption" },
     ],
   },
   {
     brand: "Linéa Beauté",
-    sector: "Beauté & spa — 28 points de vente",
+    sector: "Beauty & spa — 28 locations",
     logo: (
       <span className="flex items-center gap-2.5">
         <span aria-hidden="true" className="h-4 w-1 bg-abyss-900" />
@@ -68,23 +67,20 @@ const TESTIMONIALS = [
       </span>
     ),
     quote:
-      "Le pilote portait sur trois instituts. Six semaines plus tard, les autres directrices demandaient l'outil — personne ne veut être la boutique qui rappelle ses clientes en dernier.",
+      "The pilot covered three spas. Six weeks later, the other directors were asking for the tool — nobody wants to be the location that calls its clients back last.",
     name: "Sofia Andrade",
     role: "Head of Client Experience",
     kpis: [
-      { value: "+45 %", label: "Rendez-vous pris en institut" },
-      { value: "−22 %", label: "Clientes sans contact depuis 90 j" },
+      { value: "+45%", label: "Appointments booked" },
+      { value: "−22%", label: "Clients uncontacted for 90 days" },
     ],
   },
   {
     brand: "Groupe Delcourt",
-    sector: "Groupe de luxe international — 214 boutiques, 12 pays",
+    sector: "Global luxury group — 214 boutiques, 12 countries",
     logo: (
       <span className="flex items-center gap-3">
-        <span
-          aria-hidden="true"
-          className="grid grid-cols-2 gap-[3px]"
-        >
+        <span aria-hidden="true" className="grid grid-cols-2 gap-[3px]">
           <span className="size-1.5 bg-abyss-900" />
           <span className="size-1.5 bg-abyss-900" />
           <span className="size-1.5 bg-abyss-900" />
@@ -96,17 +92,17 @@ const TESTIMONIALS = [
       </span>
     ),
     quote:
-      "Nous avons comparé quatre plateformes sur un trimestre. Eyeconic est la seule que les équipes ont continué d'ouvrir une fois le pilote terminé — le reste n'était que des CRM avec un autre nom.",
+      "We benchmarked four platforms over a quarter. Eyeconic is the only one our teams kept opening once the pilot ended — the rest were just CRMs under another name.",
     name: "Isabelle Franchi",
-    role: "Chief Client Officer, Groupe",
+    role: "Chief Client Officer, Group",
     kpis: [
-      { value: "+31 %", label: "CA attribué, périmètre Europe" },
-      { value: "11 sem.", label: "Déploiement sur 214 boutiques" },
+      { value: "+31%", label: "Attributed revenue, Europe" },
+      { value: "11 wks", label: "Rollout across 214 boutiques" },
     ],
   },
   {
     brand: "Aurige",
-    sector: "Horlogerie suisse — 37 boutiques et corners",
+    sector: "Swiss watchmaking — 37 boutiques and corners",
     logo: (
       <span className="flex items-center gap-2.5">
         <svg viewBox="0 0 20 20" className="size-5 text-abyss-900" aria-hidden="true">
@@ -119,12 +115,12 @@ const TESTIMONIALS = [
       </span>
     ),
     quote:
-      "Un client de montre revient tous les quatre ou cinq ans. Sans mémoire d'entreprise, cette relation n'existe pas. Eyeconic est devenu cette mémoire, et le rendez-vous suivant part de là.",
+      "A watch client comes back every four or five years. Without institutional memory, that relationship doesn't exist. Eyeconic became that memory — and the next appointment starts from there.",
     name: "Thomas Berthoud",
-    role: "Directeur Retail Monde",
+    role: "Global Retail Director",
     kpis: [
-      { value: "×1,8", label: "Rendez-vous atelier générés" },
-      { value: "68 %", label: "Clients VIC recontactés au trimestre" },
+      { value: "×1.8", label: "Workshop appointments generated" },
+      { value: "68%", label: "VICs recontacted each quarter" },
     ],
   },
 ];
@@ -137,8 +133,8 @@ export function TestimonialCarousel() {
     <section id="temoignages" className="bg-paper py-20 lg:py-32">
       <div className="container-site">
         <SectionHeading
-          eyebrow="Ils vendent par la relation"
-          title="Ce que les équipes en disent"
+          eyebrow="They sell through relationships"
+          title="What the teams say"
           align="center"
         />
 
@@ -152,7 +148,7 @@ export function TestimonialCarousel() {
               <p className="text-caption text-slate-400">{t.sector}</p>
             </div>
             <blockquote className="mt-8">
-              <p className="text-h3 font-light text-abyss-900">« {t.quote} »</p>
+              <p className="text-h3 font-light text-abyss-900">“{t.quote}”</p>
             </blockquote>
             <p className="mt-6 text-caption font-medium uppercase tracking-wide text-slate-600">
               {t.name} — {t.role}, {t.brand}
@@ -171,14 +167,14 @@ export function TestimonialCarousel() {
             </div>
           </div>
 
-          {/* Commandes */}
+          {/* Controls */}
           <div className="mt-6 flex items-center justify-center gap-4">
             <button
               type="button"
               onClick={() =>
                 setIndex((index + TESTIMONIALS.length - 1) % TESTIMONIALS.length)
               }
-              aria-label="Témoignage précédent"
+              aria-label="Previous testimonial"
               className="flex size-11 items-center justify-center border-2 border-abyss-900/20 text-abyss-900 transition-colors hover:border-abyss-900/40 hover:bg-white"
             >
               <svg viewBox="0 0 16 16" className="size-4" aria-hidden="true">
@@ -199,7 +195,7 @@ export function TestimonialCarousel() {
             <button
               type="button"
               onClick={() => setIndex((index + 1) % TESTIMONIALS.length)}
-              aria-label="Témoignage suivant"
+              aria-label="Next testimonial"
               className="flex size-11 items-center justify-center border-2 border-abyss-900/20 text-abyss-900 transition-colors hover:border-abyss-900/40 hover:bg-white"
             >
               <svg viewBox="0 0 16 16" className="size-4" aria-hidden="true">
@@ -209,7 +205,7 @@ export function TestimonialCarousel() {
           </div>
 
           <p className="mt-4 text-center text-[11px] uppercase tracking-wide text-slate-400">
-            Exemples illustratifs — marques et chiffres fictifs
+            Illustrative examples — fictional brands and figures
           </p>
         </div>
       </div>

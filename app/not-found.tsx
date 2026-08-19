@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { Spark } from "@/components/marketing/spark";
 import { PixelButton } from "@/components/marketing/pixel-button";
 
 /**
- * 404 propre — sert aussi de page d'attente pour les liens du footer
- * dont les pages ne sont pas encore construites.
+ * Clean 404 — also serves as the holding page for footer links whose
+ * pages aren't built yet.
  */
 export default function NotFound() {
   return (
@@ -12,24 +11,24 @@ export default function NotFound() {
       <div className="container-site flex min-h-[60svh] flex-col items-center justify-center py-24 text-center">
         <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
           <Spark className="size-2.5" />
-          Page introuvable
+          Page not found
         </p>
         <h1 className="font-display text-display-l max-w-2xl text-balance text-abyss-900">
-          Cette page n&apos;existe pas encore.
+          This page doesn&apos;t exist yet.
         </h1>
         <p className="mt-5 max-w-md text-body-l text-slate-600">
-          Le site est en construction : cette section arrive. En attendant,
-          voici les bons points d&apos;entrée.
+          The site is under construction: this section is on its way. In the
+          meantime, here are the right places to start.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <PixelButton href="/" variant="brand">
-            Retour à l&apos;accueil
+            Back to home
           </PixelButton>
           <PixelButton href="/tarifs" variant="outline">
-            Voir les tarifs
+            See pricing
           </PixelButton>
           <PixelButton href="/demo" variant="outline">
-            Réserver une démo
+            Book a demo
           </PixelButton>
         </div>
       </div>

@@ -2,16 +2,16 @@ import { MockupFrame } from "./mockup-frame";
 import { cn } from "@/lib/utils";
 
 const TASKS = [
-  { label: "Rappeler Camille Morel — signal manteau", tag: "Priorité Focus", done: false, hot: true },
-  { label: "Relance réachat — Sofiane Benali", tag: "Écho a préparé le message", done: false, hot: false },
-  { label: "Confirmer le rendez-vous de 15 h", tag: "Agenda", done: true, hot: false },
-  { label: "Retour client — validation directrice", tag: "En validation", done: false, hot: false },
+  { label: "Call back Camille Morel — coat signal", tag: "Focus priority", done: false, hot: true },
+  { label: "Repurchase follow-up — Sofiane Benali", tag: "Echo has drafted the message", done: false, hot: false },
+  { label: "Confirm the 3 pm appointment", tag: "Calendar", done: true, hot: false },
+  { label: "Client return — manager approval", tag: "Pending approval", done: false, hot: false },
 ];
 
-/** Mockup — la journée d'un conseiller, priorisée par Focus. */
+/** Mockup — an advisor's day, prioritized by Focus. */
 export function TaskList({ className }: { className?: string }) {
   return (
-    <MockupFrame title="Journée du conseiller — Focus" className={className}>
+    <MockupFrame title="Advisor's day — Focus" className={className}>
       <ul className="space-y-2">
         {TASKS.map((t) => (
           <li
@@ -26,7 +26,7 @@ export function TaskList({ className }: { className?: string }) {
             <span
               aria-hidden="true"
               className={cn(
-                "mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-sm border",
+                "mt-0.5 flex size-4 shrink-0 items-center justify-center border",
                 t.done
                   ? "border-brand-500 bg-brand-500"
                   : "border-slate-400/60 bg-white"

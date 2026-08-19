@@ -5,32 +5,32 @@ import { AGENTS, AgentAvatar } from "@/components/marketing/agent-avatar";
 import { PixelButton } from "@/components/marketing/pixel-button";
 import { CtaBanner } from "@/components/marketing/cta-banner";
 
-/* Ce que chaque agent produit concrètement, en trois temps */
+/* What each agent concretely delivers, in three beats */
 const MISSIONS: Record<string, [string, string][]> = {
   iris: [
-    ["Connecte", "Boutiques, e-commerce, POS, messageries : toutes les sources, synchronisées dans les deux sens."],
-    ["Fusionne", "Un même client sur trois systèmes devient une seule fiche, sans doublon."],
-    ["Enrichit", "Chaque interaction nouvelle complète la fiche, y compris ce qui venait d'un carnet."],
+    ["Connects", "Stores, e-commerce, POS, messaging apps: every source, synced both ways."],
+    ["Merges", "The same client across three systems becomes a single profile, no duplicates."],
+    ["Enriches", "Every new interaction completes the profile — including what came from a notebook."],
   ],
   signal: [
-    ["Observe", "Navigation, réachats, rythmes d'achat, silences : les signaux faibles de chaque client."],
-    ["Qualifie", "Intention d'achat ou risque de décrochage — avec la raison, pas juste un score."],
-    ["Alerte", "Le bon conseiller est prévenu au bon moment, dans sa journée Focus."],
+    ["Watches", "Browsing, repurchases, buying rhythms, silences: each client's weak signals."],
+    ["Qualifies", "Buying intent or churn risk — with the reason, not just a score."],
+    ["Alerts", "The right advisor is notified at the right time, inside their Focus day."],
   ],
   echo: [
-    ["Écoute", "Le style de chaque conseiller : ses tournures, sa relation avec ce client."],
-    ["Rédige", "Un brouillon dans sa voix, sur le canal que le client utilise vraiment."],
-    ["S'efface", "Le conseiller relit, ajuste, envoie. Rien ne part sans lui."],
+    ["Listens", "Each advisor's style: their phrasing, their relationship with this client."],
+    ["Drafts", "A message in their voice, on the channel the client actually uses."],
+    ["Steps back", "The advisor reviews, adjusts, sends. Nothing goes out without them."],
   ],
   prisme: [
-    ["Segmente", "Les audiences se construisent depuis la vue client, sans export ni tableur."],
-    ["Orchestre", "La campagne devient des tâches distribuées aux bonnes boutiques."],
-    ["Mesure", "Chaque campagne alimente l'attribution — on sait ce qu'elle a rapporté."],
+    ["Segments", "Audiences are built from the customer view — no exports, no spreadsheets."],
+    ["Orchestrates", "The campaign becomes tasks distributed to the right stores."],
+    ["Measures", "Every campaign feeds attribution — you know what it brought in."],
   ],
   focus: [
-    ["Priorise", "Chaque matin, la journée de chaque conseiller : qui rappeler, dans quel ordre, pourquoi."],
-    ["Suit", "Ce qui est fait, ce qui attend, ce qui bloque — sans réclamer de reporting."],
-    ["Apprend", "Ce qui a fonctionné hier pèse sur les priorités de demain."],
+    ["Prioritizes", "Every morning, each advisor's day: who to call back, in what order, why."],
+    ["Tracks", "What's done, what's waiting, what's stuck — without chasing reports."],
+    ["Learns", "What worked yesterday weighs on tomorrow's priorities."],
   ],
 };
 
@@ -45,12 +45,12 @@ export async function generateMetadata({
   const agent = AGENTS.find((a) => a.slug === slug);
   if (!agent) return {};
   return {
-    title: `${agent.name} — agent IA`,
-    description: `${agent.name} : ${agent.role.toLowerCase()}.`,
+    title: `${agent.name} — AI agent`,
+    description: `${agent.name}: ${agent.role.toLowerCase()}.`,
   };
 }
 
-/* Design propre à la page : hero teinté à la couleur de l'agent. */
+/* Page-specific design: hero tinted with the agent's color. */
 export default async function AgentPage({
   params,
 }: PageProps<"/produit/agents/[slug]">) {
@@ -61,7 +61,7 @@ export default async function AgentPage({
 
   return (
     <div className="pt-16">
-      {/* Hero à l'accent de l'agent */}
+      {/* Hero in the agent's accent */}
       <section style={{ backgroundColor: `${agent.color}1f` }}>
         <div
           aria-hidden="true"
@@ -75,7 +75,7 @@ export default async function AgentPage({
             className="size-24 shrink-0 sm:size-32"
           />
           <div>
-            <p className="eyebrow text-brand-700">Agent Eyeconic</p>
+            <p className="eyebrow text-brand-700">Eyeconic agent</p>
             <h1 className="font-display text-display-l mt-2 text-abyss-900">
               {agent.name}
             </h1>
@@ -104,9 +104,9 @@ export default async function AgentPage({
             ))}
           </div>
 
-          {/* Les autres agents */}
+          {/* The other agents */}
           <div className="mt-14 border-t-2 border-abyss-900/10 pt-8">
-            <p className="eyebrow mb-4 text-slate-400">Travaille avec</p>
+            <p className="eyebrow mb-4 text-slate-400">Works with</p>
             <ul className="flex flex-wrap gap-3">
               {others.map((other) => (
                 <li key={other.slug}>
@@ -124,10 +124,10 @@ export default async function AgentPage({
 
           <div className="mt-10 flex flex-wrap gap-4">
             <PixelButton href="/demo" variant="brand">
-              Voir {agent.name} en démo
+              See {agent.name} in a demo
             </PixelButton>
             <PixelButton href="/produit/agents" variant="outline">
-              Tous les agents
+              All agents
             </PixelButton>
           </div>
         </div>

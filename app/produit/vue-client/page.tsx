@@ -6,20 +6,20 @@ import { CtaBanner } from "@/components/marketing/cta-banner";
 import { FicheMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Vue client unique",
+  title: "Single customer view",
   description:
-    "Toutes vos données client, réunies : boutique, e-commerce, POS, messageries — y compris ce qui dormait dans un carnet.",
+    "All your customer data, unified: store, e-commerce, POS, messaging — including what used to sleep in a notebook.",
 };
 
 const SOURCES = [
-  ["Boutique", "Achats, essayages, rendez-vous"],
-  ["E-commerce", "Commandes, navigation, wishlist"],
-  ["POS", "Tickets, retours, avoirs"],
-  ["Messageries", "WhatsApp, SMS, WeChat, LINE, e-mail"],
-  ["Carnets", "Ce qui n'avait jamais été saisi"],
+  ["Store", "Purchases, fittings, appointments"],
+  ["E-commerce", "Orders, browsing, wishlist"],
+  ["POS", "Receipts, returns, credit notes"],
+  ["Messaging", "WhatsApp, SMS, WeChat, LINE, email"],
+  ["Notebooks", "What had never been logged"],
 ];
 
-/* Design propre à la page : les sources qui convergent vers la fiche. */
+/* Page-specific design: sources converging into the customer card. */
 export default function VueClientPage() {
   return (
     <div className="pt-16">
@@ -28,20 +28,20 @@ export default function VueClientPage() {
         <div className="container-site relative py-16 lg:py-24">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Produit — Vue client unique
+            Product — Single customer view
           </p>
           <h1 className="font-display text-display-l max-w-3xl text-balance text-abyss-900">
-            Un client, une fiche. Enfin.
+            One client, one profile. At last.
           </h1>
           <p className="mt-5 max-w-2xl text-body-l text-slate-600">
-            Chaque achat, chaque message, chaque essayage, chaque
-            rendez-vous. Iris relie toutes vos sources en une seule vue
-            client, tenue à jour en continu.
+            Every purchase, every message, every fitting, every appointment.
+            Iris connects all your sources into a single customer view, kept
+            up to date continuously.
           </p>
         </div>
       </section>
 
-      {/* La convergence : sources → fiche */}
+      {/* Convergence: sources → profile */}
       <section className="bg-paper py-16 lg:py-24">
         <div className="container-site grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_auto_minmax(0,4fr)]">
           <ul className="space-y-3">
@@ -65,10 +65,10 @@ export default function VueClientPage() {
 
         <div className="container-site mt-12 flex flex-wrap gap-4">
           <PixelButton href="/demo" variant="brand">
-            Voir sur vos données
+            See it on your data
           </PixelButton>
           <PixelButton href="/produit" variant="outline">
-            Retour au produit
+            Back to product
           </PixelButton>
         </div>
       </section>

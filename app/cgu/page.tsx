@@ -2,21 +2,21 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/marketing/legal-page";
 
 export const metadata: Metadata = {
-  title: "Conditions générales d'utilisation",
+  title: "Terms of service",
   robots: { index: false },
 };
 
 export default function CguPage() {
   return (
     <LegalPage
-      title="Conditions générales d'utilisation"
-      intro="Conditions applicables à l'utilisation du site et du service Eyeconic."
+      title="Terms of service"
+      intro="Terms governing the use of the Eyeconic site and service."
       sections={[
-        { heading: "Objet", body: "[Champ d'application des CGU : site vitrine et service SaaS — à rédiger.]" },
-        { heading: "Comptes et accès", body: "[Création de compte, sécurité des identifiants, plans Boutique/Réseau/Maison — à rédiger.]" },
-        { heading: "Facturation", body: "[Prix en euros, crédits IA, modalités de paiement et de résiliation — à rédiger, en cohérence avec la grille tarifaire validée.]" },
-        { heading: "Responsabilités", body: "[Engagements de service, limitations, SLA du plan Maison — à rédiger.]" },
-        { heading: "Droit applicable", body: "[Droit applicable et juridiction compétente — à compléter.]" },
+        { heading: "Scope", body: "[Scope of these terms: marketing site and SaaS service — to draft.]" },
+        { heading: "Accounts and access", body: "[Account creation, credential security, Boutique/Network/Maison plans — to draft.]" },
+        { heading: "Billing", body: "[Prices in euros, AI credits, payment and cancellation terms — to draft, consistent with the validated pricing grid.]" },
+        { heading: "Liability", body: "[Service commitments, limitations, Maison-plan SLA — to draft.]" },
+        { heading: "Governing law", body: "[Applicable law and competent jurisdiction — to complete.]" },
       ]}
     />
   );

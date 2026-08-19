@@ -3,20 +3,20 @@ import { QrBlock } from "@/components/marketing/qr-block";
 import { HomeLeadForm } from "@/components/marketing/lead-forms";
 
 const ARGUMENTS = [
-  "Démo sur vos données, pas sur un jeu de démonstration",
-  "Opérationnel en 7 jours, sans remplacer l'existant",
-  "Plan gratuit pour commencer, données hébergées en UE",
+  "A demo on your data, not on a demo dataset",
+  "Live in 7 days, without replacing your stack",
+  "Free plan to start, data hosted in the EU",
 ];
 
 /**
- * CTA final — section abysse pleine largeur : argumentaire à gauche,
- * formulaire en carte surélevée à droite, barre basse QR + alternative.
- * Les leads partent dans le CSV Excel (+ Airtable/e-mail si configurés).
+ * Final CTA — full-width abyss section: argument on the left, elevated
+ * form card on the right, bottom bar with QR + self-service alternative.
+ * Leads go to the Excel CSV (+ Airtable/email when configured).
  */
 export function CtaBanner() {
   return (
     <section className="dark relative overflow-hidden bg-abyss-900 py-20 lg:py-28">
-      {/* Anneaux optiques en filigrane — écho du logo */}
+      {/* Optics rings watermark — echo of the logo */}
       <svg
         aria-hidden="true"
         viewBox="0 0 600 600"
@@ -37,15 +37,15 @@ export function CtaBanner() {
 
       <div className="container-site relative">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,4fr)] lg:gap-16">
-          {/* Argumentaire */}
+          {/* Argument */}
           <div className="flex flex-col justify-center">
-            <p className="eyebrow mb-4 text-sky-500">Passez de l&apos;autre côté</p>
+            <p className="eyebrow mb-4 text-sky-500">Come see for yourself</p>
             <h2 className="font-display text-display-l max-w-xl text-balance text-paper">
-              Voyez vos propres données pendant la démo.
+              See your own data during the demo.
             </h2>
             <p className="mt-5 max-w-xl text-body-l text-sky-300">
-              Connectez une boutique, importez un export, et regardez ce
-              qu&apos;Eyeconic en tire. Sans engagement.
+              Connect a store, import an export, and watch what Eyeconic
+              makes of it. No commitment.
             </p>
             <ul className="mt-8 space-y-3.5">
               {ARGUMENTS.map((item) => (
@@ -57,37 +57,37 @@ export function CtaBanner() {
             </ul>
           </div>
 
-          {/* Formulaire — carte surélevée */}
+          {/* Form — elevated card */}
           <div className="relative">
             <span
               aria-hidden="true"
               className="absolute -left-2 -top-2 hidden h-full w-full border-2 border-paper/20 lg:block"
             />
             <div className="relative border-2 border-paper/15 bg-white p-6 lg:p-8">
-              <p className="eyebrow mb-5 text-brand-600">Réserver une démo</p>
+              <p className="eyebrow mb-5 text-brand-600">Book a demo</p>
               <HomeLeadForm />
             </div>
           </div>
         </div>
 
-        {/* Barre basse : QR + alternative essai */}
+        {/* Bottom bar: QR + trial alternative */}
         <div className="mt-14 flex flex-col gap-8 border-t-2 border-paper/14 pt-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-md flex-1">
             <QrBlock
               path="/demo"
-              title="Ou scannez avec votre téléphone"
-              caption="Le formulaire s'ouvre sur mobile — mêmes destinations, source tracée."
+              title="Or scan with your phone"
+              caption="The form opens on mobile — same destinations, source tracked."
             />
           </div>
           <div className="lg:text-right">
             <p className="text-body text-sky-300">
-              Pas besoin de démo pour vous faire une idée ?
+              Don&apos;t need a demo to make up your mind?
             </p>
             <Link
               href="/essai"
               className="mt-1 inline-block text-body-l font-medium text-paper underline-offset-4 transition-colors hover:text-brand-400 hover:underline"
             >
-              Démarrez gratuitement, en self-service →
+              Start for free, self-service →
             </Link>
           </div>
         </div>

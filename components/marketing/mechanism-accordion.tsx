@@ -10,33 +10,33 @@ import { AttributionTable } from "@/components/mockups/attribution-table";
 
 const STEPS = [
   {
-    eyebrow: "Unifier",
-    title: "Voir",
-    text: "Chaque achat, chaque message, chaque essayage, chaque rendez-vous. Eyeconic relie vos boutiques, votre site, votre POS et vos messageries en une seule vue client. Y compris ce qui dormait dans un carnet ou sur le téléphone d'un vendeur.",
+    eyebrow: "Unify",
+    title: "See",
+    text: "Every purchase, every message, every fitting, every appointment. Eyeconic connects your stores, your site, your POS and your messaging apps into a single customer view — including what used to live in a notebook or on an advisor's phone.",
     agents: ["Iris"],
     visual: CustomerCard,
   },
   {
-    eyebrow: "Activer",
-    title: "Agir",
-    text: "Signal repère qui est prêt à acheter. Focus le place en tête de la journée du bon conseiller. Écho prépare le message, dans sa voix, sur le canal que le client utilise vraiment.",
-    agents: ["Signal", "Focus", "Écho"],
+    eyebrow: "Activate",
+    title: "Act",
+    text: "Signal spots who is ready to buy. Focus puts them at the top of the right advisor's day. Echo drafts the message, in their voice, on the channel the client actually uses.",
+    agents: ["Signal", "Focus", "Echo"],
     visual: WhatsAppThread,
   },
   {
-    eyebrow: "Mesurer",
-    title: "Prouver",
-    text: "Portée, réponses, conversions, réachat, chiffre d'affaires attribué — par boutique, par région, par conseiller. Chaque cycle rend le suivant plus précis.",
+    eyebrow: "Measure",
+    title: "Prove",
+    text: "Reach, replies, conversions, repeat purchases, attributed revenue — by store, by region, by advisor. Every cycle makes the next one sharper.",
     agents: [],
-    tags: ["Par boutique", "Par région", "Par conseiller"],
+    tags: ["By store", "By region", "By advisor"],
     visual: AttributionTable,
   },
 ] as const;
 
 /**
- * Section 4 — le mécanisme en 3 temps, en stepper horizontal :
- * trois blocs reliés par des flèches, panneau détail dessous
- * (texte + agents impliqués à gauche, mockup à droite).
+ * Section 4 — the mechanism in 3 beats, as a horizontal stepper:
+ * three blocks linked by arrows, detail panel below
+ * (copy + agents at work on the left, mockup on the right).
  */
 export function MechanismAccordion() {
   const [active, setActive] = useState(0);
@@ -50,15 +50,15 @@ export function MechanismAccordion() {
     <section id="mecanisme" className="bg-white py-20 lg:py-32">
       <div className="container-site">
         <SectionHeading
-          eyebrow="Le mécanisme"
-          title="Le mécanisme en 3 temps"
-          intro="La donnée client d'un côté, l'exécution en boutique de l'autre, dans un seul outil."
+          eyebrow="The mechanism"
+          title="The mechanism, in three beats"
+          intro="Customer data on one side, in-store execution on the other — in a single tool."
         />
 
-        {/* Stepper — 3 blocs reliés */}
+        {/* Stepper — 3 linked blocks */}
         <div
           role="tablist"
-          aria-label="Les trois temps du mécanisme"
+          aria-label="The three beats of the mechanism"
           className="relative mt-12 grid gap-3 sm:grid-cols-3 sm:gap-6"
         >
           {STEPS.map((s, i) => {
@@ -113,21 +113,19 @@ export function MechanismAccordion() {
           })}
         </div>
 
-        {/* Panneau détail */}
+        {/* Detail panel */}
         <div
           id="mecanisme-panel"
           role="tabpanel"
           aria-labelledby={`mecanisme-tab-${active}`}
-          className="mt-6 grid gap-10 border-2 border-abyss-900/10 bg-paper p-6 shadow-card lg:grid-cols-2 lg:gap-14 lg:p-10"
+          className="mt-6 grid gap-10 border-2 border-abyss-900/15 bg-paper p-6 shadow-card lg:grid-cols-2 lg:gap-14 lg:p-10"
         >
           <div className="flex flex-col justify-center">
             <p className="text-body-l text-slate-600">{step.text}</p>
 
             {stepAgents.length > 0 ? (
               <div className="mt-8">
-                <p className="eyebrow mb-3 text-slate-400">
-                  Les agents à l&apos;œuvre
-                </p>
+                <p className="eyebrow mb-3 text-slate-400">Agents at work</p>
                 <ul className="flex flex-wrap gap-3">
                   {stepAgents.map((agent) => (
                     <li

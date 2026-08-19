@@ -18,8 +18,8 @@ const leadSchema = z.object({
   type: z.enum(["demo", "essai"]),
   source: z.string().max(40).default("site"),
   nom: z.string().trim().max(120).default(""),
-  email: z.email("Adresse e-mail invalide"),
-  societe: z.string().trim().min(1, "Indiquez votre marque").max(120),
+  email: z.email("Invalid email address"),
+  societe: z.string().trim().min(1, "Please enter your brand").max(120),
   fonction: z.string().trim().max(120).default(""),
   boutiques: z.string().trim().max(40).default(""),
   secteur: z.string().trim().max(60).default(""),
@@ -56,13 +56,13 @@ export async function submitLead(
     const first = parsed.error.issues[0];
     return {
       ok: false,
-      message: first?.message ?? "Vérifiez les champs du formulaire.",
+      message: first?.message ?? "Please check the form fields.",
     };
   }
   if (parsed.data.type === "demo" && formData.get("consent") !== "on") {
     return {
       ok: false,
-      message: "Cochez la case de consentement pour envoyer la demande.",
+      message: "Please tick the consent box to send your request.",
     };
   }
 
@@ -81,7 +81,7 @@ export async function submitLead(
     return {
       ok: false,
       message:
-        "Votre demande n'a pas pu être enregistrée. Réessayez, ou écrivez-nous directement.",
+        "Your request could not be saved. Try again, or write to us directly.",
     };
   }
 
@@ -89,8 +89,8 @@ export async function submitLead(
     ok: true,
     message:
       parsed.data.type === "demo"
-        ? "Demande envoyée. Nous vous proposons un créneau sous 24 h ouvrées."
-        : "C'est parti. Vérifiez votre boîte mail pour activer votre espace.",
+        ? "Request sent. We'll offer you a slot within one business day."
+        : "You're in. Check your inbox to activate your workspace.",
   };
 }
 
@@ -187,17 +187,17 @@ async function sendNotificationEmail(lead: Lead): Promise<boolean> {
   if (!apiKey || !to) return false;
 
   const lines = [
-    `Type : ${lead.type === "demo" ? "Demande de démo" : "Essai gratuit"}`,
-    `Source : ${lead.source}`,
-    lead.nom && `Nom : ${lead.nom}`,
-    `E-mail : ${lead.email}`,
-    `Société : ${lead.societe}`,
-    lead.fonction && `Fonction : ${lead.fonction}`,
-    lead.boutiques && `Points de vente : ${lead.boutiques}`,
-    lead.secteur && `Secteur : ${lead.secteur}`,
-    lead.telephone && `Téléphone : ${lead.telephone}`,
-    lead.message && `Message :\n${lead.message}`,
-    `Date : ${lead.date}`,
+    `Type: ${lead.type === "demo" ? "Demo request" : "Free trial"}`,
+    `Source: ${lead.source}`,
+    lead.nom && `Name: ${lead.nom}`,
+    `Email: ${lead.email}`,
+    `Company: ${lead.societe}`,
+    lead.fonction && `Role: ${lead.fonction}`,
+    lead.boutiques && `Locations: ${lead.boutiques}`,
+    lead.secteur && `Industry: ${lead.secteur}`,
+    lead.telephone && `Phone: ${lead.telephone}`,
+    lead.message && `Message:\n${lead.message}`,
+    `Date: ${lead.date}`,
   ].filter(Boolean);
 
   const res = await fetch("https://api.resend.com/emails", {
@@ -209,7 +209,7 @@ async function sendNotificationEmail(lead: Lead): Promise<boolean> {
     body: JSON.stringify({
       from: process.env.LEAD_FROM_EMAIL ?? "Eyeconic <onboarding@resend.dev>",
       to: [to],
-      subject: `[Eyeconic] Nouveau lead ${lead.type} — ${lead.societe}`,
+      subject: `[Eyeconic] New ${lead.type} lead — ${lead.societe}`,
       text: lines.join("\n"),
     }),
   });

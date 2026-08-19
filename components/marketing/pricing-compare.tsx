@@ -4,61 +4,61 @@ import { Fragment, useState } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Comparatif détaillé des plans — repliable. Contenu strictement issu
- * des grilles du brief ; rien d'inventé.
+ * Detailed plan comparison — collapsible. Content strictly from the
+ * validated pricing grid; nothing invented.
  */
 type Cell = string | boolean;
 
 const GROUPS: { title: string; rows: [string, Cell, Cell, Cell][] }[] = [
   {
-    title: "Relation client",
+    title: "Customer relationship",
     rows: [
-      ["Vue client unique", true, true, true],
-      ["Historique multi-sources (boutique, e-commerce, POS)", true, true, true],
-      ["Utilisateurs illimités", true, true, true],
+      ["Single customer view", true, true, true],
+      ["Multi-source history (store, e-commerce, POS)", true, true, true],
+      ["Unlimited users", true, true, true],
     ],
   },
   {
-    title: "Canaux",
+    title: "Channels",
     rows: [
-      ["SMS et e-mail", true, true, true],
-      ["WhatsApp et WeChat", false, true, true],
-      ["Connecteur Shopify", true, true, true],
+      ["SMS and email", true, true, true],
+      ["WhatsApp and WeChat", false, true, true],
+      ["Shopify connector", true, true, true],
     ],
   },
   {
-    title: "Agents IA",
+    title: "AI agents",
     rows: [
-      ["Crédits IA mensuels", "5 000", "250 000", "Sur mesure"],
-      ["Les 5 agents (Iris, Signal, Écho, Prisme, Focus)", false, true, true],
-      ["Agents personnalisés", false, true, true],
+      ["Monthly AI credits", "5,000", "250,000", "Tailored"],
+      ["All 5 agents (Iris, Signal, Echo, Prism, Focus)", false, true, true],
+      ["Custom agents", false, true, true],
     ],
   },
   {
-    title: "Exécution",
+    title: "Execution",
     rows: [
-      ["Tâches quotidiennes", true, true, true],
-      ["Workflows et validations", false, true, true],
+      ["Daily tasks", true, true, true],
+      ["Workflows and approvals", false, true, true],
     ],
   },
   {
-    title: "Analyses",
+    title: "Analytics",
     rows: [
-      ["Attribution du chiffre d'affaires", false, true, true],
-      ["Attribution avancée (boutique · région · conseiller)", false, true, true],
+      ["Revenue attribution", false, true, true],
+      ["Advanced attribution (store · region · advisor)", false, true, true],
     ],
   },
   {
-    title: "Sécurité et accompagnement",
+    title: "Security & support",
     rows: [
-      ["Hébergement UE, RGPD par conception", true, true, true],
-      ["Onboarding inclus", true, true, true],
-      ["CSM dédié", false, true, true],
+      ["EU hosting, GDPR by design", true, true, true],
+      ["Onboarding included", true, true, true],
+      ["Dedicated CSM", false, true, true],
       ["SLA", false, false, true],
-      ["API prioritaire", false, false, true],
+      ["Priority API", false, false, true],
       ["SSO / SCIM", false, false, true],
-      ["Hébergement dédié", false, false, true],
-      ["Support US / UE / Asie", false, false, true],
+      ["Dedicated hosting", false, false, true],
+      ["US / EU / Asia support", false, false, true],
     ],
   },
 ];
@@ -97,10 +97,10 @@ export function PricingCompare() {
         >
           <span>
             <span className="font-display text-display-m block text-abyss-900">
-              Comparatif détaillé des plans
+              Detailed plan comparison
             </span>
             <span className="mt-1 block text-body text-slate-600">
-              Tout ce que contient chaque plan, ligne par ligne.
+              Everything each plan includes, line by line.
             </span>
           </span>
           <span
@@ -119,15 +119,12 @@ export function PricingCompare() {
             <thead>
               <tr>
                 <th className="w-[46%] py-4 text-left text-caption font-medium uppercase tracking-wide text-slate-400">
-                  Fonctionnalité
+                  Feature
                 </th>
-                {["Boutique", "Réseau", "Maison"].map((plan, i) => (
+                {["Boutique", "Network", "Maison"].map((plan, i) => (
                   <th
                     key={plan}
-                    className={cn(
-                      "py-4 text-center",
-                      i === 1 && "bg-mist-100"
-                    )}
+                    className={cn("py-4 text-center", i === 1 && "bg-mist-100")}
                   >
                     <span className="eyebrow text-brand-600">{plan}</span>
                   </th>

@@ -4,21 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Section 6 — comparatif animé (onglets + barres).
- * AUCUN chiffre n'est affiché : les hauteurs sont illustratives et le
- * bloc est balisé [DONNÉES À PRODUIRE]. Ne pas fabriquer de valeurs.
+ * Section 6 — animated benchmark (tabs + bars).
+ * NO figures are displayed: bar heights are illustrative and the block
+ * is flagged [Data to be produced]. Never fabricate numbers.
  */
 const TABS = [
-  { key: "reponse", label: "Taux de réponse", heights: [16, 26, 40, 58, 92] },
-  { key: "ca", label: "Chiffre d'affaires attribué", heights: [10, 18, 34, 52, 92] },
-  { key: "adoption", label: "Adoption par les équipes", heights: [24, 18, 34, 44, 92] },
+  { key: "reponse", label: "Response rate", heights: [16, 26, 40, 58, 92] },
+  { key: "ca", label: "Attributed revenue", heights: [10, 18, 34, 52, 92] },
+  { key: "adoption", label: "Team adoption", heights: [24, 18, 34, 44, 92] },
 ] as const;
 
 const CATEGORIES = [
-  "Carnet papier",
-  "E-mailing de masse",
-  "CRM généraliste",
-  "Outil de clienteling",
+  "Paper notebook",
+  "Mass emailing",
+  "Generic CRM",
+  "Clienteling tool",
   "Eyeconic",
 ];
 
@@ -49,22 +49,20 @@ export function BenchmarkChart() {
         <div className="max-w-3xl">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <span aria-hidden="true" className="size-2 bg-brand-600" />
-            La preuve
+            The proof
           </p>
           <h2 className="font-display text-display-l text-balance text-abyss-900">
-            La différence ne se voit pas dans la démo.
+            The difference doesn&apos;t show in the demo.
           </h2>
-          <p className="mt-4 text-body-l text-slate-600">
-            Elle se voit dans le chiffre d&apos;affaires.
-          </p>
+          <p className="mt-4 text-body-l text-slate-600">It shows in revenue.</p>
         </div>
 
         <div
           ref={ref}
-          className="mt-12 rounded-xl border-2 border-abyss-900/15 bg-paper p-6 shadow-card lg:p-10"
+          className="mt-12 border-2 border-abyss-900/15 bg-paper p-6 shadow-card lg:p-10"
         >
-          {/* Onglets */}
-          <div role="tablist" aria-label="Indicateur comparé" className="flex flex-wrap gap-2">
+          {/* Tabs */}
+          <div role="tablist" aria-label="Compared metric" className="flex flex-wrap gap-2">
             {TABS.map((t, i) => (
               <button
                 key={t.key}
@@ -74,7 +72,7 @@ export function BenchmarkChart() {
                 aria-controls="benchmark-panel"
                 onClick={() => setTab(i)}
                 className={cn(
-                  "rounded-md px-4 py-2 text-sm font-medium transition-colors",
+                  "px-4 py-2 text-sm font-medium transition-colors",
                   i === tab
                     ? "bg-abyss-900 text-paper shadow-card"
                     : "border-2 border-abyss-900/20 bg-white text-slate-600 hover:border-abyss-900/35"
@@ -85,7 +83,7 @@ export function BenchmarkChart() {
             ))}
           </div>
 
-          {/* Barres */}
+          {/* Bars */}
           <div
             id="benchmark-panel"
             role="tabpanel"
@@ -99,7 +97,7 @@ export function BenchmarkChart() {
                   <div key={CATEGORIES[col]} className="flex h-full flex-col items-center justify-end gap-3">
                     <div
                       className={cn(
-                        "w-full max-w-16 rounded-t-md transition-[height] duration-700 ease-out",
+                        "w-full max-w-16 transition-[height] duration-700 ease-out",
                         isEyeconic ? "bg-gradient-brand shadow-card" : "bg-mist-200"
                       )}
                       style={{ height: inView ? `${h}%` : "0%" }}
@@ -118,7 +116,7 @@ export function BenchmarkChart() {
             </div>
             <p className="divider-soft mt-8" aria-hidden="true" />
             <p className="mt-4 text-[11px] uppercase tracking-wide text-slate-400">
-              Hauteurs illustratives, sans échelle — [Données à produire]
+              Illustrative heights, no scale — [Data to be produced]
             </p>
           </div>
         </div>

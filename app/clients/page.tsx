@@ -4,67 +4,67 @@ import { CtaBanner } from "@/components/marketing/cta-banner";
 import { PlaquesMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Études de cas",
+  title: "Case studies",
   description:
-    "Comment des marques retail font travailler leur donnée client avec Eyeconic — exemples illustratifs.",
+    "How retail brands put their customer data to work with Eyeconic — illustrative examples.",
 };
 
-/* Mêmes maisons fictives que le carrousel — cohérence du récit. */
+/* Same fictional maisons as the carousel — narrative consistency. */
 const CAS = [
   {
     brand: "Groupe Delcourt",
-    sector: "Luxe — 214 boutiques, 12 pays",
+    sector: "Luxury — 214 boutiques, 12 countries",
     story:
-      "Quatre plateformes comparées sur un trimestre, un déploiement en 11 semaines, et une règle : aucun outil que les équipes n'ouvrent pas d'elles-mêmes.",
+      "Four platforms benchmarked over a quarter, an 11-week rollout, and one rule: no tool the teams don't open on their own.",
     kpis: [
-      ["+31 %", "CA attribué, périmètre Europe"],
-      ["11 sem.", "Déploiement complet"],
+      ["+31%", "Attributed revenue, Europe"],
+      ["11 wks", "Full rollout"],
     ],
     big: true,
   },
   {
     brand: "Maison Séverin",
-    sector: "Joaillerie — 14 boutiques",
+    sector: "Fine jewelry — 14 boutiques",
     story:
-      "Sortir la relation des carnets sans la déshumaniser : les conseillères gardent leur voix, la maison gagne une mémoire.",
+      "Getting the relationship out of the notebooks without dehumanizing it: advisors keep their voice, the maison gains a memory.",
     kpis: [
-      ["+38 %", "Taux de réponse"],
-      ["×2,3", "Réachat des VIC"],
+      ["+38%", "Response rate"],
+      ["×2.3", "VIC repeat purchases"],
     ],
   },
   {
     brand: "ORVEA Paris",
-    sector: "Mode premium — 46 boutiques",
+    sector: "Premium fashion — 46 stores",
     story:
-      "Réconcilier le online et la boutique, et transformer le clienteling en ligne de reporting.",
+      "Reconciling online and in-store, and turning clienteling into a reporting line.",
     kpis: [
-      ["+27 %", "CA attribué"],
-      ["92 %", "Adoption conseillers"],
+      ["+27%", "Attributed revenue"],
+      ["92%", "Advisor adoption"],
     ],
   },
   {
     brand: "Linéa Beauté",
-    sector: "Beauté & spa — 28 points de vente",
+    sector: "Beauty & spa — 28 locations",
     story:
-      "Un pilote sur trois instituts devenu un standard d'enseigne en six semaines.",
+      "A pilot on three spas that became a banner-wide standard in six weeks.",
     kpis: [
-      ["+45 %", "Rendez-vous pris"],
-      ["−22 %", "Clientes sans contact 90 j"],
+      ["+45%", "Appointments booked"],
+      ["−22%", "Clients uncontacted for 90 days"],
     ],
   },
   {
     brand: "Aurige",
-    sector: "Horlogerie — 37 boutiques et corners",
+    sector: "Watchmaking — 37 boutiques and corners",
     story:
-      "Des cycles d'achat de plusieurs années, enfin entretenus entre deux ventes.",
+      "Buying cycles several years long, finally tended between two sales.",
     kpis: [
-      ["×1,8", "Rendez-vous atelier"],
-      ["68 %", "VIC recontactés au trimestre"],
+      ["×1.8", "Workshop appointments"],
+      ["68%", "VICs recontacted each quarter"],
     ],
   },
 ];
 
-/* Design propre à la page : grille magazine, première étude en pleine largeur. */
+/* Page-specific design: magazine grid, first study full width. */
 export default function ClientsPage() {
   return (
     <div className="pt-16">
@@ -73,14 +73,14 @@ export default function ClientsPage() {
         <div className="container-site relative py-16 lg:py-24">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Études de cas
+            Case studies
           </p>
           <h1 className="font-display text-display-l max-w-3xl text-balance text-abyss-900">
-            Des marques qui vendent par la relation.
+            Brands that sell through relationships.
           </h1>
           <p className="mt-4 max-w-2xl text-body-l text-slate-600">
-            Exemples illustratifs — marques et chiffres fictifs, en attendant
-            les premières références publiques.
+            Illustrative examples — fictional brands and figures, pending the
+            first public references.
           </p>
         </div>
       </section>

@@ -11,162 +11,162 @@ export type MegaMenuColumn = {
 
 export const produitColumns: MegaMenuColumn[] = [
   {
-    title: "Plateforme",
+    title: "Platform",
     links: [
       {
-        label: "Vue d'ensemble",
+        label: "Overview",
         href: "/produit",
-        description: "La plateforme de clienteling en un coup d'œil",
+        description: "The clienteling platform at a glance",
       },
       {
-        label: "Vue client unique",
+        label: "Single customer view",
         href: "/produit/vue-client",
-        description: "Toutes vos données client, réunies",
+        description: "All your customer data, unified",
       },
       {
-        label: "Canaux",
+        label: "Channels",
         href: "/produit/canaux",
-        description: "WhatsApp, SMS, WeChat, e-mail, LINE",
+        description: "WhatsApp, SMS, WeChat, email, LINE",
       },
       {
-        label: "Analyses et attribution",
+        label: "Analytics & attribution",
         href: "/produit/analytics",
-        description: "Le chiffre d'affaires prouvé, pas estimé",
+        description: "Revenue proven, not estimated",
       },
       {
-        label: "Application mobile",
+        label: "Mobile app",
         href: "/produit/application-mobile",
-        description: "L'outil quotidien de vos conseillers",
+        description: "Your advisors' everyday tool",
       },
     ],
   },
   {
-    title: "Les agents",
+    title: "The agents",
     links: [
       {
         label: "Iris",
         href: "/produit/agents/iris",
-        description: "Construit la vue client unique",
+        description: "Builds the single customer view",
       },
       {
         label: "Signal",
         href: "/produit/agents/signal",
-        description: "Détecte les intentions d'achat",
+        description: "Detects buying intent",
       },
       {
-        label: "Écho",
+        label: "Echo",
         href: "/produit/agents/echo",
-        description: "Rédige dans la voix du conseiller",
+        description: "Writes in the advisor's voice",
       },
       {
-        label: "Prisme",
+        label: "Prism",
         href: "/produit/agents/prisme",
-        description: "Orchestre campagnes et segments",
+        description: "Orchestrates campaigns and segments",
       },
       {
         label: "Focus",
         href: "/produit/agents/focus",
-        description: "Priorise la journée de chaque conseiller",
+        description: "Prioritizes each advisor's day",
       },
     ],
   },
 ];
 
 export const produitHighlight: NavLink = {
-  label: "Nouveau — Focus",
+  label: "New — Focus",
   href: "/produit/agents/focus",
   description:
-    "L'agent qui prépare la journée de chaque conseiller, avant l'ouverture de la boutique.",
+    "The agent that prepares each advisor's day, before the store opens.",
 };
 
 export const solutionsColumns: MegaMenuColumn[] = [
   {
-    title: "Par secteur",
+    title: "By industry",
     links: [
       {
-        label: "Luxe",
+        label: "Luxury",
         href: "/solutions/luxe",
-        description: "La relation au niveau de la maison",
+        description: "The relationship, at maison level",
       },
       {
-        label: "Beauté et bien-être",
+        label: "Beauty & wellness",
         href: "/solutions/beaute-bien-etre",
-        description: "Du réachat, pas seulement du trafic",
+        description: "Repeat purchases, not just traffic",
       },
       {
-        label: "Mode et DTC",
+        label: "Fashion & DTC",
         href: "/solutions/mode-dtc",
-        description: "Le online et la boutique, enfin reliés",
+        description: "Online and in-store, finally connected",
       },
       {
-        label: "Retail spécialisé",
+        label: "Specialty retail",
         href: "/solutions/retail-specialise",
-        description: "Le conseil qui fait revenir",
+        description: "Advice that brings clients back",
       },
     ],
   },
 ];
 
 export const solutionsHighlight: NavLink = {
-  label: "Études de cas",
+  label: "Case studies",
   href: "/clients",
-  description: "Comment des marques comme la vôtre font travailler leur donnée client.",
+  description: "How brands like yours put their customer data to work.",
 };
 
 export const mainNav: NavLink[] = [
-  { label: "Intégrations", href: "/integrations" },
-  { label: "Tarifs", href: "/tarifs" },
-  { label: "Ressources", href: "/ressources" },
+  { label: "Integrations", href: "/integrations" },
+  { label: "Pricing", href: "/tarifs" },
+  { label: "Resources", href: "/ressources" },
 ];
 
 export const footerColumns: MegaMenuColumn[] = [
   {
-    title: "Produit",
+    title: "Product",
     links: [
-      { label: "Vue d'ensemble", href: "/produit" },
-      { label: "Vue client unique", href: "/produit/vue-client" },
-      { label: "Les 5 agents", href: "/produit/agents" },
-      { label: "Canaux", href: "/produit/canaux" },
-      { label: "Analyses et attribution", href: "/produit/analytics" },
-      { label: "Application mobile", href: "/produit/application-mobile" },
-      { label: "Tarifs", href: "/tarifs" },
+      { label: "Overview", href: "/produit" },
+      { label: "Single customer view", href: "/produit/vue-client" },
+      { label: "The 5 agents", href: "/produit/agents" },
+      { label: "Channels", href: "/produit/canaux" },
+      { label: "Analytics & attribution", href: "/produit/analytics" },
+      { label: "Mobile app", href: "/produit/application-mobile" },
+      { label: "Pricing", href: "/tarifs" },
     ],
   },
   {
     title: "Solutions",
     links: [
-      { label: "Luxe", href: "/solutions/luxe" },
-      { label: "Beauté et bien-être", href: "/solutions/beaute-bien-etre" },
-      { label: "Mode et DTC", href: "/solutions/mode-dtc" },
-      { label: "Retail spécialisé", href: "/solutions/retail-specialise" },
-      { label: "Intégrations", href: "/integrations" },
+      { label: "Luxury", href: "/solutions/luxe" },
+      { label: "Beauty & wellness", href: "/solutions/beaute-bien-etre" },
+      { label: "Fashion & DTC", href: "/solutions/mode-dtc" },
+      { label: "Specialty retail", href: "/solutions/retail-specialise" },
+      { label: "Integrations", href: "/integrations" },
     ],
   },
   {
-    title: "Ressources",
+    title: "Resources",
     links: [
-      { label: "Hub ressources", href: "/ressources" },
+      { label: "Resource hub", href: "/ressources" },
       { label: "Blog", href: "/ressources/blog" },
-      { label: "Calculateur de ROI", href: "/ressources/calculateur-roi" },
-      { label: "Études de cas", href: "/clients" },
-      { label: "Sécurité et RGPD", href: "/securite" },
+      { label: "ROI calculator", href: "/ressources/calculateur-roi" },
+      { label: "Case studies", href: "/clients" },
+      { label: "Security & GDPR", href: "/securite" },
     ],
   },
   {
-    title: "Entreprise",
+    title: "Company",
     links: [
-      { label: "À propos", href: "/a-propos" },
+      { label: "About", href: "/a-propos" },
       { label: "Contact", href: "/contact" },
-      { label: "Réserver une démo", href: "/demo" },
-      { label: "Essai gratuit", href: "/essai" },
+      { label: "Book a demo", href: "/demo" },
+      { label: "Start for free", href: "/essai" },
     ],
   },
 ];
 
-/* Barre basse du footer — le brief impose 4 colonnes, le légal vit ici */
+/* Footer bottom bar — the brief mandates 4 columns, legal lives here */
 export const legalLinks: NavLink[] = [
-  { label: "Mentions légales", href: "/mentions-legales" },
-  { label: "Confidentialité", href: "/confidentialite" },
-  { label: "CGU", href: "/cgu" },
+  { label: "Legal notice", href: "/mentions-legales" },
+  { label: "Privacy", href: "/confidentialite" },
+  { label: "Terms", href: "/cgu" },
   { label: "Cookies", href: "/cookies" },
 ];

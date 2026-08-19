@@ -4,26 +4,26 @@ import { PixelButton } from "@/components/marketing/pixel-button";
 import { CoffreMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Sécurité et RGPD",
+  title: "Security & GDPR",
   description:
-    "Hébergement UE, chiffrement en transit et au repos, RGPD par conception, SSO/SCIM sur le plan Maison : la fiche technique sécurité d'Eyeconic.",
+    "EU hosting, encryption in transit and at rest, GDPR by design, SSO/SCIM on the Maison plan: Eyeconic's security spec sheet.",
 };
 
-/* Fiche technique — libellé à gauche, engagement à droite. */
+/* Spec sheet — label on the left, commitment on the right. */
 const SPEC = [
-  ["Hébergement", "Union européenne", false],
-  ["Chiffrement", "En transit (TLS) et au repos", false],
-  ["RGPD", "Par conception — minimisation, finalités, registre", false],
-  ["Droit des personnes", "Accès, rectification, effacement outillés", true],
-  ["SSO / SCIM", "Plan Maison", false],
-  ["Hébergement dédié", "Plan Maison", false],
-  ["Sauvegardes", "Quotidiennes, chiffrées", true],
-  ["Sous-traitants", "Liste et DPA sur demande", true],
-  ["Certification", "Programme en cours", true],
-  ["Facturation", "En euros, entité UE", false],
+  ["Hosting", "European Union", false],
+  ["Encryption", "In transit (TLS) and at rest", false],
+  ["GDPR", "By design — minimization, purposes, register", false],
+  ["Data-subject rights", "Access, rectification, erasure — tooled", true],
+  ["SSO / SCIM", "Maison plan", false],
+  ["Dedicated hosting", "Maison plan", false],
+  ["Backups", "Daily, encrypted", true],
+  ["Subprocessors", "List and DPA on request", true],
+  ["Certification", "Program in progress", true],
+  ["Billing", "In euros, EU entity", false],
 ] as const;
 
-/* Design propre à la page : la fiche technique sur filets, zéro icône. */
+/* Page-specific design: the spec sheet on rules, zero icons. */
 export default function SecuritePage() {
   return (
     <div className="pt-16">
@@ -32,14 +32,14 @@ export default function SecuritePage() {
         <div className="container-site relative py-16 lg:py-24">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Sécurité et RGPD
+            Security & GDPR
           </p>
           <h1 className="font-display text-display-l max-w-3xl text-balance text-abyss-900">
-            La donnée client mérite mieux que la confiance.
+            Customer data deserves better than trust.
           </h1>
           <p className="mt-5 max-w-2xl text-body-l text-slate-600">
-            Vos clients vous confient leur relation la plus personnelle.
-            Voici, ligne par ligne, comment elle est protégée.
+            Your clients entrust you with their most personal relationship.
+            Here is, line by line, how it&apos;s protected.
           </p>
         </div>
       </section>
@@ -61,7 +61,7 @@ export default function SecuritePage() {
                   {value}
                   {toValidate ? (
                     <span className="ml-2 text-caption text-slate-400">
-                      [À valider]
+                      [To validate]
                     </span>
                   ) : null}
                 </dd>
@@ -71,10 +71,10 @@ export default function SecuritePage() {
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <PixelButton href="/demo" variant="brand">
-              Poser vos questions en démo
+              Ask your questions in a demo
             </PixelButton>
             <p className="text-caption text-slate-400">
-              Documentation détaillée (DPA, sous-traitants) sur demande.
+              Detailed documentation (DPA, subprocessors) on request.
             </p>
           </div>
         </div>

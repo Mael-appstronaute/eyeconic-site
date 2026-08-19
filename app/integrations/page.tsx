@@ -5,45 +5,45 @@ import { CtaBanner } from "@/components/marketing/cta-banner";
 import { NoeudsMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Intégrations",
+  title: "Integrations",
   description:
-    "Eyeconic se connecte à votre existant — e-commerce, POS, CRM, messageries — en synchronisation bidirectionnelle. Sans rien remplacer.",
+    "Eyeconic connects to your existing stack — e-commerce, POS, CRM, messaging — with two-way sync. Without replacing anything.",
 };
 
 const FAMILLES = [
   {
     title: "E-commerce",
     named: ["Shopify"],
-    desc: "Commandes, clients, wishlists et navigation, synchronisés dans les deux sens.",
+    desc: "Orders, customers, wishlists and browsing, synced both ways.",
   },
   {
-    title: "Messageries",
-    named: ["WhatsApp Business", "SMS", "WeChat", "LINE", "E-mail"],
-    desc: "Les conversations partent et reviennent dans la vue client unique.",
+    title: "Messaging",
+    named: ["WhatsApp Business", "SMS", "WeChat", "LINE", "Email"],
+    desc: "Conversations leave from — and return to — the single customer view.",
   },
   {
-    title: "Caisse et POS",
+    title: "POS & checkout",
     named: [],
-    desc: "Tickets, retours et avoirs remontent vers la fiche client, boutique par boutique.",
+    desc: "Receipts, returns and credit notes flow up to the customer profile, store by store.",
   },
   {
-    title: "CRM et marketing",
+    title: "CRM & marketing",
     named: [],
-    desc: "Vos segments et historiques existants sont repris, pas recommencés.",
+    desc: "Your existing segments and histories are carried over, not started over.",
   },
   {
-    title: "Rendez-vous et agenda",
+    title: "Appointments & calendar",
     named: [],
-    desc: "Les rendez-vous pris nourrissent la journée des conseillers dans Focus.",
+    desc: "Booked appointments feed the advisors' day in Focus.",
   },
   {
-    title: "Fichiers et imports",
+    title: "Files & imports",
     named: [],
-    desc: "Un export CSV suffit pour démarrer — y compris les fameux carnets numérisés.",
+    desc: "A CSV export is enough to get started — including those famous digitized notebooks.",
   },
 ];
 
-/* Design propre à la page : mur de familles avec chips nommées. */
+/* Page-specific design: family wall with named chips. */
 export default function IntegrationsPage() {
   return (
     <div className="pt-16">
@@ -52,15 +52,15 @@ export default function IntegrationsPage() {
         <div className="container-site relative py-16 lg:py-24">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Intégrations
+            Integrations
           </p>
           <h1 className="font-display text-display-l max-w-3xl text-balance text-abyss-900">
-            Branché sur l&apos;existant, pas à sa place.
+            Plugged into your stack, not in its place.
           </h1>
           <p className="mt-5 max-w-2xl text-body-l text-slate-600">
-            Opérationnel en 7 jours, sans remplacer vos outils : Eyeconic se
-            connecte et synchronise dans les deux sens. 40+ intégrations
-            natives <span className="text-slate-400">[à valider]</span>.
+            Live in 7 days, without replacing your tools: Eyeconic connects
+            and syncs both ways. 40+ native integrations{" "}
+            <span className="text-slate-400">[to validate]</span>.
           </p>
         </div>
       </section>
@@ -78,7 +78,7 @@ export default function IntegrationsPage() {
                   </span>
                 ))}
                 <span className="border-2 border-abyss-900/10 px-2.5 py-1 text-caption text-slate-400">
-                  Catalogue complet [à valider]
+                  Full catalog [to validate]
                 </span>
               </div>
             </div>
@@ -86,12 +86,12 @@ export default function IntegrationsPage() {
         </div>
         <div className="container-site mt-12">
           <p className="max-w-2xl text-body text-slate-600">
-            Un outil absent de la liste ? Le plan Maison inclut l&apos;API
-            prioritaire, et un import CSV permet toujours de démarrer.
+            A tool missing from the list? The Maison plan includes priority
+            API access, and a CSV import always gets you started.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <PixelButton href="/demo" variant="brand">
-              Vérifier mes outils en démo
+              Check my stack in a demo
             </PixelButton>
           </div>
         </div>

@@ -9,8 +9,8 @@ import QRCode from "qrcode";
  */
 export async function QrBlock({
   path,
-  title = "Continuez sur mobile",
-  caption = "Scannez pour ouvrir ce formulaire sur votre téléphone — vos informations partent au même endroit.",
+  title = "Continue on mobile",
+  caption = "Scan to open this form on your phone — your details land in the same place.",
 }: {
   path: string;
   title?: string;

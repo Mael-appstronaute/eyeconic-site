@@ -53,7 +53,7 @@ export function StatCounter({
     return () => io.disconnect();
   }, [value]);
 
-  const formatted = display.toLocaleString("fr-FR", {
+  const formatted = display.toLocaleString("en-US", {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   });
@@ -71,7 +71,7 @@ export function StatCounter({
       </p>
       {unverified ? (
         <p className="data-label mt-1 text-[11px] uppercase tracking-wide text-slate-400">
-          [À valider]
+          [To validate]
         </p>
       ) : null}
     </div>

@@ -3,12 +3,12 @@ import { Logo } from "@/components/marketing/logo";
 import { PixelButton } from "@/components/marketing/pixel-button";
 
 export const metadata: Metadata = {
-  title: "Connexion",
-  description: "L'espace client Eyeconic ouvre avec les premiers comptes.",
+  title: "Log in",
+  description: "The Eyeconic client workspace opens with the first accounts.",
   robots: { index: false },
 };
 
-/* Design propre à la page : carte centrée, sobre — pas de faux login. */
+/* Page-specific design: centered card, sober — no fake login. */
 export default function ConnexionPage() {
   return (
     <div className="bg-mist-100 pt-16">
@@ -18,18 +18,18 @@ export default function ConnexionPage() {
             <Logo height={26} linked={false} />
           </div>
           <h1 className="font-display text-display-m mt-8 text-abyss-900">
-            L&apos;espace client ouvre avec les premiers comptes.
+            The client workspace opens with the first accounts.
           </h1>
           <p className="mt-4 text-body text-slate-600">
-            La connexion sera disponible ici. En attendant, créez votre
-            espace : le plan Boutique est gratuit.
+            Log-in will live here. In the meantime, create your workspace:
+            the Boutique plan is free.
           </p>
           <div className="mt-8 space-y-3">
             <PixelButton href="/essai" variant="brand" className="w-full">
-              Démarrer gratuitement
+              Start for free
             </PixelButton>
             <PixelButton href="/demo" variant="outline" className="w-full">
-              Réserver une démo
+              Book a demo
             </PixelButton>
           </div>
         </div>

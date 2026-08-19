@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 export default function CookiesPage() {
   return (
     <LegalPage
-      title="Politique cookies"
-      intro="Le site n'utilise à ce jour aucun cookie de mesure d'audience ni de publicité."
+      title="Cookie policy"
+      intro="This site currently uses no analytics or advertising cookies."
       sections={[
-        { heading: "Cookies techniques", body: "Seuls des cookies strictement nécessaires au fonctionnement du site peuvent être déposés. [Inventaire exact — à compléter au moment de l'ajout d'outils de mesure.]" },
-        { heading: "Mesure d'audience", body: "[Si un outil d'analytics est ajouté : finalités, durée, consentement — à compléter avant activation.]" },
-        { heading: "Gérer vos préférences", body: "[Mécanisme de consentement à mettre en place si des cookies non essentiels sont ajoutés.]" },
+        { heading: "Technical cookies", body: "Only cookies strictly necessary for the site to work may be set. [Exact inventory — to complete when analytics tools are added.]" },
+        { heading: "Analytics", body: "[If an analytics tool is added: purposes, duration, consent — to complete before activation.]" },
+        { heading: "Managing your preferences", body: "[Consent mechanism to put in place if non-essential cookies are added.]" },
       ]}
     />
   );

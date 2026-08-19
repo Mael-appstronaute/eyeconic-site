@@ -5,40 +5,40 @@ import { PixelButton } from "@/components/marketing/pixel-button";
 import { CtaBanner } from "@/components/marketing/cta-banner";
 
 export const metadata: Metadata = {
-  title: "Analyses et attribution",
+  title: "Analytics & attribution",
   description:
-    "Le chiffre d'affaires prouvé, pas estimé : chaque vente reliée au message, au conseiller et à la boutique qui l'ont générée.",
+    "Revenue proven, not estimated: every sale linked to the message, advisor and store that generated it.",
 };
 
 const CHAINE = [
-  ["Le message", "Envoyé par un conseiller, préparé par Écho"],
-  ["La visite", "Le client revient — en boutique ou en ligne"],
-  ["La vente", "Encaissée sur le POS ou le site"],
-  ["L'attribution", "Reliée au message d'origine, sans estimation"],
+  ["The message", "Sent by an advisor, drafted by Echo"],
+  ["The visit", "The client comes back — in store or online"],
+  ["The sale", "Rung up on the POS or the site"],
+  ["The attribution", "Linked to the original message, no guesswork"],
 ];
 
-/* Design propre à la page : hero sombre abysse + chaîne d'attribution. */
+/* Page-specific design: abyss hero + attribution chain. */
 export default function AnalyticsPage() {
   return (
     <div className="pt-16">
-      {/* Hero abysse — la seule sous-page produit sombre */}
+      {/* Abyss hero — the only dark product subpage */}
       <section className="dark bg-abyss-900">
         <div className="container-site grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
           <div>
             <p className="eyebrow mb-4 flex items-center gap-2.5 text-sky-500">
               <Spark className="size-2.5" />
-              Produit — Analyses et attribution
+              Product — Analytics & attribution
             </p>
             <h1 className="font-display text-display-l max-w-xl text-balance text-paper">
-              Le chiffre d&apos;affaires prouvé, pas estimé.
+              Revenue proven, not estimated.
             </h1>
             <p className="mt-5 max-w-xl text-body-l text-sky-300">
-              Quel message a généré quelle vente — par boutique, par région,
-              par conseiller. Chaque cycle rend le suivant plus précis.
+              Which message drove which sale — by store, by region, by
+              advisor. Every cycle makes the next one sharper.
             </p>
             <div className="mt-8">
               <PixelButton href="/demo" variant="paper">
-                Voir sur vos données
+                See it on your data
               </PixelButton>
             </div>
           </div>
@@ -46,11 +46,11 @@ export default function AnalyticsPage() {
         </div>
       </section>
 
-      {/* La chaîne d'attribution */}
+      {/* The attribution chain */}
       <section className="bg-white py-16 lg:py-24">
         <div className="container-site">
           <h2 className="font-display text-display-m text-abyss-900">
-            Du message à la vente, sans trou
+            From message to sale, no gaps
           </h2>
           <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {CHAINE.map(([title, text], i) => (
@@ -69,9 +69,9 @@ export default function AnalyticsPage() {
             ))}
           </ol>
           <p className="mt-8 max-w-2xl text-body text-slate-600">
-            Portée, réponses, conversions, réachat, chiffre d&apos;affaires
-            attribué : les mêmes indicateurs à tous les étages, du conseiller
-            au comité de direction.
+            Reach, replies, conversions, repeat purchases, attributed
+            revenue: the same metrics at every level, from the advisor to the
+            executive committee.
           </p>
         </div>
       </section>

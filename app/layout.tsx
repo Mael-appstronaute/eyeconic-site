@@ -20,23 +20,24 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://eyeconic.example.com"), // [À VALIDER] domaine définitif
+  metadataBase: new URL("https://eyeconic.example.com"), // [To validate] final domain
   title: {
     default: "Eyeconic — Smarter clienteling",
     template: "%s — Eyeconic",
   },
   description:
-    "Eyeconic unifie vos données boutique, e-commerce et messagerie, puis met cinq agents IA au service de vos équipes de vente. Prix publics en euros, hébergement UE, opérationnel en 7 jours.",
+    "Eyeconic unifies your store, e-commerce and messaging data, then puts five AI agents to work for your sales teams. Public pricing in euros, EU hosting, live in 7 days.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="fr"
+      lang="en"
+      suppressHydrationWarning
       className={`${orbitron.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* Avant peinture : masque l'intro si déjà vue dans la session */}
+        {/* Before paint: hide the intro if already seen this session */}
         <script
           dangerouslySetInnerHTML={{
             __html:

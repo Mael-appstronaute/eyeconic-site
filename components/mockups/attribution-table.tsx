@@ -1,23 +1,23 @@
 import { MockupFrame } from "./mockup-frame";
 
 const ROWS = [
-  ["Paris 8", "312", "47", "38 900 €"],
-  ["Lyon Presqu'île", "268", "39", "29 750 €"],
-  ["Genève", "191", "31", "41 200 €"],
-  ["E-commerce", "540", "62", "22 400 €"],
+  ["Paris 8", "312", "47", "€38,900"],
+  ["London Mayfair", "268", "39", "€29,750"],
+  ["Geneva", "191", "31", "€41,200"],
+  ["E-commerce", "540", "62", "€22,400"],
 ];
 
-/** Mockup — l'attribution du chiffre d'affaires, par boutique. */
+/** Mockup — revenue attribution, store by store. */
 export function AttributionTable({ className }: { className?: string }) {
   return (
-    <MockupFrame title="Attribution — 30 derniers jours" className={className}>
+    <MockupFrame title="Attribution — last 30 days" className={className}>
       <table className="w-full border-collapse">
         <thead>
           <tr className="text-left text-[11px] font-medium uppercase tracking-wide text-slate-400">
-            <th className="border-b border-abyss-900/10 pb-2 pr-2 font-medium">Boutique</th>
+            <th className="border-b border-abyss-900/10 pb-2 pr-2 font-medium">Store</th>
             <th className="border-b border-abyss-900/10 pb-2 pr-2 text-right font-medium">Messages</th>
-            <th className="border-b border-abyss-900/10 pb-2 pr-2 text-right font-medium">Ventes</th>
-            <th className="border-b border-abyss-900/10 pb-2 text-right font-medium">CA attribué</th>
+            <th className="border-b border-abyss-900/10 pb-2 pr-2 text-right font-medium">Sales</th>
+            <th className="border-b border-abyss-900/10 pb-2 text-right font-medium">Attributed revenue</th>
           </tr>
         </thead>
         <tbody className="data-label text-caption">
@@ -32,7 +32,7 @@ export function AttributionTable({ className }: { className?: string }) {
         </tbody>
       </table>
       <p className="mt-3 text-[11px] uppercase tracking-wide text-slate-400">
-        Par boutique · par région · par conseiller
+        By store · by region · by advisor
       </p>
     </MockupFrame>
   );

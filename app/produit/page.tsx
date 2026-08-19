@@ -8,37 +8,37 @@ import { CtaBanner } from "@/components/marketing/cta-banner";
 import { AnneauxMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Produit — la plateforme et les 5 agents",
+  title: "Product — the platform and the 5 agents",
   description:
-    "La vue client unique, cinq agents IA et le pilotage de l'exécution en boutique : la plateforme Eyeconic en détail.",
+    "The single customer view, five AI agents and in-store execution management: the Eyeconic platform in detail.",
 };
 
 export default function ProduitPage() {
   return (
     <div className="pt-16">
-      {/* Intro produit */}
+      {/* Product intro */}
       <section className="relative overflow-hidden bg-white">
         <AnneauxMotif className="absolute -left-16 top-1/2 hidden w-[340px] -translate-y-1/2 lg:block" />
         <AnneauxMotif className="absolute -right-16 top-1/2 hidden w-[340px] -translate-y-1/2 lg:block" />
         <div className="container-site relative py-16 text-center lg:py-24">
           <p className="eyebrow mb-4 flex items-center justify-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            La plateforme
+            The platform
           </p>
           <h1 className="font-display text-display-xl mx-auto max-w-4xl text-balance text-abyss-900">
-            Voir. Agir. Prouver.
+            See. Act. Prove.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-body-l text-slate-600">
-            Eyeconic réunit ce que vos clients vous disent et ce que vos
-            équipes en font. La donnée client d&apos;un côté, l&apos;exécution
-            en boutique de l&apos;autre, dans un seul outil.
+            Eyeconic brings together what your clients tell you and what your
+            teams do with it. Customer data on one side, in-store execution
+            on the other — in a single tool.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <PixelButton href="/essai" variant="brand">
-              Démarrer gratuitement
+              Start for free
             </PixelButton>
             <PixelButton href="/demo" variant="outline">
-              Réserver une démo
+              Book a demo
             </PixelButton>
           </div>
         </div>

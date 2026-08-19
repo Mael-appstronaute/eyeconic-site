@@ -5,29 +5,29 @@ import { CitationMotif } from "@/components/marketing/hero-motifs";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Analyses retail et CRM : clienteling, first-party data, exécution en boutique. Premiers articles à venir.",
+    "Retail and CRM insights: clienteling, first-party data, in-store execution. First articles coming soon.",
 };
 
-/* Sujets annoncés — pas d'articles factices : le contenu arrive. */
+/* Announced topics — no fake articles: the content is on its way. */
 const A_VENIR = [
   {
     tag: "Clienteling",
-    title: "Pourquoi vos meilleurs vendeurs détestent votre CRM",
-    desc: "Ce que les outils construits pour le siège font subir à ceux qui vendent — et comment inverser la logique.",
+    title: "Why your best sellers hate your CRM",
+    desc: "What head-office tools put shop-floor sellers through — and how to flip the logic.",
   },
   {
-    tag: "Données",
-    title: "La first-party data dort dans vos boutiques",
-    desc: "Carnets, conversations, essayages : l'or que personne ne collecte, et comment le récupérer sans friction.",
+    tag: "Data",
+    title: "Your first-party data is asleep in your stores",
+    desc: "Notebooks, conversations, fittings: the gold nobody collects, and how to recover it without friction.",
   },
   {
-    tag: "Mesure",
-    title: "Attribuer une vente à un message, proprement",
-    desc: "Les pièges de l'attribution en retail, et la méthode pour un chiffre que le comité accepte.",
+    tag: "Measurement",
+    title: "Attributing a sale to a message, properly",
+    desc: "The pitfalls of retail attribution, and a method for a number the board will accept.",
   },
 ];
 
-/* Design propre à la page : liste éditoriale sur filets, sobre. */
+/* Page-specific design: editorial list on rules, sober. */
 export default function BlogPage() {
   return (
     <div className="pt-16">
@@ -36,14 +36,14 @@ export default function BlogPage() {
         <div className="container-site relative py-16 lg:py-24">
           <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Ressources — Blog
+            Resources — Blog
           </p>
           <h1 className="font-display text-display-l max-w-3xl text-balance text-abyss-900">
-            Analyses retail et CRM.
+            Retail & CRM insights.
           </h1>
           <p className="mt-4 max-w-2xl text-body-l text-slate-600">
-            Une fois par mois, sans remplissage. Les premiers articles sont
-            en préparation — voici ce qui arrive.
+            Once a month, no filler. The first articles are in the works —
+            here&apos;s what&apos;s coming.
           </p>
         </div>
       </section>
@@ -59,38 +59,38 @@ export default function BlogPage() {
                   <p className="mt-1.5 max-w-2xl text-body text-slate-600">{post.desc}</p>
                 </div>
                 <span className="border-2 border-abyss-900/15 px-3 py-1.5 text-caption font-medium text-slate-400">
-                  À venir
+                  Coming soon
                 </span>
               </li>
             ))}
           </ul>
 
-          {/* Inscription */}
+          {/* Sign-up */}
           <div className="mt-10 flex flex-col items-start gap-4 border-2 border-abyss-900/15 bg-white p-8 shadow-card sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-h3 font-medium text-abyss-900">
-                Être prévenu à la publication
+                Get notified at publication
               </p>
               <p className="mt-1 text-body text-slate-600">
-                Une fois par mois, désinscription en un clic.
+                Once a month, one-click unsubscribe.
               </p>
             </div>
-            <form className="flex w-full max-w-sm gap-2" aria-label="Inscription au blog">
+            <form className="flex w-full max-w-sm gap-2" aria-label="Blog sign-up">
               <label htmlFor="blog-email" className="sr-only">
-                Adresse e-mail professionnelle
+                Work email
               </label>
               <input
                 id="blog-email"
                 type="email"
                 required
-                placeholder="prenom@votremarque.com"
+                placeholder="you@yourbrand.com"
                 className="h-11 w-full border-2 border-abyss-900/20 bg-white px-4 text-sm text-abyss-900 placeholder:text-slate-400"
               />
               <button
                 type="submit"
                 className="h-11 shrink-0 border-2 border-abyss-900/25 px-4 text-sm font-medium text-abyss-900 transition-colors hover:border-abyss-900/50"
               >
-                S&apos;inscrire
+                Subscribe
               </button>
             </form>
           </div>

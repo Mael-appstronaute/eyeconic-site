@@ -14,7 +14,7 @@ import { FAQ_ITEMS } from "@/lib/faq";
 export const metadata: Metadata = {
   title: "Eyeconic — Smarter clienteling",
   description:
-    "Eyeconic unifie vos données boutique, e-commerce et messagerie, puis met cinq agents IA au service de vos équipes de vente. Prix publics en euros, hébergement UE, opérationnel en 7 jours.",
+    "Eyeconic unifies your store, e-commerce and messaging data, then puts five AI agents to work for your sales teams. Public pricing in euros, EU hosting, live in 7 days.",
 };
 
 const jsonLd = {
@@ -33,7 +33,7 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web, iOS, Android",
       description:
-        "Plateforme de clienteling : vue client unique, cinq agents IA et pilotage de l'exécution des équipes retail.",
+        "Clienteling platform: single customer view, five AI agents, and retail execution management.",
       offers: [
         {
           "@type": "Offer",
@@ -43,7 +43,7 @@ const jsonLd = {
         },
         {
           "@type": "Offer",
-          name: "Réseau",
+          name: "Network",
           price: "290",
           priceCurrency: "EUR",
         },

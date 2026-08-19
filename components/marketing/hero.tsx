@@ -2,9 +2,10 @@ import { PixelButton } from "@/components/marketing/pixel-button";
 import { StatCounter } from "@/components/marketing/stat-counter";
 
 /**
- * Hero — fond au dégradé d'ambiance de la couverture de la charte
- * (abysse → bleu ciel), texte blanc, décor optique discret dérivé de
- * l'icône : arcs concentriques + traits radiaux fins, statiques.
+ * Hero — ambient gradient from the brand-guide cover (abyss → sky),
+ * white text, discreet optics ornament derived from the icon.
+ * The "signals" underline is an inline background: a positioned
+ * element inside the H1 would break line-wrapping opportunities.
  */
 export function Hero() {
   return (
@@ -14,44 +15,43 @@ export function Hero() {
 
         <div className="container-site relative z-10 flex min-h-[calc(92svh-4rem)] flex-col items-start justify-center py-24">
           <p className="eyebrow mb-6 text-sky-300">
-            Pour les directions retail, CRM et opérations
+            For retail, CRM and operations leaders
           </p>
           <h1 className="font-display text-display-xl max-w-4xl text-balance text-paper">
-            Vos meilleurs clients envoient des{" "}
+            Your best clients are sending{" "}
             <span className="bg-[linear-gradient(#f9f9f9,#f9f9f9)] bg-no-repeat [background-position:0_97%] [background-size:100%_0.07em]">
-              signaux
+              signals
             </span>
-            {". Personne ne les lit."}
+            {". No one is reading them."}
           </h1>
           <p className="mt-8 max-w-2xl text-body-l text-paper/85">
-            Eyeconic unifie vos données boutique, e-commerce et messagerie,
-            puis met cinq agents IA au service de vos équipes. Ils savent qui
-            contacter, quand, avec quoi — et vous voyez ce que ça rapporte.
+            Eyeconic unifies your store, e-commerce and messaging data, then
+            puts five AI agents to work for your teams. They know who to
+            contact, when, and with what — and you see what it brings in.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <PixelButton href="/essai" variant="paper">
-              Démarrer gratuitement
+              Start for free
             </PixelButton>
             <PixelButton href="/demo" variant="outline-paper">
-              Réserver une démo
+              Book a demo
             </PixelButton>
           </div>
           <p className="mt-8 text-caption font-medium uppercase tracking-wide text-paper/70">
-            Plan gratuit · Opérationnel en 7 jours · Données hébergées en
-            Europe
+            Free plan · Live in 7 days · Data hosted in Europe
           </p>
         </div>
       </section>
 
-      {/* 3 statistiques — bande blanche sous le hero */}
+      {/* 3 key figures — white band below the hero */}
       <section className="border-b border-abyss-900/10 bg-white">
         <div className="container-site grid gap-10 py-12 sm:grid-cols-3 lg:py-16">
-          <StatCounter value={4.2} decimals={1} prefix="×" label="Panier moyen des clients suivis" unverified />
+          <StatCounter value={4.2} decimals={1} prefix="×" label="AOV of clienteled clients" unverified />
           <div className="sm:border-l sm:border-abyss-900/10 sm:pl-10">
-            <StatCounter value={7} suffix=" jours" label="De mise en service" />
+            <StatCounter value={7} suffix=" days" label="To go live" />
           </div>
           <div className="sm:border-l sm:border-abyss-900/10 sm:pl-10">
-            <StatCounter value={40} suffix="+" label="Intégrations natives" unverified />
+            <StatCounter value={40} suffix="+" label="Native integrations" unverified />
           </div>
         </div>
       </section>
@@ -59,7 +59,7 @@ export function Hero() {
   );
 }
 
-/** Décor : l'œil de l'icône en géométrie fine — arcs + traits radiaux. */
+/** Ornament: the icon's eye as fine geometry — arcs + radial strokes. */
 function HeroOptics() {
   const rays = Array.from({ length: 36 }, (_, i) => {
     const a = (i / 36) * Math.PI * 2;
@@ -95,7 +95,7 @@ function HeroOptics() {
             opacity={0.25 + (i % 3) * 0.15}
           />
         ))}
-        {/* L'éclat de l'icône, au centre */}
+        {/* The icon's spark, at the center */}
         <path
           d="M720 330c7 40 33 66 70 70-37 4-63 30-70 70-7-40-33-66-70-70 37-4 63-30 70-70Z"
           fill="#f9f9f9"

@@ -16,118 +16,118 @@ import {
 } from "@/components/marketing/hero-motifs";
 
 /* ————————————————————————————————————————————————
-   Pages solutions — un design poussé et propre à chaque secteur :
-   hero différencié + section signature métier (timeline VIC, cycle de
-   réachat, convergence online/boutique, frise du temps long).
-   Citations : maisons FICTIVES du carrousel, mention affichée.
+   Solution pages — a refined, industry-specific design for each
+   sector: differentiated hero + signature section (VIC timeline,
+   repurchase loop, online/in-store convergence, long-cycle timeline).
+   Quotes: FICTIONAL brands from the carousel, note displayed.
    ———————————————————————————————————————————————— */
 
 const SECTEURS = {
   luxe: {
-    title: "Luxe",
-    h1: "La relation au niveau de la maison.",
+    title: "Luxury",
+    h1: "The relationship, at maison level.",
     intro:
-      "Vos clients attendent d'être reconnus, pas segmentés. Le clienteling est votre métier depuis toujours — Eyeconic lui donne la mémoire et la mesure qui lui manquaient.",
-    chips: ["VIC", "Carnets repris", "Multi-boutiques", "WhatsApp & WeChat"],
+      "Your clients expect to be recognized, not segmented. Clienteling has always been your craft — Eyeconic gives it the memory and the measurement it was missing.",
+    chips: ["VIC", "Notebooks recovered", "Multi-boutique", "WhatsApp & WeChat"],
     heroBg: "bg-white",
     pains: [
-      "La relation vit dans les carnets et part avec les conseillers",
-      "Les VIC d'une boutique sont des inconnus dans une autre",
-      "Impossible de prouver ce que le clienteling rapporte",
+      "The relationship lives in notebooks and leaves with the advisors",
+      "One boutique's VICs are strangers in another",
+      "No way to prove what clienteling brings in",
     ],
     reponses: [
-      ["La mémoire de la maison", "Iris unifie l'historique de chaque client, toutes boutiques confondues — la relation survit aux départs et aux mutations."],
-      ["Le geste juste, au bon moment", "Signal repère l'intention discrète ; Écho aide le conseiller à écrire comme lui, en mieux préparé."],
-      ["La preuve pour le comité", "L'attribution relie chaque vente au travail relationnel — par maison, par boutique, par conseiller."],
+      ["The maison's memory", "Iris unifies each client's history across every boutique — the relationship survives departures and transfers."],
+      ["The right gesture, at the right time", "Signal spots discreet intent; Echo helps the advisor write like themselves, better prepared."],
+      ["Proof for the executive committee", "Attribution links every sale to relationship work — by maison, by boutique, by advisor."],
     ],
-    agents: ["Iris", "Signal", "Écho"],
+    agents: ["Iris", "Signal", "Echo"],
     quote: {
-      text: "Nous avons comparé quatre plateformes sur un trimestre. Eyeconic est la seule que les équipes ont continué d'ouvrir une fois le pilote terminé.",
+      text: "We benchmarked four platforms over a quarter. Eyeconic is the only one our teams kept opening once the pilot ended.",
       author: "Isabelle Franchi — Chief Client Officer, Groupe Delcourt",
       kpis: [
-        ["+31 %", "CA attribué, périmètre Europe"],
-        ["11 sem.", "Déploiement sur 214 boutiques"],
+        ["+31%", "Attributed revenue, Europe"],
+        ["11 wks", "Rollout across 214 boutiques"],
       ],
     },
   },
   "beaute-bien-etre": {
-    title: "Beauté et bien-être",
-    h1: "Du réachat, pas seulement du trafic.",
+    title: "Beauty & wellness",
+    h1: "Repeat purchases, not just traffic.",
     intro:
-      "Vos produits se terminent, vos soins se réservent : la relance est votre levier naturel. Encore faut-il savoir qui relancer, quand, et avec quoi.",
-    chips: ["Réachat", "Rendez-vous", "Instituts", "Rythmes clients"],
+      "Your products run out, your treatments get booked: outreach is your natural lever. As long as you know who to contact, when, and with what.",
+    chips: ["Repurchase", "Appointments", "Spas", "Client rhythms"],
     heroBg: "bg-mist-100",
     pains: [
-      "Les rythmes de réachat ne sont suivis nulle part",
-      "Les rendez-vous en institut se remplissent au hasard du trafic",
-      "Les conseillères connaissent leurs clientes, l'enseigne non",
+      "Repurchase rhythms aren't tracked anywhere",
+      "Spa calendars fill up on walk-in luck",
+      "Advisors know their clients — the banner doesn't",
     ],
     reponses: [
-      ["Le bon moment du réachat", "Signal calcule le rythme de chaque cliente et prévient avant que le produit ne soit fini — pas trois semaines après."],
-      ["Des agendas qui se remplissent", "Focus transforme les relances en rendez-vous pris, boutique par boutique, institut par institut."],
-      ["La relation qui reste", "Iris garde l'historique des soins, des préférences et des conversations, même quand l'équipe change."],
+      ["The right repurchase moment", "Signal computes each client's real rhythm and warns before the product runs out — not three weeks after."],
+      ["Calendars that fill themselves", "Focus turns outreach into booked appointments, store by store, spa by spa."],
+      ["A relationship that stays", "Iris keeps the history of treatments, preferences and conversations, even when the team changes."],
     ],
     agents: ["Signal", "Focus", "Iris"],
     quote: {
-      text: "Le pilote portait sur trois instituts. Six semaines plus tard, les autres directrices demandaient l'outil.",
+      text: "The pilot covered three spas. Six weeks later, the other directors were asking for the tool.",
       author: "Sofia Andrade — Head of Client Experience, Linéa Beauté",
       kpis: [
-        ["+45 %", "Rendez-vous pris en institut"],
-        ["−22 %", "Clientes sans contact depuis 90 j"],
+        ["+45%", "Appointments booked"],
+        ["−22%", "Clients uncontacted for 90 days"],
       ],
     },
   },
   "mode-dtc": {
-    title: "Mode et DTC",
-    h1: "Le online et la boutique, enfin reliés.",
+    title: "Fashion & DTC",
+    h1: "Online and in-store, finally connected.",
     intro:
-      "Votre client essaie en boutique, achète en ligne, retourne en boutique. Vos outils, eux, le comptent comme trois personnes différentes.",
-    chips: ["Online × Boutique", "Wishlist", "Essayages", "Attribution"],
+      "Your client tries on in store, buys online, returns in store. Your tools count them as three different people.",
+    chips: ["Online × In-store", "Wishlist", "Fittings", "Attribution"],
     heroBg: "bg-white",
     pains: [
-      "Le e-commerce et le retail se disputent l'attribution",
-      "Les tailles, retours et essayages ne nourrissent aucune relance",
-      "Le CRM voit des commandes, jamais des clients",
+      "E-commerce and retail fight over attribution",
+      "Sizes, returns and fittings feed no follow-up",
+      "The CRM sees orders, never clients",
     ],
     reponses: [
-      ["Un seul client, deux canaux", "Iris fusionne le profil web et le profil boutique : la wishlist en ligne devient un motif de rappel en boutique."],
-      ["Les essayages qui reviennent", "Signal repère l'essayage sans achat et la fiche produit revisitée — le conseiller rappelle avec la bonne pièce."],
-      ["L'attribution qui apaise", "Chaque vente est reliée à son vrai parcours : le débat online vs retail devient un tableau partagé."],
+      ["One client, two channels", "Iris merges the web profile and the store profile: the online wishlist becomes a reason to call back in store."],
+      ["Fittings that come back", "Signal spots the fitting without a purchase and the revisited product page — the advisor calls back with the right piece."],
+      ["Attribution that settles the debate", "Every sale is linked to its real journey: online vs retail becomes a shared dashboard."],
     ],
-    agents: ["Iris", "Signal", "Écho"],
+    agents: ["Iris", "Signal", "Echo"],
     quote: {
-      text: "On mesurait le trafic, jamais la relation. Le clienteling est passé d'un acte de foi à une ligne du reporting.",
-      author: "Marc-Antoine Lefebvre — Directeur Retail Europe, ORVEA Paris",
+      text: "We measured traffic, never the relationship. Clienteling went from an act of faith to a line in the reporting.",
+      author: "Marc-Antoine Lefebvre — Retail Director Europe, ORVEA Paris",
       kpis: [
-        ["+27 %", "CA attribué au clienteling"],
-        ["92 %", "Adoption par les conseillers"],
+        ["+27%", "Revenue attributed to clienteling"],
+        ["92%", "Advisor adoption"],
       ],
     },
   },
   "retail-specialise": {
-    title: "Retail spécialisé",
-    h1: "Le conseil qui fait revenir.",
+    title: "Specialty retail",
+    h1: "Advice that brings clients back.",
     intro:
-      "Horlogerie, optique, maison, sport premium : vos clients achètent rarement, mais reviennent toute une vie — si quelqu'un entretient la relation entre deux achats.",
-    chips: ["Cycles longs", "Service & entretien", "Expertise", "Rappels"],
+      "Watchmaking, eyewear, home, premium sport: your clients buy rarely but come back for a lifetime — if someone tends the relationship between two purchases.",
+    chips: ["Long cycles", "Service & maintenance", "Expertise", "Reminders"],
     heroBg: "bg-paper",
     pains: [
-      "Des cycles d'achat longs, sans contact entre deux ventes",
-      "L'expertise des vendeurs ne laisse aucune trace",
-      "Les occasions de service (entretien, révision) passent inaperçues",
+      "Long buying cycles, with no contact between two sales",
+      "Sellers' expertise leaves no trace",
+      "Service opportunities (maintenance, servicing) go unnoticed",
     ],
     reponses: [
-      ["La relation entre deux achats", "Signal transforme les années de silence en occasions : anniversaire d'achat, entretien à prévoir, nouveauté pertinente."],
-      ["L'expertise qui reste", "Les conseils donnés, les préférences notées : Iris en fait une mémoire d'enseigne, pas un souvenir de vendeur."],
-      ["Le service comme rendez-vous", "Focus planifie les rappels de service — la révision devient une visite, la visite une vente."],
+      ["The relationship between two purchases", "Signal turns years of silence into moments: purchase anniversary, servicing due, a relevant novelty."],
+      ["Expertise that stays", "Advice given, preferences noted: Iris turns them into banner memory, not a seller's recollection."],
+      ["Service as an appointment", "Focus schedules service reminders — the servicing becomes a visit, the visit a sale."],
     ],
     agents: ["Signal", "Iris", "Focus"],
     quote: {
-      text: "Un client de montre revient tous les quatre ou cinq ans. Sans mémoire d'entreprise, cette relation n'existe pas.",
-      author: "Thomas Berthoud — Directeur Retail Monde, Aurige",
+      text: "A watch client comes back every four or five years. Without institutional memory, that relationship doesn't exist.",
+      author: "Thomas Berthoud — Global Retail Director, Aurige",
       kpis: [
-        ["×1,8", "Rendez-vous atelier générés"],
-        ["68 %", "VIC recontactés au trimestre"],
+        ["×1.8", "Workshop appointments generated"],
+        ["68%", "VICs recontacted each quarter"],
       ],
     },
   },
@@ -168,7 +168,7 @@ export default async function SolutionPage({
 
   return (
     <div className="pt-16">
-      {/* Hero — motif secteur + puces métier */}
+      {/* Hero — industry motif + trade chips */}
       <section className={`relative overflow-hidden ${secteur.heroBg}`}>
         <Motif className="absolute -right-8 top-1/2 hidden w-[360px] -translate-y-1/2 lg:block" />
         <div className="container-site relative py-16 lg:py-24">
@@ -195,16 +195,16 @@ export default async function SolutionPage({
         </div>
       </section>
 
-      {/* Section signature — propre au secteur */}
+      {/* Signature section — industry-specific */}
       {slug === "luxe" ? <ParcoursVic /> : null}
       {slug === "beaute-bien-etre" ? <CycleReachat /> : null}
       {slug === "mode-dtc" ? <DeuxMondes /> : null}
       {slug === "retail-specialise" ? <TempsLong /> : null}
 
-      {/* Douleurs — bande abysse */}
+      {/* Pains — abyss band */}
       <section className="dark bg-abyss-900 py-14">
         <div className="container-site">
-          <p className="eyebrow mb-6 text-sky-500">Ce qui coince aujourd&apos;hui</p>
+          <p className="eyebrow mb-6 text-sky-500">What's broken today</p>
           <ul className="grid gap-4 lg:grid-cols-3">
             {secteur.pains.map((pain) => (
               <li key={pain} className="border-l-4 border-alert/70 bg-abyss-950/60 px-5 py-4 text-body text-paper">
@@ -215,10 +215,10 @@ export default async function SolutionPage({
         </div>
       </section>
 
-      {/* Réponses + agents du secteur */}
+      {/* Product answers + industry agents */}
       <section className="bg-paper py-16 lg:py-24">
         <div className="container-site">
-          <p className="eyebrow mb-6 text-brand-600">Ce qu&apos;Eyeconic change</p>
+          <p className="eyebrow mb-6 text-brand-600">What Eyeconic changes</p>
           <div className="grid gap-5 lg:grid-cols-3">
             {secteur.reponses.map(([title, text]) => (
               <div key={title} className="border-2 border-abyss-900/15 bg-white p-6 shadow-card">
@@ -229,7 +229,7 @@ export default async function SolutionPage({
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <p className="eyebrow text-slate-400">Les agents à l&apos;œuvre</p>
+            <p className="eyebrow text-slate-400">Agents at work</p>
             <ul className="flex flex-wrap gap-3">
               {agents.map((agent) => (
                 <li key={agent.name}>
@@ -245,16 +245,16 @@ export default async function SolutionPage({
             </ul>
           </div>
 
-          {/* Citation + KPI du secteur */}
+          {/* Industry quote + KPIs */}
           <div className="mt-12 grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)]">
             <blockquote className="border-l-4 border-brand-500 bg-white p-8 shadow-card">
               <p className="text-h3 font-light text-abyss-900">
-                « {secteur.quote.text} »
+                “{secteur.quote.text}”
               </p>
               <footer className="mt-4 text-caption font-medium uppercase tracking-wide text-slate-600">
                 {secteur.quote.author}
                 <span className="ml-3 font-normal normal-case tracking-normal text-slate-400">
-                  — exemple illustratif, marque fictive
+                  — illustrative example, fictional brand
                 </span>
               </footer>
             </blockquote>
@@ -272,10 +272,10 @@ export default async function SolutionPage({
 
           <div className="mt-10 flex flex-wrap gap-4">
             <PixelButton href="/demo" variant="brand">
-              Réserver une démo {secteur.title.toLowerCase()}
+              Book a {secteur.title.toLowerCase()} demo
             </PixelButton>
             <PixelButton href="/tarifs" variant="outline">
-              Voir les tarifs
+              See pricing
             </PixelButton>
           </div>
         </div>
@@ -286,14 +286,14 @@ export default async function SolutionPage({
   );
 }
 
-/* ————— Luxe : le parcours d'une VIC, en timeline à jalons losange ————— */
+/* ————— Luxury: a VIC's journey, diamond-marker timeline ————— */
 
 const PARCOURS = [
-  { date: "Mars", text: "Essayage d'une pièce d'exception, sans achat. Noté en trente secondes dans la fiche.", strong: false },
-  { date: "Avril", text: "Silence. Aucun outil classique ne s'en inquiète.", strong: false },
-  { date: "Mai", text: "Signal : la fiche du modèle a été revue deux fois cette semaine.", strong: true },
-  { date: "Mai", text: "Écho prépare un message dans la voix de la conseillère — relu, ajusté, envoyé.", strong: true },
-  { date: "Juin", text: "La vente, en boutique. Attribuée à la relation, pas au hasard.", strong: false },
+  { date: "March", text: "Fitting of an exceptional piece, no purchase. Logged in thirty seconds.", strong: false },
+  { date: "April", text: "Silence. No classic tool worries about it.", strong: false },
+  { date: "May", text: "Signal: the model's product page viewed twice this week.", strong: true },
+  { date: "May", text: "Echo drafts a message in the advisor's voice — reviewed, adjusted, sent.", strong: true },
+  { date: "June", text: "The sale, in boutique. Attributed to the relationship, not to luck.", strong: false },
 ];
 
 function ParcoursVic() {
@@ -301,7 +301,7 @@ function ParcoursVic() {
     <section className="bg-white py-16 lg:py-24">
       <div className="container-site">
         <h2 className="font-display text-display-m max-w-2xl text-abyss-900">
-          Le parcours d&apos;une VIC, avec et sans mémoire
+          A VIC&apos;s journey, with and without memory
         </h2>
         <div className="relative mt-12">
           <span
@@ -322,7 +322,7 @@ function ParcoursVic() {
                     i % 2 ? "lg:-left-2" : "lg:left-auto lg:-right-2"
                   } ${step.strong ? "bg-brand-500" : "border-2 border-abyss-900/30 bg-white"}`}
                 />
-                <div className={`pl-8 lg:pl-0 ${step.strong ? "" : ""}`}>
+                <div className="pl-8 lg:pl-0">
                   <p className="eyebrow text-brand-600">{step.date}</p>
                   <p
                     className={`mt-1 max-w-md text-body ${
@@ -340,12 +340,12 @@ function ParcoursVic() {
           <CustomerCard />
           <div className="flex flex-col justify-center border-2 border-abyss-900/15 bg-paper p-8 shadow-card">
             <p className="text-h3 font-medium text-abyss-900">
-              Sans Eyeconic, ce parcours s&apos;arrête en avril.
+              Without Eyeconic, this journey stops in April.
             </p>
             <p className="mt-3 text-body text-slate-600">
-              La conseillère change de boutique, le carnet part avec elle, et
-              la VIC devient une inconnue. Avec la vue client unique, la
-              maison garde la relation — et peut prouver ce qu&apos;elle vaut.
+              The advisor changes boutiques, the notebook leaves with her, and
+              the VIC becomes a stranger. With the single customer view, the
+              maison keeps the relationship — and can prove what it's worth.
             </p>
           </div>
         </div>
@@ -354,13 +354,13 @@ function ParcoursVic() {
   );
 }
 
-/* ————— Beauté : le cycle du réachat, en anneau ————— */
+/* ————— Beauty: the repurchase loop, as a ring ————— */
 
 const CYCLE = [
-  ["Achat", "La crème, le soin, le parfum — le point de départ du rythme."],
-  ["Utilisation", "Six à huit semaines : le produit vit sa vie, personne n'écrit."],
-  ["Fin proche", "Signal calcule le rythme réel de la cliente, pas une moyenne."],
-  ["Relance", "Message au bon moment, rendez-vous proposé — avant le rayon d'un concurrent."],
+  ["Purchase", "The cream, the treatment, the fragrance — where the rhythm starts."],
+  ["In use", "Six to eight weeks: the product lives its life, nobody writes."],
+  ["Running low", "Signal computes the client's real rhythm, not an average."],
+  ["Outreach", "A message at the right moment, an appointment offered — before a competitor's shelf."],
 ];
 
 function CycleReachat() {
@@ -368,10 +368,10 @@ function CycleReachat() {
     <section className="bg-white py-16 lg:py-24">
       <div className="container-site">
         <h2 className="font-display text-display-m max-w-2xl text-abyss-900">
-          Le cycle du réachat, enfin visible
+          The repurchase cycle, finally visible
         </h2>
         <div className="mt-12 grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,4fr)]">
-          {/* L'anneau */}
+          {/* The ring */}
           <div className="relative mx-auto aspect-square w-full max-w-[460px]">
             <span
               aria-hidden="true"
@@ -379,10 +379,10 @@ function CycleReachat() {
             />
             <span className="absolute left-1/2 top-1/2 w-24 -translate-x-1/2 -translate-y-1/2 text-center">
               <span className="font-display block text-base font-semibold text-abyss-900">
-                Le rythme
+                The rhythm
               </span>
               <span className="mt-1 block text-[11px] leading-snug text-slate-600">
-                calculé par Signal
+                computed by Signal
               </span>
             </span>
             {CYCLE.map(([title, text], i) => {
@@ -409,9 +409,8 @@ function CycleReachat() {
           <div className="space-y-5">
             <TaskList />
             <p className="text-body text-slate-600">
-              Chaque relance validée devient une tâche dans la journée de la
-              bonne conseillère — Focus s&apos;occupe de l&apos;ordre, elle
-              s&apos;occupe de la relation.
+              Every approved follow-up becomes a task in the right advisor&apos;s
+              day — Focus handles the order, she handles the relationship.
             </p>
           </div>
         </div>
@@ -420,21 +419,21 @@ function CycleReachat() {
   );
 }
 
-/* ————— Mode & DTC : deux mondes qui convergent ————— */
+/* ————— Fashion & DTC: two worlds converging ————— */
 
-const ONLINE = ["Wishlist et favoris", "Panier abandonné", "Fiches produit revisitées", "Historique de commandes"];
-const BOUTIQUE = ["Essayages, avec tailles", "Conseils donnés", "Retours et échanges", "Préférences notées"];
+const ONLINE = ["Wishlist and favorites", "Abandoned cart", "Revisited product pages", "Order history"];
+const BOUTIQUE = ["Fittings, with sizes", "Advice given", "Returns and exchanges", "Preferences noted"];
 
 function DeuxMondes() {
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="container-site">
         <h2 className="font-display text-display-m max-w-2xl text-abyss-900">
-          Deux mondes, un seul client
+          Two worlds, one client
         </h2>
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <div className="border-2 border-abyss-900/15 bg-paper p-6 shadow-card">
-            <p className="eyebrow text-brand-600">En ligne</p>
+            <p className="eyebrow text-brand-600">Online</p>
             <ul className="mt-4 space-y-2.5">
               {ONLINE.map((item) => (
                 <li key={item} className="flex items-center gap-2.5 text-body text-abyss-900">
@@ -445,7 +444,7 @@ function DeuxMondes() {
             </ul>
           </div>
           <div className="border-2 border-abyss-900/15 bg-paper p-6 shadow-card">
-            <p className="eyebrow text-brand-600">En boutique</p>
+            <p className="eyebrow text-brand-600">In store</p>
             <ul className="mt-4 space-y-2.5">
               {BOUTIQUE.map((item) => (
                 <li key={item} className="flex items-center gap-2.5 text-body text-abyss-900">
@@ -464,14 +463,14 @@ function DeuxMondes() {
 
         <div className="dark grid items-center gap-8 bg-abyss-900 p-8 shadow-card-hover lg:grid-cols-2 lg:p-10">
           <div>
-            <p className="eyebrow text-sky-500">La fusion — Iris</p>
+            <p className="eyebrow text-sky-500">The merge — Iris</p>
             <p className="font-display text-display-m mt-2 text-paper">
-              Une seule fiche.
+              One single profile.
             </p>
             <p className="mt-3 text-body text-sky-300">
-              La wishlist du site devient un motif de rappel en boutique ;
-              l&apos;essayage d&apos;hier explique la commande de demain. Et
-              l&apos;attribution répartit le mérite sans dispute.
+              The site wishlist becomes a reason to call back in store;
+              yesterday&apos;s fitting explains tomorrow&apos;s order. And
+              attribution shares the credit without a fight.
             </p>
           </div>
           <WhatsAppThread />
@@ -481,13 +480,13 @@ function DeuxMondes() {
   );
 }
 
-/* ————— Retail spécialisé : la frise du temps long ————— */
+/* ————— Specialty retail: the long-cycle timeline ————— */
 
 const FRISE = [
-  { annee: "Année 0", text: "L'achat. La pièce, le conseil, les préférences — tout est noté.", strong: false },
-  { annee: "Année 1", text: "Rappel d'entretien. La révision devient une visite.", strong: true },
-  { annee: "Année 2–3", text: "Silence entretenu : un mot à l'anniversaire d'achat, une nouveauté pertinente.", strong: false },
-  { annee: "Année 4", text: "Le signal — la fiche d'un nouveau modèle consultée. Le conseiller appelle le premier.", strong: true },
+  { annee: "Year 0", text: "The purchase. The piece, the advice, the preferences — all noted.", strong: false },
+  { annee: "Year 1", text: "Service reminder. The servicing becomes a visit.", strong: true },
+  { annee: "Years 2–3", text: "Tended silence: a note on the purchase anniversary, a relevant novelty.", strong: false },
+  { annee: "Year 4", text: "The signal — a new model's page viewed. The advisor calls first.", strong: true },
 ] as const;
 
 function TempsLong() {
@@ -495,7 +494,7 @@ function TempsLong() {
     <section className="bg-white py-16 lg:py-24">
       <div className="container-site">
         <h2 className="font-display text-display-m max-w-2xl text-abyss-900">
-          Quatre ans de relation, sans trou
+          Four years of relationship, no gaps
         </h2>
 
         <div className="relative mt-14">
@@ -526,13 +525,12 @@ function TempsLong() {
           <AttributionTable />
           <div className="border-2 border-abyss-900/15 bg-paper p-8 shadow-card">
             <p className="text-h3 font-medium text-abyss-900">
-              Le temps long se mesure aussi.
+              The long cycle can be measured too.
             </p>
             <p className="mt-3 text-body text-slate-600">
-              Chaque visite d&apos;atelier, chaque rappel de service, chaque
-              vente à quatre ans d&apos;intervalle : l&apos;attribution suit
-              la relation sur toute sa durée — c&apos;est là que vit votre
-              marge.
+              Every workshop visit, every service reminder, every sale four
+              years apart: attribution follows the relationship across its
+              whole span — that&apos;s where your margin lives.
             </p>
           </div>
         </div>

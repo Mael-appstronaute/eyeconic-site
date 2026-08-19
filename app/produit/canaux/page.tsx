@@ -5,35 +5,35 @@ import { CtaBanner } from "@/components/marketing/cta-banner";
 import { BullesMotif } from "@/components/marketing/hero-motifs";
 
 export const metadata: Metadata = {
-  title: "Canaux",
+  title: "Channels",
   description:
-    "WhatsApp, SMS, WeChat, LINE, e-mail : le canal du client, pas celui de l'outil. Conversations reliées à la vue client unique.",
+    "WhatsApp, SMS, WeChat, LINE, email: the client's channel, not the tool's. Conversations connected to the single customer view.",
 };
 
 const CANAUX = [
-  { name: "WhatsApp", note: "Le canal du luxe en Europe et au Moyen-Orient" },
-  { name: "SMS", note: "Le plus court chemin vers une réponse" },
-  { name: "WeChat", note: "Incontournable pour la clientèle chinoise" },
-  { name: "LINE", note: "Japon et Asie du Sud-Est" },
-  { name: "E-mail", note: "Les moments qui méritent de la place" },
+  { name: "WhatsApp", note: "The luxury channel in Europe and the Middle East" },
+  { name: "SMS", note: "The shortest path to a reply" },
+  { name: "WeChat", note: "Essential for Chinese clientele" },
+  { name: "LINE", note: "Japan and Southeast Asia" },
+  { name: "Email", note: "For the moments that deserve room" },
 ];
 
 const PRINCIPES = [
   [
-    "Le canal du client",
-    "On écrit là où le client répond, pas là où l'outil est confortable. Le choix du canal fait partie de la relation.",
+    "The client's channel",
+    "You write where the client replies, not where the tool is comfortable. Channel choice is part of the relationship.",
   ],
   [
-    "Une seule conversation",
-    "Quel que soit le canal, tout revient dans la même vue client : pas d'historique éclaté entre cinq applications.",
+    "One conversation",
+    "Whatever the channel, everything lands in the same customer view: no history scattered across five apps.",
   ],
   [
-    "Le conseiller garde la main",
-    "Écho prépare le message dans sa voix ; le conseiller relit, ajuste, envoie. Rien ne part tout seul.",
+    "The advisor stays in charge",
+    "Echo drafts the message in their voice; the advisor reviews, adjusts, sends. Nothing goes out on its own.",
   ],
 ];
 
-/* Design propre à la page : la rangée de canaux en bande horizontale. */
+/* Page-specific design: the channel row as a horizontal band. */
 export default function CanauxPage() {
   return (
     <div className="pt-16">
@@ -43,14 +43,14 @@ export default function CanauxPage() {
         <div className="container-site relative py-16 text-center lg:py-24">
           <p className="eyebrow mb-4 flex items-center justify-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Produit — Canaux
+            Product — Channels
           </p>
           <h1 className="font-display text-display-l mx-auto max-w-3xl text-balance text-abyss-900">
-            Le canal du client, pas celui de l&apos;outil.
+            The client&apos;s channel, not the tool&apos;s.
           </h1>
         </div>
 
-        {/* Bande de canaux pleine largeur */}
+        {/* Full-width channel band */}
         <div className="border-y-2 border-abyss-900/10 bg-paper">
           <div className="container-site grid grid-cols-2 divide-abyss-900/10 sm:grid-cols-5 sm:divide-x-2">
             {CANAUX.map((c) => (

@@ -5,12 +5,12 @@ import { AgentCards } from "@/components/marketing/agent-cards";
 import { CtaBanner } from "@/components/marketing/cta-banner";
 
 export const metadata: Metadata = {
-  title: "Les 5 agents",
+  title: "The 5 agents",
   description:
-    "Iris, Signal, Écho, Prisme et Focus : cinq agents IA qui travaillent pendant que vos équipes vendent.",
+    "Iris, Signal, Echo, Prism and Focus: five AI agents that work while your teams sell.",
 };
 
-/* Design propre à la page : le hero « équipe alignée », avatars XL. */
+/* Page-specific design: the "team lineup" hero, XL avatars. */
 export default function AgentsPage() {
   return (
     <div className="pt-16">
@@ -18,14 +18,14 @@ export default function AgentsPage() {
         <div className="container-site py-16 text-center lg:py-24">
           <p className="eyebrow mb-4 flex items-center justify-center gap-2.5 text-brand-600">
             <Spark className="size-2.5" />
-            Produit — Les 5 agents
+            Product — The 5 agents
           </p>
           <h1 className="font-display text-display-l mx-auto max-w-3xl text-balance text-abyss-900">
-            Cinq métiers, une équipe.
+            Five jobs, one team.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-body-l text-slate-600">
-            Ils ne remplacent pas vos conseillers : ils leur préparent le
-            terrain. Voir, décider, écrire, orchestrer, exécuter.
+            They don&apos;t replace your advisors: they set the stage for
+            them. See, decide, write, orchestrate, execute.
           </p>
 
           <div className="mx-auto mt-12 flex max-w-2xl items-end justify-center gap-4 sm:gap-6">

@@ -12,9 +12,9 @@ import { mainNav, produitColumns, solutionsColumns } from "@/lib/navigation";
 type MenuKey = "produit" | "solutions" | null;
 
 /**
- * Header v2 — barre blanche solide, méga menus pleine largeur sous la
- * barre : colonnes à descriptions, les 5 agents avec leurs avatars,
- * panneau de mise en avant sur abysse.
+ * Header — solid white bar, full-width mega menus below it:
+ * descriptive columns, the 5 agents with their avatars,
+ * abyss-blue highlight band.
  */
 export function SiteHeader() {
   const pathname = usePathname();
@@ -73,11 +73,11 @@ export function SiteHeader() {
       <div className="container-site flex h-16 items-center gap-8">
         <Logo height={26} />
 
-        {/* Navigation desktop */}
-        <nav aria-label="Navigation principale" className="hidden flex-1 lg:block">
+        {/* Desktop navigation */}
+        <nav aria-label="Main navigation" className="hidden flex-1 lg:block">
           <ul className="flex items-center gap-1">
             <NavTrigger
-              label="Produit"
+              label="Product"
               menuKey="produit"
               open={openMenu === "produit"}
               setOpen={setOpenMenu}
@@ -110,23 +110,23 @@ export function SiteHeader() {
             href="/connexion"
             className="px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-abyss-900"
           >
-            Connexion
+            Log in
           </Link>
           <Link
             href="/demo"
             className="border-2 border-abyss-900/25 px-4 py-2 text-sm font-medium text-abyss-900 transition-colors hover:border-abyss-900/50"
           >
-            Réserver une démo
+            Book a demo
           </Link>
           <Link
             href="/essai"
             className="bg-gradient-brand notch-tr-bl px-4 py-2.5 text-sm font-medium text-paper"
           >
-            Essai gratuit
+            Start for free
           </Link>
         </div>
 
-        {/* Déclencheur mobile */}
+        {/* Mobile trigger */}
         <button
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
@@ -134,9 +134,7 @@ export function SiteHeader() {
           aria-controls="menu-mobile"
           className="ml-auto flex size-10 items-center justify-center text-abyss-900 lg:hidden"
         >
-          <span className="sr-only">
-            {mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          </span>
+          <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
           <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
             {mobileOpen ? (
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
@@ -147,7 +145,7 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Méga menus — panneaux pleine largeur sous la barre */}
+      {/* Mega menus — full-width panels below the bar */}
       {openMenu ? (
         <div
           onMouseEnter={cancelClose}
@@ -158,7 +156,7 @@ export function SiteHeader() {
         </div>
       ) : null}
 
-      {/* Menu mobile plein écran */}
+      {/* Full-screen mobile menu */}
       {mobileOpen ? <MobileNav /> : null}
     </header>
   );
@@ -218,15 +216,14 @@ function NavTrigger({
   );
 }
 
-/* ————— Panneau Produit : plateforme compacte · 5 tuiles agents ·
-   bandeau de mise en avant pleine largeur ————— */
+/* ————— Product panel: compact platform list · 5 agent tiles ·
+   full-width highlight band ————— */
 
 function ProduitPanel() {
   const plateforme = produitColumns[0];
   return (
     <div className="container-site py-8">
       <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,2.5fr)] gap-12">
-        {/* Plateforme — liste compacte */}
         <div className="border-r-2 border-abyss-900/10 pr-10">
           <p className="eyebrow mb-4 text-slate-400">{plateforme.title}</p>
           <ul className="-mx-3">
@@ -249,9 +246,8 @@ function ProduitPanel() {
           </ul>
         </div>
 
-        {/* Les 5 agents — tuiles verticales */}
         <div>
-          <p className="eyebrow mb-4 text-slate-400">Les 5 agents</p>
+          <p className="eyebrow mb-4 text-slate-400">The 5 agents</p>
           <ul className="grid grid-cols-5 gap-3">
             {AGENTS.map((agent) => (
               <li key={agent.name}>
@@ -277,29 +273,29 @@ function ProduitPanel() {
         </div>
       </div>
 
-      {/* Bandeau de mise en avant */}
+      {/* Highlight band */}
       <Link
         href="/produit"
         className="dark group mt-8 flex items-center justify-between gap-6 bg-abyss-900 px-6 py-4 transition-colors hover:bg-abyss-950"
       >
         <span className="flex items-baseline gap-4">
           <span className="font-display text-sm font-semibold uppercase tracking-wide text-paper">
-            Voir. Agir. Prouver.
+            See. Act. Prove.
           </span>
           <span className="hidden text-caption text-sky-300 xl:inline">
-            La donnée client d&apos;un côté, l&apos;exécution en boutique de
-            l&apos;autre, dans un seul outil.
+            Customer data on one side, in-store execution on the other — in a
+            single tool.
           </span>
         </span>
         <span className="shrink-0 text-sm font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
-          Découvrir la plateforme →
+          Explore the platform →
         </span>
       </Link>
     </div>
   );
 }
 
-/* ————— Panneau Solutions : secteurs en cartes · mise en avant ————— */
+/* ————— Solutions panel: industry cards · highlight ————— */
 
 function SolutionsPanel() {
   const secteurs = solutionsColumns[0];
@@ -332,17 +328,16 @@ function SolutionsPanel() {
         href="/clients"
         className="dark group flex flex-col justify-between bg-abyss-900 p-6 transition-colors hover:bg-abyss-950"
       >
-        <p className="eyebrow text-sky-500">Études de cas</p>
+        <p className="eyebrow text-sky-500">Case studies</p>
         <div>
           <span className="font-display block text-xl font-semibold text-paper">
-            Des marques comme la vôtre
+            Brands like yours
           </span>
           <span className="mt-2 block text-caption leading-relaxed text-sky-300">
-            Comment elles font travailler leur donnée client, boutique par
-            boutique.
+            How they put their customer data to work, store by store.
           </span>
           <span className="mt-4 inline-block text-sm font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
-            Voir les études de cas →
+            Read the case studies →
           </span>
         </div>
       </Link>
@@ -356,10 +351,10 @@ function MobileNav() {
       id="menu-mobile"
       className="fixed inset-0 top-16 z-40 overflow-y-auto border-t-2 border-abyss-900/10 bg-white lg:hidden"
     >
-      <nav aria-label="Navigation mobile" className="container-site py-8">
+      <nav aria-label="Mobile navigation" className="container-site py-8">
         <ul className="space-y-8">
           <li>
-            <p className="eyebrow mb-3 text-slate-400">Produit</p>
+            <p className="eyebrow mb-3 text-slate-400">Product</p>
             <ul className="space-y-0.5">
               {produitColumns[0].links.map((link) => (
                 <li key={link.href}>
@@ -369,7 +364,7 @@ function MobileNav() {
                 </li>
               ))}
             </ul>
-            <p className="eyebrow mb-2 mt-5 text-slate-400">Les 5 agents</p>
+            <p className="eyebrow mb-2 mt-5 text-slate-400">The 5 agents</p>
             <ul className="space-y-0.5">
               {AGENTS.map((agent) => (
                 <li key={agent.name}>
@@ -412,19 +407,19 @@ function MobileNav() {
             href="/essai"
             className="bg-gradient-brand notch-tr-bl block px-5 py-3 text-center font-medium text-paper"
           >
-            Essai gratuit
+            Start for free
           </Link>
           <Link
             href="/demo"
             className="block border-2 border-abyss-900/25 px-5 py-3 text-center font-medium text-abyss-900"
           >
-            Réserver une démo
+            Book a demo
           </Link>
           <Link
             href="/connexion"
             className="block px-5 py-3 text-center font-medium text-slate-600"
           >
-            Connexion
+            Log in
           </Link>
         </div>
       </nav>

@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 };
 
 const COLORS = [
-  { name: "Papier", value: "#f9f9f9", cls: "bg-paper border-2 border-abyss-900/15" },
-  { name: "Brume — mist-100", value: "#eef3fa", cls: "bg-mist-100" },
+  { name: "Paper", value: "#f9f9f9", cls: "bg-paper border-2 border-abyss-900/15" },
+  { name: "Mist — mist-100", value: "#eef3fa", cls: "bg-mist-100" },
   { name: "brand-500", value: "#4c92da", cls: "bg-brand-500" },
   { name: "brand-700", value: "#1a507c", cls: "bg-brand-700" },
-  { name: "Abysse — abyss-900", value: "#06335a", cls: "bg-abyss-900" },
-  { name: "Ciel — sky-500", value: "#6a94d3", cls: "bg-sky-500" },
-  { name: "Encre", value: "#000000", cls: "bg-ink" },
-  { name: "Alerte (états seulement)", value: "#e8703a", cls: "bg-alert" },
+  { name: "Abyss — abyss-900", value: "#06335a", cls: "bg-abyss-900" },
+  { name: "Sky — sky-500", value: "#6a94d3", cls: "bg-sky-500" },
+  { name: "Ink", value: "#000000", cls: "bg-ink" },
+  { name: "Alert (states only)", value: "#e8703a", cls: "bg-alert" },
 ];
 
 export default function StyleguidePage() {
@@ -28,13 +28,13 @@ export default function StyleguidePage() {
     <div className="bg-paper pb-24 pt-24 text-ink">
       <div className="container-site space-y-16">
         <header>
-          <p className="eyebrow text-brand-600">Outil interne — non indexé</p>
+          <p className="eyebrow text-brand-600">Internal tool — noindex</p>
           <h1 className="font-display text-display-l mt-3 text-abyss-900">
-            Styleguide Eyeconic
+            Eyeconic styleguide
           </h1>
           <p className="mt-4 max-w-2xl text-body-l text-slate-600">
-            Site clair à dominante Papier. Surfaces sombres en bleu abysse
-            (jamais de noir). Ombres basses et bleutées. Orbitron + DM Sans.
+            Light site on Paper. Dark surfaces are abyss blue (never black).
+            Square blocks, 2px borders, soft blue shadows. Orbitron + DM Sans.
           </p>
         </header>
 
@@ -44,7 +44,7 @@ export default function StyleguidePage() {
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {COLORS.map((c) => (
               <div key={c.name}>
-                <div className={`h-16 rounded-md ${c.cls}`} />
+                <div className={`h-16 ${c.cls}`} />
                 <p className="mt-2 text-caption font-medium text-abyss-900">{c.name}</p>
                 <p className="data-label text-caption text-slate-400">{c.value}</p>
               </div>
@@ -52,73 +52,73 @@ export default function StyleguidePage() {
           </div>
         </section>
 
-        {/* Les 2 dégradés */}
+        {/* The 2 gradients */}
         <section>
-          <h2 className="eyebrow mb-6 text-brand-600">Les deux dégradés — usages étanches</h2>
+          <h2 className="eyebrow mb-6 text-brand-600">The two gradients — strict uses</h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="bg-gradient-brand flex h-24 items-center rounded-lg px-6">
+            <div className="bg-gradient-brand notch-tr-bl flex h-24 items-center px-6">
               <span className="text-caption font-medium text-paper">
-                gradient-brand 135° — logo · 1 CTA/écran · barre de scroll
+                gradient-brand 135° — logo · 1 CTA/screen · scroll bar
               </span>
             </div>
-            <div className="bg-gradient-ambient flex h-24 items-center rounded-lg px-6">
+            <div className="bg-gradient-ambient flex h-24 items-center px-6">
               <span className="text-caption font-medium text-paper">
-                gradient-ambient 200° — fonds de section (hero, clôture)
+                gradient-ambient 200° — section backgrounds (hero)
               </span>
             </div>
           </div>
         </section>
 
-        {/* Typographie */}
-        <section className="space-y-5 rounded-lg border-2 border-abyss-900/15 bg-white p-8 shadow-card">
+        {/* Typography */}
+        <section className="space-y-5 border-2 border-abyss-900/15 bg-white p-8 shadow-card">
           <p className="font-display text-display-xl text-abyss-900">Display XL</p>
           <p className="font-display text-display-l text-abyss-900">Display L — Orbitron Bold</p>
           <p className="font-display text-display-m text-abyss-900">Display M — SemiBold</p>
-          <p className="text-h3">H3 — DM Sans Medium, jamais Orbitron sous 28 px</p>
+          <p className="text-h3">H3 — DM Sans Medium, never Orbitron below 28px</p>
           <p className="text-body-l text-slate-600">
-            Body L — DM Sans Regular, interlignage 1.6. Le texte courant du site.
+            Body L — DM Sans Regular, 1.6 line height. The site&apos;s running text.
           </p>
-          <p className="eyebrow text-brand-600">Eyebrow — Orbitron 12 px · tracking 0.12em</p>
+          <p className="eyebrow text-brand-600">Eyebrow — Orbitron 12px · 0.12em tracking</p>
           <p className="data-label text-caption text-slate-600">
-            data-label — 4 250 € · ×4,2 · chiffres tabulaires
+            data-label — €4,250 · ×4.2 · tabular figures
           </p>
         </section>
 
-        {/* Boutons + ombres */}
+        {/* Buttons + notches */}
         <section>
-          <h2 className="eyebrow mb-6 text-brand-600">Boutons · ombres bleutées</h2>
+          <h2 className="eyebrow mb-6 text-brand-600">Buttons · notches · shadows</h2>
           <div className="flex flex-wrap items-center gap-4">
-            <PixelButton variant="brand">CTA dégradé — 1 par écran</PixelButton>
-            <PixelButton variant="outline">CTA secondaire</PixelButton>
-            <span className="rounded-lg border-2 border-abyss-900/15 bg-white px-5 py-3 shadow-card">
-              Carte shadow-card
+            <PixelButton variant="brand">Gradient CTA — 1 per screen</PixelButton>
+            <PixelButton variant="outline">Secondary CTA</PixelButton>
+            <span className="border-2 border-abyss-900/15 bg-white px-5 py-3 shadow-card">
+              Card with shadow-card
             </span>
           </div>
-          <div className="dark mt-6 flex flex-wrap items-center gap-4 rounded-lg bg-abyss-900 p-6">
-            <PixelButton variant="paper">CTA sur fond abysse</PixelButton>
-            <PixelButton variant="outline-paper">Secondaire abysse</PixelButton>
+          <div className="dark mt-6 flex flex-wrap items-center gap-4 bg-abyss-900 p-6">
+            <PixelButton variant="paper">CTA on abyss</PixelButton>
+            <PixelButton variant="outline-paper">Secondary on abyss</PixelButton>
           </div>
         </section>
 
-        {/* SectionHeading + compteur */}
-        <section className="rounded-lg border-2 border-abyss-900/15 bg-white p-8 shadow-card">
+        {/* SectionHeading + counter */}
+        <section className="border-2 border-abyss-900/15 bg-white p-8 shadow-card">
           <SectionHeading
-            eyebrow="Exemple"
-            title="Un en-tête de section"
-            intro="Eyebrow Orbitron 12 px, titre Orbitron, intro DM Sans."
+            eyebrow="Example"
+            title="A section heading"
+            intro="Orbitron eyebrow, Orbitron title, DM Sans intro."
           />
           <div className="mt-8 max-w-56 border-t border-abyss-900/10 pt-6">
-            <StatCounter value={4.2} decimals={1} prefix="×" label="Compteur animé" />
+            <StatCounter value={4.2} decimals={1} prefix="×" label="Animated counter" />
           </div>
           <div className="divider-soft mt-8" />
           <p className="mt-2 text-caption text-slate-400">
-            divider-soft — trait fin entre blocs
+            divider-soft — thin rule between blocks
           </p>
         </section>
 
         {/* Mockups */}
         <section>
-          <h2 className="eyebrow mb-6 text-brand-600">Mockups produit — HTML/CSS, zéro capture</h2>
+          <h2 className="eyebrow mb-6 text-brand-600">Product mockups — HTML/CSS, zero screenshots</h2>
           <div className="grid gap-6 lg:grid-cols-2">
             <CustomerCard />
             <TaskList />
