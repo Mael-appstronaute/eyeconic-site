@@ -44,62 +44,39 @@ const CAPABILITIES = [
   },
 ];
 
-/* Les 5 agents en groupe illustré — silhouettes distinctes (coiffures,
-   tailles), teintes de l'échelle de marque du plus clair (Iris) au plus
-   profond (Focus). Une équipe, pas cinq icônes répétées. */
-const AGENT_NAMES = ["Iris", "Signal", "Écho", "Prisme", "Focus"];
+/* Les 5 agents en roster — une ligne par agent : initiale sur pastille
+   aux teintes de marque (du clair au profond), nom et rôle du brief. */
+const AGENTS = [
+  { name: "Iris", color: "#7fb0e5", role: "Construit et enrichit la vue client unique" },
+  { name: "Signal", color: "#4c92da", role: "Détecte les intentions d'achat et les clients qui décrochent" },
+  { name: "Écho", color: "#6a94d3", role: "Rédige le message, dans la voix du conseiller" },
+  { name: "Prisme", color: "#2f6fae", role: "Orchestre les campagnes et les segments" },
+  { name: "Focus", color: "#1a507c", role: "Priorise la journée de chaque conseiller" },
+];
 
-function AgentAvatars() {
+function AgentRoster() {
   return (
-    <div className="my-auto py-6">
-      <svg
-        viewBox="0 0 260 86"
-        className="mx-auto w-full max-w-[260px]"
-        role="img"
-        aria-label="Les cinq agents : Iris, Signal, Écho, Prisme et Focus"
-      >
-        {/* Iris — bob, figure moyenne */}
-        <g fill="#7fb0e5">
-          <circle cx="26" cy="42" r="14" />
-          <circle cx="26" cy="47" r="12" />
-          <path d="M4 86c2-19 11-28 22-28s20 9 22 28Z" />
-        </g>
-        {/* Signal — grand, cheveux courts */}
-        <g fill="#4c92da">
-          <circle cx="78" cy="34" r="12" />
-          <path d="M78 22a12 12 0 0 1 12 11H66a12 12 0 0 1 12-11Z" />
-          <path d="M56 86c2-24 11-34 22-34s20 10 22 34Z" />
-        </g>
-        {/* Écho — chignon */}
-        <g fill="#6a94d3">
-          <circle cx="130" cy="27" r="6" />
-          <circle cx="130" cy="42" r="12" />
-          <path d="M108 86c2-19 11-28 22-28s20 9 22 28Z" />
-        </g>
-        {/* Prisme — plus petit, cheveux courts */}
-        <g fill="#2f6fae">
-          <circle cx="182" cy="46" r="11" />
-          <path d="M182 35a11 11 0 0 1 11 10h-22a11 11 0 0 1 11-10Z" />
-          <path d="M162 86c2-17 10-25 20-25s18 8 20 25Z" />
-        </g>
-        {/* Focus — cheveux longs */}
-        <g fill="#1a507c">
-          <path d="M220 44c0-10 6-17 14-17s14 7 14 17v32h-28Z" opacity="0.55" />
-          <circle cx="234" cy="40" r="12" />
-          <path d="M212 86c2-19 11-28 22-28s20 9 22 28Z" />
-        </g>
-      </svg>
-      <div className="mx-auto mt-2 grid w-full max-w-[260px] grid-cols-5 text-center">
-        {AGENT_NAMES.map((name) => (
+    <ul className="mt-5 divide-y divide-abyss-900/10 border-t-2 border-abyss-900/10">
+      {AGENTS.map((agent) => (
+        <li key={agent.name} className="flex items-center gap-3 py-3">
           <span
-            key={name}
-            className="text-[10px] font-medium uppercase tracking-wide text-slate-600"
+            aria-hidden="true"
+            className="flex size-8 shrink-0 items-center justify-center text-sm font-semibold text-paper"
+            style={{ backgroundColor: agent.color }}
           >
-            {name}
+            {agent.name[0]}
           </span>
-        ))}
-      </div>
-    </div>
+          <span className="min-w-0">
+            <span className="block text-sm font-medium text-abyss-900">
+              {agent.name}
+            </span>
+            <span className="block text-caption text-slate-600">
+              {agent.role}
+            </span>
+          </span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -122,7 +99,7 @@ export function BentoGrid() {
                   {cap.title}
                 </h3>
                 <p className="mt-2 text-body text-slate-600">{cap.text}</p>
-                {cap.agents ? <AgentAvatars /> : null}
+                {cap.agents ? <AgentRoster /> : null}
                 {cap.mockup ? (
                   <div className="mt-5">
                     <TaskList />
