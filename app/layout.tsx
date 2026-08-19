@@ -3,6 +3,7 @@ import { Orbitron, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { SiteFooter } from "@/components/marketing/site-footer";
+import { SplashIntro } from "@/components/marketing/splash-intro";
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -35,6 +36,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${orbitron.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {/* Avant peinture : masque l'intro si déjà vue dans la session */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('eyeconic-intro'))document.documentElement.dataset.introSeen='1'}catch(e){}",
+          }}
+        />
+        <SplashIntro />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
