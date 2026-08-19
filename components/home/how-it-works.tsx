@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { PixelButton } from "@/components/marketing/pixel-button";
 
 /**
  * « How it works » — section pleine largeur brume : titre + CTA à
@@ -47,12 +47,9 @@ export function HowItWorks() {
             Your platform, configured with a retail specialist and ready to
             grow with you — <span className="font-semibold text-abyss-950">free to start</span>.
           </p>
-          <Link
-            href="/demo"
-            className="mt-8 inline-block rounded-full bg-abyss-950 px-7 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-abyss-900"
-          >
-            Book a demo
-          </Link>
+          <div className="mt-8">
+            <PixelButton href="/demo">Book a demo</PixelButton>
+          </div>
         </div>
 
         <ol className="relative">

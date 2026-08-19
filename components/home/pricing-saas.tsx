@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { PixelButton } from "@/components/marketing/pixel-button";
 
 /**
  * Pricing v4 — trois cartes arrondies, la carte du milieu cerclée
@@ -98,17 +99,18 @@ export function PricingSaas() {
               </p>
               <p className="mt-2 text-sm text-slate-600">{plan.note}</p>
 
-              <Link
-                href={plan.href}
-                className={cn(
-                  "mt-6 block rounded-full py-3 text-center text-sm font-medium transition-colors",
-                  plan.featured
-                    ? "bg-abyss-950 text-paper hover:bg-abyss-900"
-                    : "bg-mist-100 text-abyss-950 hover:bg-mist-200"
-                )}
-              >
-                {plan.cta}
-              </Link>
+              {plan.featured ? (
+                <PixelButton href={plan.href} size="sm" className="mt-6 w-full">
+                  {plan.cta}
+                </PixelButton>
+              ) : (
+                <Link
+                  href={plan.href}
+                  className="mt-6 block rounded-full bg-mist-100 py-3 text-center text-sm font-medium text-abyss-950 transition-colors hover:bg-mist-200"
+                >
+                  {plan.cta}
+                </Link>
+              )}
 
               <p className="mt-7 text-sm font-medium text-abyss-950">Includes:</p>
               <ul className="mt-3 space-y-2.5">

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/marketing/logo";
+import { PixelButton } from "@/components/marketing/pixel-button";
 import { AGENTS, AgentAvatar } from "@/components/marketing/agent-avatar";
 import { mainNav, solutionsColumns } from "@/lib/navigation";
 
@@ -199,19 +200,9 @@ export function SiteHeader() {
             >
               Log in
             </Link>
-            <Link
-              href="/essai"
-              className="group inline-flex items-center gap-2 rounded-full bg-abyss-950 py-2.5 pl-5 pr-4 text-sm font-medium text-paper transition-colors hover:bg-brand-600"
-            >
+            <PixelButton href="/essai" size="sm">
               Start for free
-              <svg
-                viewBox="0 0 16 16"
-                className="size-3.5 transition-transform group-hover:translate-x-0.5"
-                aria-hidden="true"
-              >
-                <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
+            </PixelButton>
           </div>
 
           {/* Mobile trigger */}
@@ -468,12 +459,11 @@ function MobileNav() {
             </Link>
           </li>
         </ul>
-        <Link
-          href="/essai"
-          className="mt-4 block rounded-full bg-abyss-950 px-5 py-3 text-center text-sm font-medium text-paper"
-        >
-          Start for free
-        </Link>
+        <div className="mt-4">
+          <PixelButton href="/essai" className="w-full">
+            Start for free
+          </PixelButton>
+        </div>
       </nav>
     </div>
   );

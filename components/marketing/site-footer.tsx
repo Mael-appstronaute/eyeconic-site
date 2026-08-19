@@ -71,10 +71,14 @@ export function SiteFooter() {
                 />
                 <button
                   type="submit"
-                  className="flex h-10 shrink-0 items-center gap-2 rounded-full bg-abyss-950 px-5 text-sm font-medium text-paper transition-colors hover:bg-abyss-900"
+                  className="group/btn bg-gradient-brand flex h-10 shrink-0 items-center gap-2 rounded-full py-1 pl-5 pr-1 text-sm font-semibold text-paper transition-all hover:brightness-110 [box-shadow:inset_0_1px_0_rgba(255,255,255,0.35)]"
                 >
                   Start free
-                  <span aria-hidden="true">→</span>
+                  <span className="flex size-8 items-center justify-center rounded-full bg-white text-brand-600 transition-transform group-hover/btn:translate-x-0.5">
+                    <svg viewBox="0 0 16 16" className="size-3.5" aria-hidden="true">
+                      <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 </button>
               </form>
             </div>

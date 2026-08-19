@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { PixelButton } from "@/components/marketing/pixel-button";
 import { cn } from "@/lib/utils";
 import { FAQ_ITEMS } from "@/lib/faq";
 
@@ -26,13 +27,10 @@ export function FaqSaas() {
           <p className="mt-4 text-body-l text-slate-600">
             Can&apos;t find the answer you&apos;re looking for? Reach out!
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/essai"
-              className="rounded-full bg-abyss-950 px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-abyss-900"
-            >
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <PixelButton href="/essai" size="sm">
               Start for free
-            </Link>
+            </PixelButton>
             <Link
               href="/contact"
               className="rounded-full bg-mist-100 px-6 py-3 text-sm font-medium text-abyss-950 transition-colors hover:bg-mist-200"
