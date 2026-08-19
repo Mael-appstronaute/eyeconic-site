@@ -44,15 +44,54 @@ const CAPABILITIES = [
   },
 ];
 
-/* Les 5 agents en roster — une ligne par agent : initiale sur pastille
-   aux teintes de marque (du clair au profond), nom et rôle du brief. */
+/* Les 5 agents en roster — une ligne par agent : avatar silhouette sur
+   pastille aux teintes de marque (du clair au profond), nom et rôle du
+   brief. Chaque silhouette est distincte : une équipe, pas un picto ×5. */
 const AGENTS = [
-  { name: "Iris", color: "#7fb0e5", role: "Construit et enrichit la vue client unique" },
-  { name: "Signal", color: "#4c92da", role: "Détecte les intentions d'achat et les clients qui décrochent" },
-  { name: "Écho", color: "#6a94d3", role: "Rédige le message, dans la voix du conseiller" },
-  { name: "Prisme", color: "#2f6fae", role: "Orchestre les campagnes et les segments" },
-  { name: "Focus", color: "#1a507c", role: "Priorise la journée de chaque conseiller" },
-];
+  { name: "Iris", color: "#7fb0e5", avatar: "bob", role: "Construit et enrichit la vue client unique" },
+  { name: "Signal", color: "#4c92da", avatar: "court", role: "Détecte les intentions d'achat et les clients qui décrochent" },
+  { name: "Écho", color: "#6a94d3", avatar: "chignon", role: "Rédige le message, dans la voix du conseiller" },
+  { name: "Prisme", color: "#2f6fae", avatar: "nu", role: "Orchestre les campagnes et les segments" },
+  { name: "Focus", color: "#1a507c", avatar: "long", role: "Priorise la journée de chaque conseiller" },
+] as const;
+
+/* Silhouettes blanches, une coiffure par agent, bas de cadre = épaules */
+const AVATAR_SHAPES: Record<string, React.ReactNode> = {
+  bob: (
+    <>
+      <circle cx="16" cy="12.5" r="8" />
+      <circle cx="16" cy="14.5" r="6.5" />
+      <path d="M4 32c1.5-9 6.5-13 12-13s10.5 4 12 13Z" />
+    </>
+  ),
+  court: (
+    <>
+      <circle cx="16" cy="13" r="6.5" />
+      <path d="M16 5.5a7 7 0 0 1 7 6.5H9a7 7 0 0 1 7-6.5Z" />
+      <path d="M4 32c1.5-9 6.5-13 12-13s10.5 4 12 13Z" />
+    </>
+  ),
+  chignon: (
+    <>
+      <circle cx="16" cy="5.5" r="3.2" />
+      <circle cx="16" cy="14" r="6.5" />
+      <path d="M4 32c1.5-9 6.5-13 12-13s10.5 4 12 13Z" />
+    </>
+  ),
+  nu: (
+    <>
+      <circle cx="16" cy="13" r="6.5" />
+      <path d="M4 32c1.5-9 6.5-13 12-13s10.5 4 12 13Z" />
+    </>
+  ),
+  long: (
+    <>
+      <path d="M8 15c0-6 3.5-10 8-10s8 4 8 10v17H8Z" opacity="0.55" />
+      <circle cx="16" cy="13" r="6.5" />
+      <path d="M4 32c1.5-9 6.5-13 12-13s10.5 4 12 13Z" />
+    </>
+  ),
+};
 
 function AgentRoster() {
   return (
@@ -61,10 +100,12 @@ function AgentRoster() {
         <li key={agent.name} className="flex items-center gap-3 py-3">
           <span
             aria-hidden="true"
-            className="flex size-8 shrink-0 items-center justify-center text-sm font-semibold text-paper"
+            className="flex size-9 shrink-0 items-end justify-center overflow-hidden"
             style={{ backgroundColor: agent.color }}
           >
-            {agent.name[0]}
+            <svg viewBox="0 0 32 32" className="w-full" fill="#f9f9f9">
+              {AVATAR_SHAPES[agent.avatar]}
+            </svg>
           </span>
           <span className="min-w-0">
             <span className="block text-sm font-medium text-abyss-900">
