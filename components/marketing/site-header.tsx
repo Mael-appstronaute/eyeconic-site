@@ -218,76 +218,82 @@ function NavTrigger({
   );
 }
 
-/* ————— Panneau Produit : plateforme · agents (avatars) · mise en avant ————— */
+/* ————— Panneau Produit : plateforme compacte · 5 tuiles agents ·
+   bandeau de mise en avant pleine largeur ————— */
 
 function ProduitPanel() {
   const plateforme = produitColumns[0];
   return (
-    <div className="container-site grid grid-cols-[minmax(0,5fr)_minmax(0,5fr)_minmax(0,4fr)] gap-10 py-8">
-      <div>
-        <p className="eyebrow mb-4 text-slate-400">{plateforme.title}</p>
-        <ul className="-mx-3 space-y-0.5">
-          {plateforme.links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="block px-3 py-2.5 transition-colors hover:bg-mist-100"
-              >
-                <span className="block text-sm font-medium text-abyss-900">
+    <div className="container-site py-8">
+      <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,2.5fr)] gap-12">
+        {/* Plateforme — liste compacte */}
+        <div className="border-r-2 border-abyss-900/10 pr-10">
+          <p className="eyebrow mb-4 text-slate-400">{plateforme.title}</p>
+          <ul className="-mx-3">
+            {plateforme.links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="group flex items-center justify-between gap-3 px-3 py-2.5 text-sm font-medium text-abyss-900 transition-colors hover:bg-mist-100"
+                >
                   {link.label}
-                </span>
-                {link.description ? (
-                  <span className="mt-0.5 block text-caption text-slate-600">
-                    {link.description}
+                  <span
+                    aria-hidden="true"
+                    className="text-brand-500 opacity-0 transition-opacity group-hover:opacity-100"
+                  >
+                    →
                   </span>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div>
-        <p className="eyebrow mb-4 text-slate-400">Les 5 agents</p>
-        <ul className="-mx-3 space-y-0.5">
-          {AGENTS.map((agent) => (
-            <li key={agent.name}>
-              <Link
-                href={agent.href}
-                className="flex items-center gap-3 px-3 py-2 transition-colors hover:bg-mist-100"
-              >
-                <AgentAvatar variant={agent.variant} color={agent.color} className="size-8" />
-                <span className="min-w-0">
-                  <span className="block text-sm font-medium text-abyss-900">
+        {/* Les 5 agents — tuiles verticales */}
+        <div>
+          <p className="eyebrow mb-4 text-slate-400">Les 5 agents</p>
+          <ul className="grid grid-cols-5 gap-3">
+            {AGENTS.map((agent) => (
+              <li key={agent.name}>
+                <Link
+                  href={agent.href}
+                  className="flex h-full flex-col items-center gap-2.5 border-2 border-abyss-900/10 px-3 py-4 text-center transition-colors hover:border-brand-500/50 hover:bg-mist-100"
+                >
+                  <AgentAvatar
+                    variant={agent.variant}
+                    color={agent.color}
+                    className="size-11"
+                  />
+                  <span className="text-sm font-medium text-abyss-900">
                     {agent.name}
                   </span>
-                  <span className="block truncate text-caption text-slate-600">
+                  <span className="text-[11px] leading-snug text-slate-600">
                     {agent.role}
                   </span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
+      {/* Bandeau de mise en avant */}
       <Link
         href="/produit"
-        className="dark group flex flex-col justify-between bg-abyss-900 p-6 transition-colors hover:bg-abyss-950"
+        className="dark group mt-8 flex items-center justify-between gap-6 bg-abyss-900 px-6 py-4 transition-colors hover:bg-abyss-950"
       >
-        <p className="eyebrow text-sky-500">La plateforme</p>
-        <div>
-          <span className="font-display block text-xl font-semibold text-paper">
+        <span className="flex items-baseline gap-4">
+          <span className="font-display text-sm font-semibold uppercase tracking-wide text-paper">
             Voir. Agir. Prouver.
           </span>
-          <span className="mt-2 block text-caption leading-relaxed text-sky-300">
+          <span className="hidden text-caption text-sky-300 xl:inline">
             La donnée client d&apos;un côté, l&apos;exécution en boutique de
             l&apos;autre, dans un seul outil.
           </span>
-          <span className="mt-4 inline-block text-sm font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
-            Découvrir la plateforme →
-          </span>
-        </div>
+        </span>
+        <span className="shrink-0 text-sm font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
+          Découvrir la plateforme →
+        </span>
       </Link>
     </div>
   );
