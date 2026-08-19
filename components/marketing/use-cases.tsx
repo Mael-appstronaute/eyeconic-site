@@ -20,26 +20,26 @@ const CASES = [
 /** Section 8 — trois cas d'usage « Pour X ». */
 export function UseCases() {
   return (
-    <section id="cas-usage" className="bg-ink py-20 lg:py-32">
+    <section id="cas-usage" className="bg-white py-20 lg:py-32">
       <div className="container-site">
         <SectionHeading
           eyebrow="Sur le terrain"
           title="Le même outil, trois métiers"
         />
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {CASES.map((c, i) => (
             <Reveal key={c.eyebrow} delay={i}>
-              <article className="notch-bl group flex h-full flex-col justify-between border-2 border-paper/14 bg-abyss-950/60 p-7 transition-colors duration-100 ease-steps-6 hover:border-paper/30 lg:p-8">
-                <p className="eyebrow text-brand-400">{c.eyebrow}</p>
-                <h3 className="text-h3 mt-16 font-medium text-paper lg:mt-24">
+              <article className="group flex h-full flex-col justify-between rounded-lg border border-abyss-900/10 bg-paper p-7 shadow-card transition-shadow hover:shadow-card-hover lg:p-8">
+                <p className="eyebrow text-brand-600">{c.eyebrow}</p>
+                <h3 className="text-h3 mt-14 font-medium text-abyss-900 lg:mt-20">
                   {c.title}
                 </h3>
                 <Link
                   href="/demo"
-                  className="data-label mt-6 inline-flex items-center gap-2 text-caption uppercase tracking-[0.14em] text-sky-300 transition-colors group-hover:text-paper"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-600 transition-colors group-hover:text-brand-700"
                 >
                   Réserver une démo
-                  <span aria-hidden="true">→</span>
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
                 </Link>
               </article>
             </Reveal>

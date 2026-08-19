@@ -68,7 +68,7 @@ const FOOTNOTES = [
 /** Section 9 — tarifs. Des prix publics, en euros : c'est un différenciant. */
 export function PricingTable() {
   return (
-    <section id="tarifs" className="light bg-paper py-20 text-ink lg:py-32">
+    <section id="tarifs" className="bg-paper py-20 lg:py-32">
       <div className="container-site">
         <SectionHeading
           eyebrow="Tarifs"
@@ -81,32 +81,30 @@ export function PricingTable() {
             <article
               key={plan.name}
               className={cn(
-                "flex flex-col p-7 lg:p-8",
+                "flex flex-col rounded-xl p-7 lg:p-8",
                 plan.featured
-                  ? "notch-tr-bl bg-abyss-950 text-paper shadow-hard lg:-my-4 lg:py-12"
-                  : "border-2 border-abyss-900/16 bg-white"
+                  ? "dark bg-abyss-900 text-paper shadow-card-hover lg:-my-4 lg:py-12"
+                  : "border border-abyss-900/10 bg-white shadow-card"
               )}
             >
               <div className="flex items-center justify-between gap-3">
                 <p
                   className={cn(
                     "eyebrow",
-                    plan.featured ? "text-brand-400" : "text-brand-600"
+                    plan.featured ? "text-sky-300" : "text-brand-600"
                   )}
                 >
                   {plan.name}
                 </p>
                 {plan.featured ? (
-                  <span className="data-label bg-gradient-brand px-2 py-1 text-[10px] uppercase tracking-[0.14em] text-paper">
+                  <span className="bg-gradient-brand rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-paper">
                     Recommandé
                   </span>
                 ) : null}
               </div>
 
               <p className="mt-5 flex items-baseline gap-2">
-                <span className="font-display text-display-m uppercase">
-                  {plan.price}
-                </span>
+                <span className="font-display text-display-m">{plan.price}</span>
                 {plan.priceNote ? (
                   <span
                     className={cn(
@@ -119,7 +117,12 @@ export function PricingTable() {
                 ) : null}
               </p>
               {plan.priceNote ? (
-                <p className="data-label mt-1 text-[10px] uppercase tracking-[0.14em] text-slate-400">
+                <p
+                  className={cn(
+                    "mt-1 text-[11px] uppercase tracking-wide",
+                    plan.featured ? "text-sky-300/70" : "text-slate-400"
+                  )}
+                >
                   [Prix à valider]
                 </p>
               ) : null}
@@ -135,7 +138,7 @@ export function PricingTable() {
               <div className="mt-6">
                 <PixelButton
                   href={plan.cta.href}
-                  variant={plan.featured ? "brand" : "outline-dark"}
+                  variant={plan.featured ? "brand" : "outline"}
                   className="w-full"
                 >
                   {plan.cta.label}
@@ -144,9 +147,9 @@ export function PricingTable() {
 
               <p
                 className={cn(
-                  "data-label mt-7 border-t-2 pt-5 text-caption uppercase tracking-[0.14em]",
+                  "mt-7 border-t pt-5 text-caption font-medium uppercase tracking-wide",
                   plan.featured
-                    ? "border-paper/14 text-slate-400"
+                    ? "border-paper/14 text-sky-300/80"
                     : "border-abyss-900/10 text-slate-400"
                 )}
               >
@@ -158,11 +161,11 @@ export function PricingTable() {
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "mt-2 size-1.5 shrink-0",
-                        plan.featured ? "bg-brand-400" : "bg-brand-600"
+                        "mt-2 size-1.5 shrink-0 rounded-full",
+                        plan.featured ? "bg-brand-400" : "bg-brand-500"
                       )}
                     />
-                    <span className={plan.featured ? "text-paper" : "text-ink"}>
+                    <span className={plan.featured ? "text-paper" : "text-abyss-900"}>
                       {f}
                     </span>
                   </li>
@@ -176,9 +179,9 @@ export function PricingTable() {
           {FOOTNOTES.map((note) => (
             <li
               key={note}
-              className="data-label flex items-center gap-2 text-caption uppercase tracking-[0.14em] text-slate-600"
+              className="flex items-center gap-2 text-caption font-medium text-slate-600"
             >
-              <span aria-hidden="true" className="size-1.5 bg-brand-600" />
+              <span aria-hidden="true" className="size-1.5 rounded-full bg-brand-500" />
               {note}
             </li>
           ))}

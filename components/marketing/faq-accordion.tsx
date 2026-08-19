@@ -5,22 +5,22 @@ import { cn } from "@/lib/utils";
 import { PixelButton } from "@/components/marketing/pixel-button";
 import { FAQ_ITEMS } from "@/lib/faq";
 
-/** Section 10 — FAQ en accordéon, cellules bordées hard-edge. */
+/** Section 10 — FAQ en accordéon. */
 export function FaqAccordion() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-ink py-20 lg:py-32">
+    <section id="faq" className="bg-white py-20 lg:py-32">
       <div className="container-site grid gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)]">
         <div>
-          <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-500">
-            <span aria-hidden="true" className="size-2 bg-brand-500" />
+          <p className="eyebrow mb-4 flex items-center gap-2.5 text-brand-600">
+            <span aria-hidden="true" className="size-2 rounded-full bg-brand-600" />
             FAQ
           </p>
-          <h2 className="font-display text-display-l uppercase text-paper">
+          <h2 className="font-display text-display-l text-abyss-900">
             Vos questions, nos réponses
           </h2>
-          <p className="mt-5 text-body-l text-sky-300">
+          <p className="mt-5 text-body-l text-slate-600">
             Pour tout le reste, l&apos;équipe répond en une journée.
           </p>
           <div className="mt-8">
@@ -30,13 +30,13 @@ export function FaqAccordion() {
           </div>
         </div>
 
-        <div className="border-2 border-paper/14">
+        <div className="overflow-hidden rounded-xl border border-abyss-900/10 bg-white shadow-card">
           {FAQ_ITEMS.map((item, i) => {
             const isOpen = open === i;
             return (
               <div
                 key={item.q}
-                className={cn(i > 0 && "border-t-2 border-paper/14")}
+                className={cn(i > 0 && "border-t border-abyss-900/10")}
               >
                 <h3>
                   <button
@@ -45,17 +45,17 @@ export function FaqAccordion() {
                     aria-expanded={isOpen}
                     aria-controls={`faq-panel-${i}`}
                     className={cn(
-                      "flex w-full items-center justify-between gap-4 p-5 text-left text-body font-medium transition-colors duration-100 ease-steps-6 lg:p-6",
+                      "flex w-full items-center justify-between gap-4 p-5 text-left text-body font-medium transition-colors lg:p-6",
                       isOpen
-                        ? "bg-abyss-950 text-paper"
-                        : "text-paper/85 hover:bg-abyss-950/50 hover:text-paper"
+                        ? "bg-paper text-abyss-900"
+                        : "text-abyss-900/85 hover:bg-paper"
                     )}
                   >
                     {item.q}
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "data-label shrink-0 text-brand-400 transition-transform duration-100 ease-steps-6",
+                        "shrink-0 text-lg font-normal text-brand-600 transition-transform",
                         isOpen && "rotate-45"
                       )}
                     >
@@ -66,9 +66,9 @@ export function FaqAccordion() {
                 <div
                   id={`faq-panel-${i}`}
                   hidden={!isOpen}
-                  className="bg-abyss-950 px-5 pb-6 lg:px-6"
+                  className="bg-paper px-5 pb-6 lg:px-6"
                 >
-                  <p className="max-w-2xl text-body text-sky-300">{item.a}</p>
+                  <p className="max-w-2xl text-body text-slate-600">{item.a}</p>
                 </div>
               </div>
             );

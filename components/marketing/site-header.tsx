@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/marketing/logo";
+import { Spark } from "@/components/marketing/spark";
 import { ScrollProgress } from "@/components/marketing/scroll-progress";
 import {
   mainNav,
@@ -16,6 +17,9 @@ import {
   type NavLink,
 } from "@/lib/navigation";
 
+/** Pages dont le hero est sur dégradé d'ambiance : header blanc tant qu'il est transparent. */
+const DARK_HERO_ROUTES = ["/"];
+
 type MenuKey = "produit" | "solutions" | null;
 
 export function SiteHeader() {
@@ -25,6 +29,8 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
+
+  const onDarkHero = DARK_HERO_ROUTES.includes(pathname) && !scrolled && !mobileOpen;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -77,8 +83,10 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 bg-ink transition-colors duration-100",
-        scrolled ? "border-b-2 border-paper/14" : "border-b-2 border-transparent"
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        scrolled
+          ? "bg-paper/85 backdrop-blur-md border-b border-abyss-900/10"
+          : "bg-transparent"
       )}
     >
       <ScrollProgress />
@@ -86,7 +94,7 @@ export function SiteHeader() {
         ref={navRef}
         className="container-site flex h-16 items-center justify-between gap-6"
       >
-        <Logo variant="white" height={26} />
+        <Logo variant={onDarkHero ? "white" : "default"} height={26} />
 
         {/* Navigation desktop */}
         <nav aria-label="Navigation principale" className="hidden lg:block">
@@ -97,6 +105,7 @@ export function SiteHeader() {
               columns={produitColumns}
               highlight={produitHighlight}
               open={openMenu === "produit"}
+              onDarkHero={onDarkHero}
               setOpen={setOpenMenu}
               scheduleClose={scheduleClose}
               cancelClose={cancelClose}
@@ -107,6 +116,7 @@ export function SiteHeader() {
               columns={solutionsColumns}
               highlight={solutionsHighlight}
               open={openMenu === "solutions"}
+              onDarkHero={onDarkHero}
               setOpen={setOpenMenu}
               scheduleClose={scheduleClose}
               cancelClose={cancelClose}
@@ -115,7 +125,12 @@ export function SiteHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="px-3 py-2 text-sm font-medium text-paper/80 transition-colors hover:text-paper"
+                  className={cn(
+                    "rounded-sm px-3 py-2 text-sm font-medium transition-colors",
+                    onDarkHero
+                      ? "text-paper/90 hover:text-paper"
+                      : "text-slate-600 hover:text-abyss-900"
+                  )}
                 >
                   {item.label}
                 </Link>
@@ -127,21 +142,29 @@ export function SiteHeader() {
         <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="/connexion"
-            className="px-3 py-2 text-sm font-medium text-paper/80 transition-colors hover:text-paper"
+            className={cn(
+              "rounded-sm px-3 py-2 text-sm font-medium transition-colors",
+              onDarkHero
+                ? "text-paper/90 hover:text-paper"
+                : "text-slate-600 hover:text-abyss-900"
+            )}
           >
             Connexion
           </Link>
           <Link
             href="/demo"
-            className="border-2 border-paper/25 px-4 py-2 text-sm font-medium text-paper transition-colors hover:border-paper/60"
+            className={cn(
+              "rounded-md border px-4 py-2 text-sm font-medium transition-colors",
+              onDarkHero
+                ? "border-paper/40 text-paper hover:border-paper/80"
+                : "border-abyss-900/20 text-abyss-900 hover:border-abyss-900/40"
+            )}
           >
             Réserver une démo
           </Link>
-          {/* Solide papier, pas dégradé : le dégradé reste réservé au CTA
-              de section (règle : un seul CTA en dégradé par écran) */}
           <Link
             href="/essai"
-            className="notch-tr-bl bg-paper px-4 py-2.5 text-sm font-medium text-ink"
+            className="bg-gradient-brand rounded-md px-4 py-2 text-sm font-medium text-paper shadow-card transition-shadow hover:shadow-card-hover"
           >
             Essai gratuit
           </Link>
@@ -153,7 +176,10 @@ export function SiteHeader() {
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-controls="menu-mobile"
-          className="flex size-10 items-center justify-center text-paper lg:hidden"
+          className={cn(
+            "flex size-10 items-center justify-center rounded-sm lg:hidden",
+            onDarkHero ? "text-paper" : "text-abyss-900"
+          )}
         >
           <span className="sr-only">
             {mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
@@ -163,15 +189,15 @@ export function SiteHeader() {
               <path
                 d="M6 6l12 12M18 6L6 18"
                 stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="square"
+                strokeWidth="1.75"
+                strokeLinecap="round"
               />
             ) : (
               <path
                 d="M3 7h18M3 12h18M3 17h12"
                 stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="square"
+                strokeWidth="1.75"
+                strokeLinecap="round"
               />
             )}
           </svg>
@@ -190,6 +216,7 @@ function MegaMenuItem({
   columns,
   highlight,
   open,
+  onDarkHero,
   setOpen,
   scheduleClose,
   cancelClose,
@@ -199,6 +226,7 @@ function MegaMenuItem({
   columns: MegaMenuColumn[];
   highlight: NavLink;
   open: boolean;
+  onDarkHero: boolean;
   setOpen: (key: MenuKey) => void;
   scheduleClose: () => void;
   cancelClose: () => void;
@@ -218,8 +246,11 @@ function MegaMenuItem({
         aria-haspopup="true"
         onClick={() => setOpen(open ? null : menuKey)}
         className={cn(
-          "flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors",
-          open ? "text-paper" : "text-paper/80 hover:text-paper"
+          "flex items-center gap-1.5 rounded-sm px-3 py-2 text-sm font-medium transition-colors",
+          onDarkHero
+            ? "text-paper/90 hover:text-paper"
+            : "text-slate-600 hover:text-abyss-900",
+          open && (onDarkHero ? "text-paper" : "text-abyss-900")
         )}
       >
         {label}
@@ -233,7 +264,8 @@ function MegaMenuItem({
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
-            strokeLinecap="square"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </button>
@@ -244,7 +276,7 @@ function MegaMenuItem({
           onMouseLeave={scheduleClose}
           className="absolute left-0 top-full w-[720px] pt-3"
         >
-          <div className="grid grid-cols-3 gap-8 border-2 border-paper/14 bg-abyss-950 p-8 shadow-hard">
+          <div className="grid grid-cols-3 gap-8 rounded-lg border border-abyss-900/10 bg-white p-8 shadow-card">
             {columns.map((col) => (
               <div key={col.title} className={columns.length === 1 ? "col-span-2" : ""}>
                 <p className="eyebrow mb-4 text-slate-400">{col.title}</p>
@@ -258,17 +290,14 @@ function MegaMenuItem({
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="group -mx-2 block px-2 py-2 transition-colors hover:bg-abyss-900"
+                        className="group block rounded-sm px-2 py-2 -mx-2 transition-colors hover:bg-mist-100"
                       >
-                        <span className="flex items-center gap-2 text-sm font-medium text-paper">
-                          <span
-                            aria-hidden="true"
-                            className="size-1.5 bg-brand-500 opacity-0 transition-opacity group-hover:opacity-100"
-                          />
+                        <span className="flex items-center gap-2 text-sm font-medium text-abyss-900">
+                          <Spark className="size-2 text-brand-500 opacity-0 transition-opacity group-hover:opacity-100" />
                           {link.label}
                         </span>
                         {link.description ? (
-                          <span className="mt-0.5 block pl-3.5 text-caption text-sky-300">
+                          <span className="mt-0.5 block pl-4 text-caption text-slate-600">
                             {link.description}
                           </span>
                         ) : null}
@@ -280,15 +309,15 @@ function MegaMenuItem({
             ))}
             <Link
               href={highlight.href}
-              className="group notch-tr flex flex-col justify-between border-2 border-paper/14 bg-abyss-900 p-5 transition-colors hover:border-paper/30"
+              className="group flex flex-col justify-between rounded-md bg-abyss-900 p-5 transition-shadow hover:shadow-card-hover"
             >
-              <span aria-hidden="true" className="size-2 bg-gradient-brand" />
+              <Spark gradient className="size-4" />
               <div>
                 <span className="block font-medium text-paper">{highlight.label}</span>
                 <span className="mt-1.5 block text-caption leading-relaxed text-sky-300">
                   {highlight.description}
                 </span>
-                <span className="data-label mt-3 inline-block text-caption font-medium text-brand-400">
+                <span className="mt-3 inline-block text-caption font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
                   Découvrir →
                 </span>
               </div>
@@ -308,20 +337,20 @@ function MobileNav() {
   return (
     <div
       id="menu-mobile"
-      className="fixed inset-0 top-16 z-40 overflow-y-auto bg-ink lg:hidden"
+      className="fixed inset-0 top-16 z-40 overflow-y-auto bg-paper lg:hidden"
     >
       <nav aria-label="Navigation mobile" className="container-site py-8">
         <ul className="space-y-6">
           {sections.map((section) => (
             <li key={section.title}>
-              <p className="eyebrow mb-3 text-sky-500">{section.title}</p>
-              <ul className="space-y-1 border-l-2 border-paper/14 pl-4">
+              <p className="eyebrow mb-3 text-brand-600">{section.title}</p>
+              <ul className="space-y-1 border-l border-abyss-900/10 pl-4">
                 {section.columns.flatMap((col) =>
                   col.links.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="block py-2 text-body-l text-paper"
+                        className="block py-2 text-body-l text-abyss-900"
                       >
                         {link.label}
                       </Link>
@@ -335,29 +364,29 @@ function MobileNav() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="block py-1 font-display text-2xl font-semibold uppercase text-paper"
+                className="block py-1 font-display text-2xl font-semibold text-abyss-900"
               >
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="mt-10 space-y-3 border-t-2 border-paper/14 pt-8">
+        <div className="mt-10 space-y-3 border-t border-abyss-900/10 pt-8">
           <Link
             href="/essai"
-            className="notch-tr-bl block bg-paper px-5 py-3 text-center font-medium text-ink"
+            className="bg-gradient-brand block rounded-md px-5 py-3 text-center font-medium text-paper"
           >
             Essai gratuit
           </Link>
           <Link
             href="/demo"
-            className="block border-2 border-paper/25 px-5 py-3 text-center font-medium text-paper"
+            className="block rounded-md border border-abyss-900/20 px-5 py-3 text-center font-medium text-abyss-900"
           >
             Réserver une démo
           </Link>
           <Link
             href="/connexion"
-            className="block px-5 py-3 text-center font-medium text-paper/80"
+            className="block rounded-md px-5 py-3 text-center font-medium text-slate-600"
           >
             Connexion
           </Link>

@@ -9,7 +9,7 @@ export function CreditsExplainer({ className }: { className?: string }) {
   return (
     <aside
       className={cn(
-        "notch-tr grid gap-8 border-2 border-abyss-900/16 bg-white p-7 shadow-hard lg:grid-cols-[1fr_auto] lg:items-center lg:p-9",
+        "grid gap-8 rounded-xl border border-abyss-900/10 bg-white p-7 shadow-card lg:grid-cols-[1fr_auto] lg:items-center lg:p-9",
         className
       )}
     >
@@ -17,12 +17,12 @@ export function CreditsExplainer({ className }: { className?: string }) {
         <p className="eyebrow text-brand-600">
           Pourquoi des crédits IA plutôt que des sièges
         </p>
-        <p className="mt-4 max-w-2xl text-body text-ink">
+        <p className="mt-4 max-w-2xl text-body text-slate-600">
           Un logiciel vendu au siège vous force à choisir qui aura le droit de
-          bien travailler. Chez Eyeconic, chaque conseiller a un compte,
-          du vendeur saisonnier à la directrice de région&nbsp;: vous ne payez
-          que ce que les agents IA produisent. Quand une boutique vend plus,
-          elle consomme plus de crédits — jamais plus de licences.
+          bien travailler. Chez Eyeconic, chaque conseiller a un compte, du
+          vendeur saisonnier à la directrice de région&nbsp;: vous ne payez que
+          ce que les agents IA produisent. Quand une boutique vend plus, elle
+          consomme plus de crédits — jamais plus de licences.
         </p>
       </div>
 
@@ -34,23 +34,25 @@ export function CreditsExplainer({ className }: { className?: string }) {
               <span
                 key={i}
                 className={cn(
-                  "size-4 border-2 border-abyss-900/30",
-                  i < 2 ? "bg-abyss-900/20" : "bg-hatch-dark"
+                  "size-4 rounded-sm border",
+                  i < 2
+                    ? "border-slate-400/60 bg-mist-200"
+                    : "border-dashed border-slate-400/60 bg-transparent"
                 )}
               />
             ))}
           </div>
-          <p className="data-label mt-2 text-[10px] uppercase tracking-[0.14em] text-slate-400">
+          <p className="mt-2 text-[11px] font-medium uppercase tracking-wide text-slate-400">
             Par siège — 5 licences
           </p>
         </div>
         <div>
           <div className="grid grid-cols-5 gap-1.5">
             {Array.from({ length: 10 }).map((_, i) => (
-              <span key={i} className="size-4 bg-gradient-brand" />
+              <span key={i} className="bg-gradient-brand size-4 rounded-sm" />
             ))}
           </div>
-          <p className="data-label mt-2 text-[10px] uppercase tracking-[0.14em] text-brand-600">
+          <p className="mt-2 text-[11px] font-medium uppercase tracking-wide text-brand-600">
             Aux crédits — toute la boutique
           </p>
         </div>

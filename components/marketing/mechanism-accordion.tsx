@@ -34,7 +34,7 @@ export function MechanismAccordion() {
   const Visual = STEPS[active].visual;
 
   return (
-    <section id="mecanisme" className="bg-ink py-20 lg:py-32">
+    <section id="mecanisme" className="bg-white py-20 lg:py-32">
       <div className="container-site">
         <SectionHeading
           eyebrow="Le mécanisme"
@@ -54,29 +54,29 @@ export function MechanismAccordion() {
                     aria-expanded={open}
                     aria-controls={`mecanisme-panel-${i}`}
                     className={cn(
-                      "w-full border-2 p-5 text-left transition-colors duration-100 ease-steps-6 lg:p-6",
+                      "w-full rounded-lg border p-5 text-left transition-all lg:p-6",
                       open
-                        ? "notch-tr border-paper/30 bg-abyss-950 shadow-hard"
-                        : "border-paper/14 hover:border-paper/30"
+                        ? "border-brand-500/40 bg-paper shadow-card"
+                        : "border-abyss-900/10 bg-white hover:border-abyss-900/25"
                     )}
                   >
-                    <span className="eyebrow flex items-center gap-2.5 text-brand-400">
+                    <span className="eyebrow flex items-center gap-2.5 text-brand-600">
                       <span
                         aria-hidden="true"
                         className={cn(
-                          "size-1.5",
-                          open ? "bg-gradient-brand" : "bg-paper/30"
+                          "size-1.5 rounded-full",
+                          open ? "bg-gradient-brand" : "bg-slate-400/50"
                         )}
                       />
                       {step.eyebrow}
                     </span>
-                    <span className="font-display text-display-m mt-2 block uppercase text-paper">
+                    <span className="font-display text-display-m mt-2 block text-abyss-900">
                       {step.title}
                     </span>
                     <span
                       id={`mecanisme-panel-${i}`}
                       className={cn(
-                        "mt-3 block text-body text-sky-300",
+                        "mt-3 text-body text-slate-600",
                         open ? "block" : "hidden"
                       )}
                     >

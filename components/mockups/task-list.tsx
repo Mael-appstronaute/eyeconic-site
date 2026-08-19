@@ -17,19 +17,23 @@ export function TaskList({ className }: { className?: string }) {
           <li
             key={t.label}
             className={cn(
-              "flex items-start gap-3 border-2 p-3",
-              t.hot ? "border-brand-500/50 bg-abyss-900" : "border-paper/14"
+              "flex items-start gap-3 rounded-md border p-3",
+              t.hot
+                ? "border-brand-500/40 bg-mist-100"
+                : "border-abyss-900/10 bg-white"
             )}
           >
             <span
               aria-hidden="true"
               className={cn(
-                "mt-0.5 flex size-4 shrink-0 items-center justify-center border-2",
-                t.done ? "border-brand-400 bg-brand-500" : "border-paper/30"
+                "mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-sm border",
+                t.done
+                  ? "border-brand-500 bg-brand-500"
+                  : "border-slate-400/60 bg-white"
               )}
             >
               {t.done ? (
-                <svg viewBox="0 0 8 8" className="size-2 text-ink" aria-hidden="true">
+                <svg viewBox="0 0 8 8" className="size-2 text-white" aria-hidden="true">
                   <path d="M1 4l2 2 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" />
                 </svg>
               ) : null}
@@ -38,12 +42,12 @@ export function TaskList({ className }: { className?: string }) {
               <p
                 className={cn(
                   "text-caption",
-                  t.done ? "text-slate-400 line-through" : "text-paper"
+                  t.done ? "text-slate-400 line-through" : "text-abyss-900"
                 )}
               >
                 {t.label}
               </p>
-              <p className="data-label mt-0.5 text-[10px] uppercase tracking-[0.14em] text-sky-300">
+              <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wide text-brand-600">
                 {t.tag}
               </p>
             </div>
