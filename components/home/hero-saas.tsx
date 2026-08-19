@@ -28,7 +28,7 @@ export function HeroSaas() {
             </span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-body-l text-slate-600">
+          <p className="mx-auto mt-6 max-w-xl text-body-l font-medium text-abyss-900">
             The clienteling platform that unifies your customer data and puts
             five AI agents to work for your stores
           </p>

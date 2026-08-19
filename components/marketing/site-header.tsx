@@ -199,15 +199,18 @@ export function SiteHeader() {
             >
               Log in
             </Link>
-            <Link href="/essai" className="group flex items-center">
-              <span className="rounded-l-full rounded-r-md bg-abyss-950 py-2.5 pl-5 pr-4 text-sm font-medium text-paper transition-colors group-hover:bg-abyss-900">
-                Start for free
-              </span>
-              <span className="ml-0.5 flex size-10 items-center justify-center rounded-l-md rounded-r-full bg-brand-500 text-paper transition-transform group-hover:translate-x-0.5">
-                <svg viewBox="0 0 16 16" className="size-3.5" aria-hidden="true">
-                  <path d="M4 4h8v8M12 4L4 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" transform="rotate(90 8 8)" />
-                </svg>
-              </span>
+            <Link
+              href="/essai"
+              className="group inline-flex items-center gap-2 rounded-full bg-abyss-950 py-2.5 pl-5 pr-4 text-sm font-medium text-paper transition-colors hover:bg-brand-600"
+            >
+              Start for free
+              <svg
+                viewBox="0 0 16 16"
+                className="size-3.5 transition-transform group-hover:translate-x-0.5"
+                aria-hidden="true"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
           </div>
 
