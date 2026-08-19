@@ -5,8 +5,13 @@ import { cn } from "@/lib/utils";
 import { PixelButton } from "@/components/marketing/pixel-button";
 import { FAQ_ITEMS } from "@/lib/faq";
 
-/** Section 10 — FAQ en accordéon. */
-export function FaqAccordion() {
+/** Section 10 — FAQ en accordéon. `items` permet d'étendre la liste
+ * (FAQ longue de /tarifs) sans dupliquer le composant. */
+export function FaqAccordion({
+  items = FAQ_ITEMS,
+}: {
+  items?: { q: string; a: string }[];
+}) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -31,7 +36,7 @@ export function FaqAccordion() {
         </div>
 
         <div className="overflow-hidden rounded-xl border-2 border-abyss-900/15 bg-white shadow-card">
-          {FAQ_ITEMS.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = open === i;
             return (
               <div

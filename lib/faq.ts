@@ -33,3 +33,23 @@ export const FAQ_ITEMS = [
     a: "Oui, c'est même le chemin que nous recommandons : un périmètre de quelques boutiques, des objectifs mesurables, puis l'extension au réseau. Le plan Boutique gratuit permet aussi de tester en conditions réelles sur un point de vente.",
   },
 ];
+
+/* Questions supplémentaires — page /tarifs uniquement */
+export const TARIFS_FAQ_ITEMS = [
+  {
+    q: "Y a-t-il un engagement de durée ?",
+    a: "Le plan Boutique est gratuit, sans limite de durée. Le plan Réseau est mensuel, sans engagement annuel imposé ; un engagement annuel avec conditions préférentielles est possible. [Politique exacte à valider] Le plan Maison est contractualisé sur mesure.",
+  },
+  {
+    q: "Peut-on changer de plan en cours de route ?",
+    a: "Oui, à tout moment. Le passage de Boutique à Réseau conserve toutes vos données et votre configuration : rien n'est à refaire, vos vues client et vos historiques suivent.",
+  },
+  {
+    q: "Le prix dépend-il du nombre d'utilisateurs ?",
+    a: "Non — c'est le principe de la facturation aux crédits IA. Les utilisateurs sont illimités sur tous les plans : chaque conseiller, chaque directeur de boutique, chaque personne du siège a son compte, sans surcoût par siège.",
+  },
+  {
+    q: "Comment se passe la facturation ?",
+    a: "En euros, par prélèvement mensuel ou virement sur facture pour les plans Réseau et Maison. La TVA applicable est celle de votre pays de facturation. [Modalités exactes à valider]",
+  },
+];
