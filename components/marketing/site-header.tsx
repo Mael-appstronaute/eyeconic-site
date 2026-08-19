@@ -5,39 +5,23 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/marketing/logo";
-import { Spark } from "@/components/marketing/spark";
 import { ScrollProgress } from "@/components/marketing/scroll-progress";
-import {
-  mainNav,
-  produitColumns,
-  produitHighlight,
-  solutionsColumns,
-  solutionsHighlight,
-  type MegaMenuColumn,
-  type NavLink,
-} from "@/lib/navigation";
-
-/** Pages dont le hero est sur dégradé d'ambiance : header blanc tant qu'il est transparent. */
-const DARK_HERO_ROUTES = ["/"];
+import { AGENTS, AgentAvatar } from "@/components/marketing/agent-avatar";
+import { mainNav, produitColumns, solutionsColumns } from "@/lib/navigation";
 
 type MenuKey = "produit" | "solutions" | null;
 
+/**
+ * Header v2 — barre blanche solide, méga menus pleine largeur sous la
+ * barre : colonnes à descriptions, les 5 agents avec leurs avatars,
+ * panneau de mise en avant sur abysse.
+ */
 export function SiteHeader() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState<MenuKey>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
-
-  const onDarkHero = DARK_HERO_ROUTES.includes(pathname) && !scrolled && !mobileOpen;
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setOpenMenu(null);
@@ -59,7 +43,7 @@ export function SiteHeader() {
       }
     };
     const onClick = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
         setOpenMenu(null);
       }
     };
@@ -82,41 +66,28 @@ export function SiteHeader() {
 
   return (
     <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled
-          ? "bg-paper/85 backdrop-blur-md border-b border-abyss-900/10"
-          : "bg-transparent"
-      )}
+      ref={headerRef}
+      className="fixed inset-x-0 top-0 z-50 border-b-2 border-abyss-900/10 bg-white"
     >
       <ScrollProgress />
-      <div
-        ref={navRef}
-        className="container-site flex h-16 items-center justify-between gap-6"
-      >
-        <Logo variant={onDarkHero ? "white" : "default"} height={26} />
+      <div className="container-site flex h-16 items-center gap-8">
+        <Logo height={26} />
 
         {/* Navigation desktop */}
-        <nav aria-label="Navigation principale" className="hidden lg:block">
+        <nav aria-label="Navigation principale" className="hidden flex-1 lg:block">
           <ul className="flex items-center gap-1">
-            <MegaMenuItem
+            <NavTrigger
               label="Produit"
               menuKey="produit"
-              columns={produitColumns}
-              highlight={produitHighlight}
               open={openMenu === "produit"}
-              onDarkHero={onDarkHero}
               setOpen={setOpenMenu}
               scheduleClose={scheduleClose}
               cancelClose={cancelClose}
             />
-            <MegaMenuItem
+            <NavTrigger
               label="Solutions"
               menuKey="solutions"
-              columns={solutionsColumns}
-              highlight={solutionsHighlight}
               open={openMenu === "solutions"}
-              onDarkHero={onDarkHero}
               setOpen={setOpenMenu}
               scheduleClose={scheduleClose}
               cancelClose={cancelClose}
@@ -125,12 +96,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={cn(
-                    "rounded-sm px-3 py-2 text-sm font-medium transition-colors",
-                    onDarkHero
-                      ? "text-paper/90 hover:text-paper"
-                      : "text-slate-600 hover:text-abyss-900"
-                  )}
+                  className="block px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-abyss-900"
                 >
                   {item.label}
                 </Link>
@@ -142,23 +108,13 @@ export function SiteHeader() {
         <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="/connexion"
-            className={cn(
-              "rounded-sm px-3 py-2 text-sm font-medium transition-colors",
-              onDarkHero
-                ? "text-paper/90 hover:text-paper"
-                : "text-slate-600 hover:text-abyss-900"
-            )}
+            className="px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-abyss-900"
           >
             Connexion
           </Link>
           <Link
             href="/demo"
-            className={cn(
-              "border-2 px-4 py-2 text-sm font-medium transition-colors",
-              onDarkHero
-                ? "border-paper/40 text-paper hover:border-paper/80"
-                : "border-abyss-900/25 text-abyss-900 hover:border-abyss-900/50"
-            )}
+            className="border-2 border-abyss-900/25 px-4 py-2 text-sm font-medium text-abyss-900 transition-colors hover:border-abyss-900/50"
           >
             Réserver une démo
           </Link>
@@ -176,33 +132,31 @@ export function SiteHeader() {
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-controls="menu-mobile"
-          className={cn(
-            "flex size-10 items-center justify-center rounded-sm lg:hidden",
-            onDarkHero ? "text-paper" : "text-abyss-900"
-          )}
+          className="ml-auto flex size-10 items-center justify-center text-abyss-900 lg:hidden"
         >
           <span className="sr-only">
             {mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
           </span>
           <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
             {mobileOpen ? (
-              <path
-                d="M6 6l12 12M18 6L6 18"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-              />
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
             ) : (
-              <path
-                d="M3 7h18M3 12h18M3 17h12"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-              />
+              <path d="M3 7h18M3 12h18M3 17h12" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
             )}
           </svg>
         </button>
       </div>
+
+      {/* Méga menus — panneaux pleine largeur sous la barre */}
+      {openMenu ? (
+        <div
+          onMouseEnter={cancelClose}
+          onMouseLeave={scheduleClose}
+          className="absolute inset-x-0 top-full hidden border-b-2 border-abyss-900/10 bg-white shadow-card lg:block"
+        >
+          {openMenu === "produit" ? <ProduitPanel /> : <SolutionsPanel />}
+        </div>
+      ) : null}
 
       {/* Menu mobile plein écran */}
       {mobileOpen ? <MobileNav /> : null}
@@ -210,30 +164,23 @@ export function SiteHeader() {
   );
 }
 
-function MegaMenuItem({
+function NavTrigger({
   label,
   menuKey,
-  columns,
-  highlight,
   open,
-  onDarkHero,
   setOpen,
   scheduleClose,
   cancelClose,
 }: {
   label: string;
   menuKey: Exclude<MenuKey, null>;
-  columns: MegaMenuColumn[];
-  highlight: NavLink;
   open: boolean;
-  onDarkHero: boolean;
   setOpen: (key: MenuKey) => void;
   scheduleClose: () => void;
   cancelClose: () => void;
 }) {
   return (
     <li
-      className="relative"
       onMouseEnter={() => {
         cancelClose();
         setOpen(menuKey);
@@ -246,11 +193,10 @@ function MegaMenuItem({
         aria-haspopup="true"
         onClick={() => setOpen(open ? null : menuKey)}
         className={cn(
-          "flex items-center gap-1.5 rounded-sm px-3 py-2 text-sm font-medium transition-colors",
-          onDarkHero
-            ? "text-paper/90 hover:text-paper"
-            : "text-slate-600 hover:text-abyss-900",
-          open && (onDarkHero ? "text-paper" : "text-abyss-900")
+          "flex items-center gap-1.5 border-b-2 px-3 py-2 text-sm font-medium transition-colors",
+          open
+            ? "border-brand-500 text-abyss-900"
+            : "border-transparent text-slate-600 hover:text-abyss-900"
         )}
       >
         {label}
@@ -264,114 +210,198 @@ function MegaMenuItem({
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeLinecap="square"
           />
         </svg>
       </button>
-
-      {open ? (
-        <div
-          onMouseEnter={cancelClose}
-          onMouseLeave={scheduleClose}
-          className="absolute left-0 top-full w-[720px] pt-3"
-        >
-          <div className="grid grid-cols-3 gap-8 rounded-lg border-2 border-abyss-900/15 bg-white p-8 shadow-card">
-            {columns.map((col) => (
-              <div key={col.title} className={columns.length === 1 ? "col-span-2" : ""}>
-                <p className="eyebrow mb-4 text-slate-400">{col.title}</p>
-                <ul
-                  className={cn(
-                    "space-y-1",
-                    columns.length === 1 && "grid grid-cols-2 gap-x-8 space-y-0"
-                  )}
-                >
-                  {col.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="group block rounded-sm px-2 py-2 -mx-2 transition-colors hover:bg-mist-100"
-                      >
-                        <span className="flex items-center gap-2 text-sm font-medium text-abyss-900">
-                          <Spark className="size-2 text-brand-500 opacity-0 transition-opacity group-hover:opacity-100" />
-                          {link.label}
-                        </span>
-                        {link.description ? (
-                          <span className="mt-0.5 block pl-4 text-caption text-slate-600">
-                            {link.description}
-                          </span>
-                        ) : null}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            <Link
-              href={highlight.href}
-              className="group flex flex-col justify-between rounded-md bg-abyss-900 p-5 transition-shadow hover:shadow-card-hover"
-            >
-              <Spark gradient className="size-4" />
-              <div>
-                <span className="block font-medium text-paper">{highlight.label}</span>
-                <span className="mt-1.5 block text-caption leading-relaxed text-sky-300">
-                  {highlight.description}
-                </span>
-                <span className="mt-3 inline-block text-caption font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
-                  Découvrir →
-                </span>
-              </div>
-            </Link>
-          </div>
-        </div>
-      ) : null}
     </li>
   );
 }
 
+/* ————— Panneau Produit : plateforme · agents (avatars) · mise en avant ————— */
+
+function ProduitPanel() {
+  const plateforme = produitColumns[0];
+  return (
+    <div className="container-site grid grid-cols-[minmax(0,5fr)_minmax(0,5fr)_minmax(0,4fr)] gap-10 py-8">
+      <div>
+        <p className="eyebrow mb-4 text-slate-400">{plateforme.title}</p>
+        <ul className="-mx-3 space-y-0.5">
+          {plateforme.links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="block px-3 py-2.5 transition-colors hover:bg-mist-100"
+              >
+                <span className="block text-sm font-medium text-abyss-900">
+                  {link.label}
+                </span>
+                {link.description ? (
+                  <span className="mt-0.5 block text-caption text-slate-600">
+                    {link.description}
+                  </span>
+                ) : null}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p className="eyebrow mb-4 text-slate-400">Les 5 agents</p>
+        <ul className="-mx-3 space-y-0.5">
+          {AGENTS.map((agent) => (
+            <li key={agent.name}>
+              <Link
+                href={agent.href}
+                className="flex items-center gap-3 px-3 py-2 transition-colors hover:bg-mist-100"
+              >
+                <AgentAvatar variant={agent.variant} color={agent.color} className="size-8" />
+                <span className="min-w-0">
+                  <span className="block text-sm font-medium text-abyss-900">
+                    {agent.name}
+                  </span>
+                  <span className="block truncate text-caption text-slate-600">
+                    {agent.role}
+                  </span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Link
+        href="/produit"
+        className="dark group flex flex-col justify-between bg-abyss-900 p-6 transition-colors hover:bg-abyss-950"
+      >
+        <p className="eyebrow text-sky-500">La plateforme</p>
+        <div>
+          <span className="font-display block text-xl font-semibold text-paper">
+            Voir. Agir. Prouver.
+          </span>
+          <span className="mt-2 block text-caption leading-relaxed text-sky-300">
+            La donnée client d&apos;un côté, l&apos;exécution en boutique de
+            l&apos;autre, dans un seul outil.
+          </span>
+          <span className="mt-4 inline-block text-sm font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
+            Découvrir la plateforme →
+          </span>
+        </div>
+      </Link>
+    </div>
+  );
+}
+
+/* ————— Panneau Solutions : secteurs en cartes · mise en avant ————— */
+
+function SolutionsPanel() {
+  const secteurs = solutionsColumns[0];
+  return (
+    <div className="container-site grid grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-10 py-8">
+      <div>
+        <p className="eyebrow mb-4 text-slate-400">{secteurs.title}</p>
+        <ul className="grid grid-cols-2 gap-3">
+          {secteurs.links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="block border-2 border-abyss-900/10 px-4 py-3.5 transition-colors hover:border-brand-500/50 hover:bg-mist-100"
+              >
+                <span className="block text-sm font-medium text-abyss-900">
+                  {link.label}
+                </span>
+                {link.description ? (
+                  <span className="mt-0.5 block text-caption text-slate-600">
+                    {link.description}
+                  </span>
+                ) : null}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Link
+        href="/clients"
+        className="dark group flex flex-col justify-between bg-abyss-900 p-6 transition-colors hover:bg-abyss-950"
+      >
+        <p className="eyebrow text-sky-500">Études de cas</p>
+        <div>
+          <span className="font-display block text-xl font-semibold text-paper">
+            Des marques comme la vôtre
+          </span>
+          <span className="mt-2 block text-caption leading-relaxed text-sky-300">
+            Comment elles font travailler leur donnée client, boutique par
+            boutique.
+          </span>
+          <span className="mt-4 inline-block text-sm font-medium text-brand-400 transition-transform group-hover:translate-x-0.5">
+            Voir les études de cas →
+          </span>
+        </div>
+      </Link>
+    </div>
+  );
+}
+
 function MobileNav() {
-  const sections = [
-    { title: "Produit", columns: produitColumns },
-    { title: "Solutions", columns: solutionsColumns },
-  ];
   return (
     <div
       id="menu-mobile"
-      className="fixed inset-0 top-16 z-40 overflow-y-auto bg-paper lg:hidden"
+      className="fixed inset-0 top-16 z-40 overflow-y-auto border-t-2 border-abyss-900/10 bg-white lg:hidden"
     >
       <nav aria-label="Navigation mobile" className="container-site py-8">
-        <ul className="space-y-6">
-          {sections.map((section) => (
-            <li key={section.title}>
-              <p className="eyebrow mb-3 text-brand-600">{section.title}</p>
-              <ul className="space-y-1 border-l border-abyss-900/10 pl-4">
-                {section.columns.flatMap((col) =>
-                  col.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="block py-2 text-body-l text-abyss-900"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))
-                )}
-              </ul>
-            </li>
-          ))}
+        <ul className="space-y-8">
+          <li>
+            <p className="eyebrow mb-3 text-slate-400">Produit</p>
+            <ul className="space-y-0.5">
+              {produitColumns[0].links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="block py-2 text-body-l text-abyss-900">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="eyebrow mb-2 mt-5 text-slate-400">Les 5 agents</p>
+            <ul className="space-y-0.5">
+              {AGENTS.map((agent) => (
+                <li key={agent.name}>
+                  <Link
+                    href={agent.href}
+                    className="flex items-center gap-3 py-2 text-body-l text-abyss-900"
+                  >
+                    <AgentAvatar variant={agent.variant} color={agent.color} className="size-7" />
+                    {agent.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+          <li>
+            <p className="eyebrow mb-3 text-slate-400">Solutions</p>
+            <ul className="space-y-0.5">
+              {solutionsColumns[0].links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="block py-2 text-body-l text-abyss-900">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
           {mainNav.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="block py-1 font-display text-2xl font-semibold text-abyss-900"
+                className="font-display block py-1 text-2xl font-semibold text-abyss-900"
               >
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="mt-10 space-y-3 border-t border-abyss-900/10 pt-8">
+        <div className="mt-10 space-y-3 border-t-2 border-abyss-900/10 pt-8">
           <Link
             href="/essai"
             className="bg-gradient-brand notch-tr-bl block px-5 py-3 text-center font-medium text-paper"
@@ -386,7 +416,7 @@ function MobileNav() {
           </Link>
           <Link
             href="/connexion"
-            className="block rounded-md px-5 py-3 text-center font-medium text-slate-600"
+            className="block px-5 py-3 text-center font-medium text-slate-600"
           >
             Connexion
           </Link>
