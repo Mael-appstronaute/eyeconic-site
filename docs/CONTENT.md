@@ -62,8 +62,12 @@ sans échelle, mention affichée sur la page.
 
 ## 7 · Témoignages
 
-3 slides `[PLACEHOLDER TÉMOIGNAGE]` : logo, citation, nom/fonction, 2 KPI —
-tout à fournir.
+3 slides avec **marques fictives** (Maison Séverin · ORVEA Paris · Linéa
+Beauté), logotypes dessinés, citations rédigées et KPI fictifs — mention
+« Exemples illustratifs — marques et chiffres fictifs » affichée sous le
+carrousel. Décision du 19/08 : refus des vrais logos (LVMH, Dior, Airbus…)
+avec avis inventés — fausse recommandation + usage de marque = risque
+juridique. À remplacer par de vrais clients quand ils existeront.
 
 ## 8 · Cas d'usage
 
@@ -105,8 +109,8 @@ FR/EN (EN à venir) + badges UE/RGPD + légal en barre basse.
 - `[À VALIDER]` : stat ×4,2 · stat 40+ intégrations · prix 290 €/mois ·
   politique de dépassement des crédits · domaine définitif
   (metadataBase, eyeconic.example.com) · liens sociaux réels.
-- `[PLACEHOLDER]` : 8 portraits équipe · 3 témoignages complets
-  (logo + citation + nom + fonction + 2 KPI).
+- `[PLACEHOLDER]` : 8 portraits équipe. (Témoignages : désormais fictifs
+  assumés et signalés à l'écran, cf. section 7.)
 - `[DONNÉES À PRODUIRE]` : les 3 jeux de valeurs du comparatif.
 - `[DONNÉES DÉMO]` : contenus fictifs des 4 mockups produit (assumés,
   balisés à l'écran).
