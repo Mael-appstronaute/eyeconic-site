@@ -144,6 +144,75 @@ export function DemoForm({ source = "site" }: { source?: string }) {
   );
 }
 
+/** Formulaire compact de l'accueil — envoyé dans le même circuit
+ * (CSV Excel toujours, Airtable/e-mail si configurés). */
+export function HomeLeadForm() {
+  const [state, formAction, pending] = useActionState<LeadState, FormData>(
+    submitLead,
+    null
+  );
+
+  if (state?.ok) return <SuccessPanel message={state.message} />;
+
+  return (
+    <form action={formAction} className="space-y-4">
+      <input type="hidden" name="type" value="demo" />
+      <input type="hidden" name="source" value="accueil" />
+
+      <div>
+        <label htmlFor="home-nom" className={labelCls}>
+          Nom et prénom
+        </label>
+        <input id="home-nom" name="nom" required autoComplete="name" className={inputCls} />
+      </div>
+      <div>
+        <label htmlFor="home-email" className={labelCls}>
+          E-mail professionnel
+        </label>
+        <input
+          id="home-email"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          className={inputCls}
+          placeholder="prenom@votremarque.com"
+        />
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="home-societe" className={labelCls}>
+            Marque ou enseigne
+          </label>
+          <input id="home-societe" name="societe" required autoComplete="organization" className={inputCls} />
+        </div>
+        <div>
+          <label htmlFor="home-tel" className={labelCls}>
+            Téléphone <span className="font-normal text-slate-400">(optionnel)</span>
+          </label>
+          <input id="home-tel" name="telephone" type="tel" autoComplete="tel" className={inputCls} />
+        </div>
+      </div>
+
+      <label className="flex items-start gap-3 text-caption text-slate-600">
+        <input
+          type="checkbox"
+          name="consent"
+          required
+          className="mt-0.5 size-4 shrink-0 appearance-none border-2 border-abyss-900/30 bg-white checked:border-brand-600 checked:bg-brand-600"
+        />
+        J&apos;accepte qu&apos;Eyeconic me contacte au sujet de ma demande.
+      </label>
+
+      <FormStatus state={state} />
+
+      <PixelButton type="submit" variant="brand" className="w-full" disabled={pending}>
+        {pending ? "Envoi en cours…" : "Réserver ma démo"}
+      </PixelButton>
+    </form>
+  );
+}
+
 /** Formulaire court — tunnel essai gratuit, 2 champs. */
 export function EssaiForm({
   source = "site",
