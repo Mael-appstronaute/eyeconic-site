@@ -10,15 +10,22 @@ import {
   OrveaLogo,
   SeverinLogo,
 } from "@/components/home/brand-logos";
-
 /**
- * Témoignages à onglets-avatars (référence template). Marques et
- * personnes FICTIVES — pastilles à initiales (aucune photo de stock),
- * logos = lockups SVG dessinés partagés (brand-logos.tsx).
+ * Témoignages à onglets-portraits (référence template) : photos de
+ * banque de portraits-placeholder (public/avatars), identités FICTIVES
+ * — gris quand inactif, couleur + anneau brand quand actif. Lockups
+ * des marques dans la rangée du bas.
  */
-const ITEMS = [
+const ITEMS: {
+  photo: string;
+  tint: string;
+  quote: string;
+  name: string;
+  role: string;
+  logo: React.ReactNode;
+}[] = [
   {
-    initials: "CV",
+    photo: "/avatars/claire.jpg",
     tint: "#7fb0e5",
     quote:
       "Our advisors already knew everything about their clients — but it all lived in their notebooks. Today every signal surfaces, and the relationship no longer depends on one person's memory.",
@@ -27,7 +34,7 @@ const ITEMS = [
     logo: <SeverinLogo />,
   },
   {
-    initials: "ML",
+    photo: "/avatars/marc.jpg",
     tint: "#4c92da",
     quote:
       "We measured traffic, never the relationship. Eyeconic attributes every sale to the message that triggered it: clienteling went from an act of faith to a line in the reporting.",
@@ -36,7 +43,7 @@ const ITEMS = [
     logo: <OrveaLogo />,
   },
   {
-    initials: "SA",
+    photo: "/avatars/sofia.jpg",
     tint: "#6a94d3",
     quote:
       "The pilot covered three spas. Six weeks later, the other directors were asking for the tool — nobody wants to be the location that calls its clients back last.",
@@ -45,7 +52,7 @@ const ITEMS = [
     logo: <LineaLogo />,
   },
   {
-    initials: "IF",
+    photo: "/avatars/isabelle.jpg",
     tint: "#2f6fae",
     quote:
       "We benchmarked four platforms over a quarter. Eyeconic is the only one our teams kept opening once the pilot ended — the rest were just CRMs under another name.",
@@ -54,7 +61,7 @@ const ITEMS = [
     logo: <DelcourtLogo />,
   },
   {
-    initials: "TB",
+    photo: "/avatars/thomas.jpg",
     tint: "#1a507c",
     quote:
       "A watch client comes back every four or five years. Without institutional memory, that relationship doesn't exist. Eyeconic became that memory.",
@@ -86,14 +93,18 @@ export function TestimonialTabs() {
                 aria-label={`Testimonial from ${item.name}`}
                 onClick={() => setIndex(i)}
                 className={cn(
-                  "flex items-center justify-center rounded-full font-semibold text-paper transition-all",
+                  "overflow-hidden rounded-full transition-all",
                   i === index
-                    ? "size-16 text-lg ring-4 ring-brand-500 ring-offset-4 ring-offset-paper"
-                    : "size-12 text-sm opacity-50 hover:opacity-80"
+                    ? "size-16 shadow-[0_10px_30px_rgba(6,51,90,0.2)] ring-4 ring-brand-500 ring-offset-4 ring-offset-paper"
+                    : "size-12 opacity-80 grayscale hover:opacity-100"
                 )}
-                style={{ backgroundColor: item.tint }}
               >
-                {item.initials}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={item.photo}
+                  alt=""
+                  className="size-full rounded-full object-cover"
+                />
               </button>
             ))}
           </div>
