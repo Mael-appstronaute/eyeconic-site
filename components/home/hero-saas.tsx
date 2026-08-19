@@ -34,15 +34,18 @@ export function HeroSaas() {
           </p>
 
           <div className="mt-9 flex items-center justify-center">
-            <Link href="/essai" className="group flex items-center">
-              <span className="rounded-full bg-abyss-950 py-3.5 pl-7 pr-5 text-sm font-medium text-paper transition-colors group-hover:bg-abyss-900">
-                Start for free
-              </span>
-              <span className="-ml-2 flex size-12 items-center justify-center rounded-full bg-brand-500 text-paper ring-4 ring-paper transition-transform group-hover:translate-x-0.5">
-                <svg viewBox="0 0 16 16" className="size-4" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
+            <Link
+              href="/essai"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-abyss-950 py-4 pl-8 pr-6 text-base font-medium text-paper shadow-[0_16px_40px_rgba(6,51,90,0.3)] transition-colors hover:bg-brand-600"
+            >
+              Start for free
+              <svg
+                viewBox="0 0 16 16"
+                className="size-4 transition-transform group-hover:translate-x-0.5"
+                aria-hidden="true"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
           </div>
         </div>
